@@ -26,7 +26,8 @@ job_finding/
 ├── applications/
 │   ├── tracker.md       # 申请追踪表(单一事实源)
 │   ├── states.yml       # 状态机定义
-│   └── interviews/      # 面试准备文档与复盘
+│   ├── interviews/      # 面试准备文档与复盘
+│   └── reports/         # 周报:到期跟进扫描 + 渠道漏斗统计
 └── docs/DESIGN.md       # 设计决策:抄了什么,避了什么
 ```
 

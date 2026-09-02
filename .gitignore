@@ -1,13 +1,19 @@
 # 个人隐私数据不入公开仓库(想私有化备份请自建 private remote)
+# 注意:各目录的 README/模板是系统文档,必须保持入库
+
 profile/master-resume.md
-profile/work/
-profile/projects/
+profile/work/*
+profile/projects/*
+!profile/projects/_template.md
 profile/star-bank.md
-resumes/*.md
-resumes/*.docx
-resumes/*.pdf
+
+resumes/by-family/*
+resumes/reports/*
+
 applications/tracker.md
-applications/interviews/
+applications/interviews/*
+!applications/interviews/README.md
+
 config.yml
 
 # 生成产物

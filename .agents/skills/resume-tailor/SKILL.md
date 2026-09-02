@@ -49,7 +49,10 @@ description: 基于素材事实库为特定 JD 或岗位族生成定制简历,�
 - `resumes/reports/<公司>-<岗位>-report.md` — 生成报告:选材理由、
   改写清单(含已确认的 reframings)、gap 清单、简历版本号(回填 tracker)
 - PDF/DOCX 只在用户要求时生成(用 document skills),生成后提醒用户
-  目测排版 + 用文本提取验证可解析性(防"好看但 ATS 读不出")
+  目测排版 + 用文本提取验证可解析性(防"好看但 ATS 读不出")。
+  可直接用 pandoc 回环验证:
+  `pandoc <file>.docx -t plain` 后检查姓名/量化数字/技能/教育可提取。
+  注:markdown 中的 HTML 注释块在转换时会被丢弃,可安全用于内部标注。
 
 ### 5. 收尾
 更新 `applications/tracker.md` 对应行:简历版本列、状态 ready、

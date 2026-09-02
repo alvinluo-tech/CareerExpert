@@ -14,6 +14,7 @@ terminal:            # 终态:压倒一切非终态
   - offer
   - rejected
   - withdrawn        # 我方撤回
+  - skipped          # 评估后决定不投
   - ghosted          # 超过 21 天无回音且 2 次跟进无效,可标此态
 
 aliases:             # 常见口语/英文别名 → canonical
@@ -26,6 +27,7 @@ aliases:             # 常见口语/英文别名 → canonical
   offer: ["offer", "录用"]
   rejected: ["拒了", "挂了", "rejected", "reject"]
   withdrawn: ["撤回", "放弃"]
+  skipped: ["不投", "放弃投递", "pass", "discarded"]
   ghosted: ["没消息", "无回音"]
 
 rules:
