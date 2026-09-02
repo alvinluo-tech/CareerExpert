@@ -157,3 +157,20 @@ wondercv.com · 500d.me · zhihu.com/p/506079500
 - 收敛动机:描述即触发信号,4 个技能对"简历/面试/投递"类话术会互相竞争触发;
   单入口 + 内部路由消除歧义,规则更新只动一个目录。
 - references/ 中的文档已剥离独立技能时期的 frontmatter,标注"由 SKILL.md 按需加载"。
+
+## 追加(2026-09-02):补充 scripts 层 — 判断与机制的分工
+
+用户质疑"纯 markdown skill 太简单"。分析判据:脚本承载确定性机制,
+prompt 承载判断力(skill-creator:"每次测试都重复手写的辅助脚本应固化进 scripts/")。
+demo 期间确实反复手写三类确定性步骤,固化为:
+
+- scripts/render_pdf.py — 浏览器探测(跨平台)+ 渲染 + 页数/关键词提取/填充率验证,
+  exit code 即交付门禁
+- scripts/check_tracker.py — tracker 状态机/日期/引用校验 + 到期扫描 + 渠道漏斗
+  (首次运行即抓到 tracker 引用路径缩写的真实数据 bug,验证了价值)
+- scripts/check_facts.py — 事实追溯预检(双侧空白归一化匹配),负向测试通过
+  (编造数字被拦截);明确定位为启发式第一道网,语义校验仍归 LLM 流程
+
+不脚本化的部分及理由:评分/选材/改写/STAR 映射是判断型工作;
+HTML 按 style.yml 组装需要灵活性,脚本化会退回固定模板。
+AGENTS.md 反过度工程条款相应澄清:机制型脚本在"被重复手写"时应该固化。

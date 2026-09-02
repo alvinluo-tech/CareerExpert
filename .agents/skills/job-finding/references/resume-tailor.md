@@ -60,7 +60,8 @@
 - 不可追溯的技能/公司/数字 → 删除并报告
 - 时态/月份丢失等常见解析损伤 → 检查
 - 报告 injectable 关键词覆盖率与 non-injectable gap 清单
-- XYZ 抽查:随机 3 条 bullet 检查动词开头/量化/结果
+- 先跑 `python scripts/check_facts.py <产出.md>`(确定性预检,数字/日期出处),
+  再做语义级核对;XYZ 抽查:随机 3 条 bullet 检查动词开头/量化/结果
 
 ### 6. 产出(写入 `resumes/`)
 - `resumes/by-family/<族>.md` — 族基础版(源文件,markdown)

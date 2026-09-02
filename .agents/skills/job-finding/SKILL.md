@@ -59,8 +59,15 @@ applications;系统层:本技能与 docs)。先看仓库是否已初始化(见�
   每行必须有"下一步";渠道漏斗是唯一必做统计;
   跟进草稿永远标注"请确认后自行发送"。
 
-## 环境依赖(缺则降级,不阻塞)
+## 确定性脚本(scripts/,判断交给模型,机制交给脚本)
 
-- PDF 渲染:Edge/Chrome 无头 `--print-to-pdf`(命令见 templates 头注释);
-- PDF 验证:Python + PyMuPDF(`pip install pymupdf`);
-- docx:pandoc(可选,部分网申要 Word 时才用)。
+以下步骤**必须用脚本**而不是手写临时命令——它们是精确性要求高、
+每次手写都会重新发明轮子的确定性检查:
+
+- `scripts/render_pdf.py <html> <pdf> --must "关键词,..." --max-pages N`
+  → 渲染 PDF + 页数/关键词提取/填充率验证,exit 1 即不达标不得交付
+- `scripts/check_tracker.py` → tracker 状态/日期/引用校验 + 到期扫描 + 渠道漏斗
+  (会话开场扫描和"统计转化"请求都跑它,不要心算日期)
+- `scripts/check_facts.py <resume.md>` → 事实追溯预检:量化数字是否都能在
+  profile/ 找到出处;它只是启发式第一道网,语义级对齐校验仍须人工流程
+- docx 导出仍用 pandoc(低频,不设脚本)

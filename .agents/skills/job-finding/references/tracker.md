@@ -4,6 +4,9 @@
 
 ## 每次会话开始(用户在此仓库发起求职相关对话时)
 
+先跑 `python scripts/check_tracker.py`——校验+到期扫描+漏斗一条命令完成;
+日期计算与统计不要心算,以脚本输出为准。脚本 FAIL 项修数据后重跑至 0。
+
 静默扫描 `applications/tracker.md`:
 - "下一步日期"已到期且未完成的行 → 开场提醒(跟进草稿、催结果、面试准备)
 - 状态为 applied 且超过 `config.yml` follow_up.default_days 无回音 →
@@ -27,6 +30,7 @@
 - 拒绝模式:对 rejected 的记录找共性(岗位族?级别?渠道?)列出,
   供用户调整策略。
 - 投递节奏:近 4 周每周投递数,只陈述不评判(心理价值 > KPI)。
+- 漏斗数字直接引用 check_tracker.py 输出,不自算
 - 周报/跟进草稿等统计产物保存到 `applications/reports/YYYY-MM-DD-weekly.md`,
   跟进草稿必须在文件和会话中都标注"草稿,请确认后自行发送"。
 
