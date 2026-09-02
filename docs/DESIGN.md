@@ -91,3 +91,35 @@
   ② 版面填充率量化(最后文本块底部/页高,目标 80%~95%)→ 用数据决定是否调参
   ③ 新建模板变体(如英文版/双栏头版)→ 必须重新过提取+视觉双验证
 - 日期右对齐用 float 实现:不改文本流顺序,解析顺序仍是"公司|职位|日期",ATS 安全。
+
+## 追加(2026-09-02):主流简历设计调研 → v3 模板
+
+调研范围:Novoresume/Zety/Microsoft Word 官方指南、Yale OCS、ResumeOptimizerPro、
+Nelson Connects(欧美);超级简历 WonderCV/五百丁/锤子简历/Canva(国内)。
+
+### 主流设计规律(欧美与国内共识)
+
+1. **单栏 + 逆时序**是绝对主流,ATS 场景下无争议;国内平台模板亦绝大多数单栏。
+2. **节标题必须与正文强视觉区隔**:主流手法是"标题 + 全宽分隔线"或色块条;
+   超级简历/五百丁模板几乎清一色全宽线。→ v2 左色条被用户否("不规整")与此吻合,
+   v3 回归全宽线并保留 v2 其余优点。
+3. **标准节名**(工作经历/项目经历/技能/教育经历)优于创意命名,利于 ATS 与 HR 扫读。
+4. **字号梯度**:正文 10.5~12pt,节标题更大/加粗;全库只用一到两种字体。
+5. **日期格式全库一致**,右对齐是常见高阶手法(扫读时间线)。
+6. **边距 0.5~1 inch,行距 1.0~1.15(英文);中文模板行距常在 1.3~1.5**。
+7. **单一主色**只用于标题与线条,正文保持黑/深灰;避免多色。
+8. **规避项共识**:表格/文本框/图形/照片(除非确定无 ATS);
+   国内"风格化模板"(锤子/五百丁个性化款)适合设计岗,技术岗仍以简洁规整为主。
+
+### v3「主流规整版」= v1 的全宽分隔线 + v2 的优点
+
+- 恢复节标题全宽分隔线(细线 1pt,--rule 色),标题保留主色加粗字距
+- 保留:大姓名区 + tagline + 主色粗线收尾、日期右对齐、技能行分类加粗、
+  设计变量集中 :root、填充率指标(实测 90%,验收 pass 零 issue)
+- v3 成为默认模板;v1/v2 保留为备选(同一套 TOKEN,切换零成本)
+
+来源:novoresume.com/career-blog/resume-fonts · zety.com/blog/ats-resume ·
+word.cloud.microsoft/create/en/blog/best-resume-fonts ·
+ocs.yale.edu/resources/resume-formatting ·
+nelsonconnects.com/learning-center/the-six-best-modern-resume-template-resources ·
+wondercv.com · 500d.me · zhihu.com/p/506079500

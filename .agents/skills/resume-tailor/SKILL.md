@@ -49,11 +49,12 @@ description: 基于素材事实库为特定 JD 或岗位族生成定制简历,�
 - `resumes/reports/<公司>-<岗位>-report.md` — 生成报告:选材理由、
   改写清单(含已确认的 reframings)、gap 清单、简历版本号(回填 tracker)
 - **样式输出管线**(用户要求 PDF/DOCX 时;markdown 永远是事实源):
-  1. 模板选择:默认 `templates/resume-template.html`(经典版,下划线节标题);
-     投递时效不紧或想要更强第一印象时用 `resume-template-v2-modern.html`
-     (现代版:大姓名区+tagline+左侧色条节标题+日期右对齐)。
-     两个模板使用同一套 {{TOKEN}},填充方式完全相同。
-     用户对样式不满时:优先调 v2 模板 :root 的 CSS 设计变量
+  1. 模板选择:默认 `templates/resume-template-v3-classic-pro.html`(主流规整版:
+     全宽分隔线节标题 + 大姓名区/tagline + 日期右对齐,依据主流模板调研,见 DESIGN.md);
+     `resume-template.html` 为 v1 经典版备选;`resume-template-v2-modern.html`
+     为 v2 现代版(左色条风格,用户已反馈"不如全宽线规整",慎选)。
+     三个模板使用同一套 {{TOKEN}},填充方式完全相同。
+     用户对样式不满时:优先调模板 :root 的 CSS 设计变量
      (--accent 主色/--fs/--lh/--sec-gap),仍不满意再新建模板变体。
   2. 无头渲染 PDF(命令见模板文件头注释,Edge/Chrome 均可)
   3. 验证(必做):PyMuPDF 检查页数 ≤2、姓名/联系方式/量化数字可提取;
