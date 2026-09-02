@@ -49,10 +49,16 @@ description: 基于素材事实库为特定 JD 或岗位族生成定制简历,�
 - `resumes/reports/<公司>-<岗位>-report.md` — 生成报告:选材理由、
   改写清单(含已确认的 reframings)、gap 清单、简历版本号(回填 tracker)
 - **样式输出管线**(用户要求 PDF/DOCX 时;markdown 永远是事实源):
-  1. 复制 `templates/resume-template.html` 到 `resumes/by-family/<版本>.html`,
-     把 {{TOKEN}} 替换为简历内容(纯文本,ATS 安全约束已内置于模板 CSS 注释)
+  1. 模板选择:默认 `templates/resume-template.html`(经典版,下划线节标题);
+     投递时效不紧或想要更强第一印象时用 `resume-template-v2-modern.html`
+     (现代版:大姓名区+tagline+左侧色条节标题+日期右对齐)。
+     两个模板使用同一套 {{TOKEN}},填充方式完全相同。
+     用户对样式不满时:优先调 v2 模板 :root 的 CSS 设计变量
+     (--accent 主色/--fs/--lh/--sec-gap),仍不满意再新建模板变体。
   2. 无头渲染 PDF(命令见模板文件头注释,Edge/Chrome 均可)
   3. 验证(必做):PyMuPDF 检查页数 ≤2、姓名/联系方式/量化数字可提取;
+     检查版面填充率(最后文本块底部 / 页高,单页简历目标 80%~95%,
+     偏低就调模板 :root 设计变量:--fs 字号 / --lh 行距 / --sec-gap 节间距);
      首次使用的模板建议渲染 PNG 做一次视觉检查(间距/字体/截断)
   4. 需要可编辑版(部分国内网申要求 Word)时用 pandoc 转 docx 并回环验证
   5. 中文排版细节:CJK 之间用全角标点,半角逗号不出现在中文句读中
