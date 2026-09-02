@@ -21,6 +21,8 @@ job_finding/
 │   ├── projects/              # 项目卡,一项目一文件
 │   ├── work/                  # 工作经历卡
 │   └── star-bank.md           # STAR 故事库(8~12 个母题)
+├── templates/
+│   └── resume-template.html   # ATS 安全简历样式模板(单栏,Edge/Chrome 渲染 PDF)
 ├── jds/                 # JD 逐字原文 + evaluations/ 评估报告
 ├── resumes/             # 按岗位族组织的简历版本 + 生成报告
 ├── applications/

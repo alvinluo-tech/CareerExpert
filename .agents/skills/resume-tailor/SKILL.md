@@ -48,11 +48,14 @@ description: 基于素材事实库为特定 JD 或岗位族生成定制简历,�
 - `resumes/by-family/<族>--<公司>.md` — 若有微调,存微调版
 - `resumes/reports/<公司>-<岗位>-report.md` — 生成报告:选材理由、
   改写清单(含已确认的 reframings)、gap 清单、简历版本号(回填 tracker)
-- PDF/DOCX 只在用户要求时生成(用 document skills),生成后提醒用户
-  目测排版 + 用文本提取验证可解析性(防"好看但 ATS 读不出")。
-  可直接用 pandoc 回环验证:
-  `pandoc <file>.docx -t plain` 后检查姓名/量化数字/技能/教育可提取。
-  注:markdown 中的 HTML 注释块在转换时会被丢弃,可安全用于内部标注。
+- **样式输出管线**(用户要求 PDF/DOCX 时;markdown 永远是事实源):
+  1. 复制 `templates/resume-template.html` 到 `resumes/by-family/<版本>.html`,
+     把 {{TOKEN}} 替换为简历内容(纯文本,ATS 安全约束已内置于模板 CSS 注释)
+  2. 无头渲染 PDF(命令见模板文件头注释,Edge/Chrome 均可)
+  3. 验证(必做):PyMuPDF 检查页数 ≤2、姓名/联系方式/量化数字可提取;
+     首次使用的模板建议渲染 PNG 做一次视觉检查(间距/字体/截断)
+  4. 需要可编辑版(部分国内网申要求 Word)时用 pandoc 转 docx 并回环验证
+  5. 中文排版细节:CJK 之间用全角标点,半角逗号不出现在中文句读中
 
 ### 5. 收尾
 更新 `applications/tracker.md` 对应行:简历版本列、状态 ready、
