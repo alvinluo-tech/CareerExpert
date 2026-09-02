@@ -148,3 +148,12 @@ wondercv.com · 500d.me · zhihu.com/p/506079500
 - 已实测:自然语言 4 项要求(青色/居中/模块重排/加密)
   → 一次渲染全部生效,提取回环 OK,视觉验收 pass(customization 4/4)。
 - 冲突规则:策略包强制样式(金融黑白)> 用户样式偏好,生成时显式提示。
+
+## 追加(2026-09-02):按 skill-creator 规范收敛为单一技能
+
+- 4 个独立 skill(jd-eval/resume-tailor/interview-prep/tracker)收敛为
+  **1 个 `job-finding` 技能**:`SKILL.md` 只留触发描述、核心原则与路由表
+  (66 行),工作流细节全部移入 `references/` 按需加载(progressive disclosure)。
+- 收敛动机:描述即触发信号,4 个技能对"简历/面试/投递"类话术会互相竞争触发;
+  单入口 + 内部路由消除歧义,规则更新只动一个目录。
+- references/ 中的文档已剥离独立技能时期的 frontmatter,标注"由 SKILL.md 按需加载"。

@@ -1,9 +1,6 @@
----
-name: resume-tailor
-description: 基于素材事实库为特定 JD 或岗位族生成定制简历,含内容质量门禁、领域/招聘类型策略包与可自定义样式。当用户要求"定制简历/生成简历/更新简历版本/改简历样式"时使用。依赖 jd-eval 的评估结果或用户直接给的 JD。
----
-
 # 简历定制
+
+> 本文件是 job-finding 技能的参考文档,由 SKILL.md 按需加载;路径均相对仓库根。
 
 ## 核心原则(违反即失败)
 
@@ -22,7 +19,7 @@ description: 基于素材事实库为特定 JD 或岗位族生成定制简历,�
 确定 `domain`(领域)与 `recruiting_type`(campus/social/internship):
 - 从 JD 明显可推断的直接采用并告知用户;推断不了就问一句,
   同时给出默认建议(如"看 JD 像社招技术岗,按 social + tech-engineering 处理?")。
-- 按 `.agents/skills/resume-tailor/strategy-packs.md` 应用对应策略包:
+- 按本技能 `references/strategy-packs.md` 应用对应策略包(先读它):
   模块取舍、排序、量化对象、篇幅、语言风格。
 - 未收录领域按 generic-business 起步并告知用户,邀请其补充领域要求。
 

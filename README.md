@@ -15,7 +15,10 @@
 job_finding/
 ├── AGENTS.md            # agent 操作规范(最重要,所有 agent 必读)
 ├── config.yml           # 个人配置:岗位族、红线、跟进节奏(隐私,不入库)
-├── .agents/skills/      # 4 个 skill(agent 自动发现)
+├── .agents/skills/job-finding/    # 唯一技能:SKILL.md 路由 + references/ 按需加载
+│   ├── SKILL.md                   #   触发描述、核心原则、工作流路由
+│   └── references/                #   jd-eval / resume-tailor / interview-prep
+│                                   #   / tracker / strategy-packs
 ├── profile/             # 素材事实库(唯一事实来源,只读原则)
 │   ├── master-resume.md       # 主简历(从现有简历迁移)
 │   ├── projects/              # 项目卡,一项目一文件
@@ -33,14 +36,16 @@ job_finding/
 └── docs/DESIGN.md       # 设计决策:抄了什么,避了什么
 ```
 
-## 4 个 skill
+## 1 个 skill,4 个工作流
 
-| Skill | 触发场景 | 一句话职责 |
+`job-finding` 是唯一技能入口(agent 按用户意图自动触发),内部路由到 4 个工作流:
+
+| 工作流 | 触发场景 | 一句话职责 |
 |---|---|---|
-| `jd-eval` | 丢一段 JD 过来 | 去重 → 评估打分(证据可审计)→ 决定投递策略 |
-| `resume-tailor` | 定制/更新简历 | 从素材库选材重组,岗位族共用版本,事实零编造 |
-| `interview-prep` | 准备/模拟面试 | JD→故事映射、模拟面试官深挖、评分卡、复盘回写 |
-| `tracker` | 记录/看进度 | 到期跟进提醒、状态机维护、渠道漏斗统计 |
+| jd-eval | 丢一段 JD 过来 | 去重 → 评估打分(证据可审计)→ 决定投递策略 |
+| resume-tailor | 定制/更新简历/改样式 | 策略包选材、XYZ 内容门禁、岗位族共用版本、样式自定义 |
+| interview-prep | 准备/模拟面试 | JD→故事映射、模拟面试官深挖、评分卡、复盘回写 |
+| tracker | 记录/看进度 | 到期跟进提醒、状态机维护、渠道漏斗统计 |
 
 ## 典型工作流
 
