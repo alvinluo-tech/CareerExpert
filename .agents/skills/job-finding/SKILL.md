@@ -12,9 +12,20 @@ applications;系统层:本技能与 docs)。先看仓库是否已初始化(见�
 
 ## 第 0 步:确认仓库就绪
 
-检查仓库根是否有 `profile/`、`jds/`、`applications/`、`templates/style.yml`。
-缺失则先按 README 的目录结构创建骨架(空目录 + 各 README),
-并提示用户先填充 `profile/master-resume.md` 与项目卡——素材库是唯一事实来源。
+检查仓库根是否有 `profile/`、`jds/`、`applications/`、`config.yml`。
+**分发契约**:本技能自带完整系统层(templates/ 与 scripts/ 都在技能目录内,
+含 style.yml 样式入口),仓库里只放数据层。数据层缺失时按以下骨架创建
+(空目录 + 一行用途说明的 README),并提示用户先填充 `profile/master-resume.md`
+与项目卡——素材库是唯一事实来源:
+
+```
+profile/            master-resume.md(主简历)+ projects/(项目卡)+ work/(经历卡)+ star-bank.md
+jds/                JD 逐字存档,文件名 YYYY-MM-DD-<公司>-<岗位>.md + evaluations/(评估报告)
+resumes/            by-family/(岗位族版本)+ reports/(生成报告)
+applications/       tracker.md(追踪表)+ interviews/ + reports/
+                    states.yml(状态机):首次创建时从本技能 templates/states.yml 复制
+config.yml          岗位族/红线/跟进节奏/渠道
+```
 仓库根若有 `AGENTS.md`,它的规则(事实完整性、HITL、数据契约)优先级最高。
 
 ## 核心原则(所有工作流通用,违者即失败)
@@ -22,7 +33,9 @@ applications;系统层:本技能与 docs)。先看仓库是否已初始化(见�
 1. **事实完整性**:`profile/` 只读;产出中不得出现素材库中不存在的
    经历/数字/技能;JD 关键词二分 injectable / non-injectable,后者绝不编造。
 2. **人在回路**:一切产出是草稿;不代用户发送/提交/投递;每份简历投出前
-   必须用户确认。
+   必须用户确认。用户离线但明确预授权("直接出一版")时:落稿为草稿、
+   before/after 改写全量留痕于生成报告并标注"待追认"、状态停在 ready;
+   绝不因预授权而代投或越过事实完整性。
 3. **可审计**:评分必须引用证据(简历行 + JD 原文);红旗独立于匹配分,
    永不掺入总分。
 4. **反过度工程**:能用 markdown + 现有模板解决的,不写代码不加脚本。
@@ -62,12 +75,15 @@ applications;系统层:本技能与 docs)。先看仓库是否已初始化(见�
 ## 确定性脚本(scripts/,判断交给模型,机制交给脚本)
 
 以下步骤**必须用脚本**而不是手写临时命令——它们是精确性要求高、
-每次手写都会重新发明轮子的确定性检查:
+每次手写都会重新发明轮子的确定性检查。脚本都在**技能目录的 scripts/ 下**
+(对任意求职仓库可用;脚本自动向上定位仓库根):
 
-- `scripts/render_pdf.py <html> <pdf> --must "关键词,..." --max-pages N`
-  → 渲染 PDF + 页数/关键词提取/填充率验证,exit 1 即不达标不得交付
-- `scripts/check_tracker.py` → tracker 状态/日期/引用校验 + 到期扫描 + 渠道漏斗
-  (会话开场扫描和"统计转化"请求都跑它,不要心算日期)
-- `scripts/check_facts.py <resume.md>` → 事实追溯预检:量化数字是否都能在
-  profile/ 找到出处;它只是启发式第一道网,语义级对齐校验仍须人工流程
+- `<技能目录>/scripts/render_pdf.py <html> <pdf> --must "关键词,..." --max-pages 1 --preview 预览.png`
+  → 渲染 PDF + 页数/关键词提取/填充率验证 + 视觉检查用 PNG,exit 1 不达标不交付
+- `<技能目录>/scripts/check_tracker.py` → tracker 校验 + 到期扫描 + 渠道漏斗
+  + 投递节奏(会话开场扫描和一切统计请求都跑它;空表是合法 WARN 不是 FAIL)
+- `<技能目录>/scripts/check_facts.py <resume.md>` → 事实追溯预检(自动剥除
+  HTML 注释元数据);启发式第一道网,语义级对齐校验仍须 LLM 流程
+- `<技能目录>/scripts/normalize_punct.py <产出.md> <产出.html>` → 中文全角标点
+  归一化(渲染前必跑,幂等)
 - docx 导出仍用 pandoc(低频,不设脚本)

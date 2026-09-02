@@ -15,17 +15,18 @@
 job_finding/
 ├── AGENTS.md            # agent 操作规范(最重要,所有 agent 必读)
 ├── config.yml           # 个人配置:岗位族、红线、跟进节奏(隐私,不入库)
-├── .agents/skills/job-finding/    # 唯一技能:SKILL.md 路由 + references/ 按需加载
+├── .agents/skills/job-finding/    # 唯一技能 = 完整系统层(可整包复制到新仓库)
 │   ├── SKILL.md                   #   触发描述、核心原则、工作流路由
-│   └── references/                #   jd-eval / resume-tailor / interview-prep
-│                                   #   / tracker / strategy-packs
+│   ├── references/                #   jd-eval / resume-tailor / interview-prep
+│   │                              #   / tracker / strategy-packs
+│   ├── scripts/                   #   render_pdf / check_tracker / check_facts
+│   │                              #   / normalize_punct(确定性机制)
+│   └── templates/                 #   v1/v2/v3 简历模板 + style.yml 样式入口
 ├── profile/             # 素材事实库(唯一事实来源,只读原则)
 │   ├── master-resume.md       # 主简历(从现有简历迁移)
 │   ├── projects/              # 项目卡,一项目一文件
 │   ├── work/                  # 工作经历卡
 │   └── star-bank.md           # STAR 故事库(8~12 个母题)
-├── templates/
-│   └── resume-template.html   # ATS 安全简历样式模板(单栏,Edge/Chrome 渲染 PDF)
 ├── jds/                 # JD 逐字原文 + evaluations/ 评估报告
 ├── resumes/             # 按岗位族组织的简历版本 + 生成报告
 ├── applications/

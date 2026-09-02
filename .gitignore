@@ -19,3 +19,7 @@ config.yml
 # 生成产物
 *.pdf
 *.docx
+
+# 测试沙盒不入库
+.test-b/
+.test-c/

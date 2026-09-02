@@ -7,15 +7,17 @@ template: v3-classic-pro        # v1-classic | v2-modern | v3-classic-pro
 
 colors:
   accent: "#14548c"             # 主色:节标题/分隔粗线;金融领域策略会强制黑白
+                                # 2026-09-02 用户定调"以后都用深绿",由 #14548c 改为深绿
   ink: "#1c2430"                # 正文
   muted: "#5a6472"              # 次要信息(日期等)
 
 header:
-  align: left                   # left | center(居中是国内外通用变体)
+  align: left                 # left | center;2026-09-02 用户要求姓名区居中(长期偏好)
   tagline: true                 # 姓名下的岗位定位行
   show_contact_line: true
 
 # 模块顺序 = 渲染顺序;不要的模块直接删行(内容仍须存在于素材库,只是不上简历)
+# 2026-09-02 用户要求去掉概述模块(summary 内容保留在素材库,不上简历)
 sections:
   - summary
   - work

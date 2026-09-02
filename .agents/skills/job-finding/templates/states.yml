@@ -1,0 +1,36 @@
+# 申请状态机 — 唯一 canonical 定义
+# 写入 tracker.md 的 agent 和任何读取/统计的脚本都以此为准。
+# 新增状态:加到这里,不要在 tracker.md 里自创状态词。
+
+non_terminal:        # 有序:正常流程沿此推进
+  - saved            # 收藏了 JD,还没评估
+  - evaluating       # 已做 JD 评估,未决定是否投
+  - ready            # 简历已定制好,待人工确认投递
+  - applied          # 已投递
+  - responded        # 有回复(约面、问询)
+  - interviewing     # 面试进行中(≥1 轮已完成或已排期)
+
+terminal:            # 终态:压倒一切非终态
+  - offer
+  - rejected
+  - withdrawn        # 我方撤回
+  - skipped          # 评估后决定不投
+  - ghosted          # 超过 21 天无回音且 2 次跟进无效,可标此态
+
+aliases:             # 常见口语/英文别名 → canonical
+  saved: ["收藏", "已保存", "want"]
+  evaluating: ["评估中", "待评估", "scored"]
+  ready: ["待投", "草稿就绪"]
+  applied: ["已投", "投了", "sent", "submitted"]
+  responded: ["有回复", "hr联系", "reply"]
+  interviewing: ["面试中", "一面", "二面", "终面", "onsite"]
+  offer: ["offer", "录用"]
+  rejected: ["拒了", "挂了", "rejected", "reject"]
+  withdrawn: ["撤回", "放弃"]
+  skipped: ["不投", "放弃投递", "pass", "discarded"]
+  ghosted: ["没消息", "无回音"]
+
+rules:
+  - 终态覆盖非终态:已在终态的记录不再回到非终态
+  - 一行记录同一时间只有一个状态;历史变化记在"备注"或 interviews/ 目录
+  - 面试轮次细节存 applications/interviews/<公司>-<岗位>.md,tracker 只存 canonical 状态
