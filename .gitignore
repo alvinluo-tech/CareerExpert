@@ -1,0 +1,15 @@
+# 个人隐私数据不入公开仓库(想私有化备份请自建 private remote)
+profile/master-resume.md
+profile/work/
+profile/projects/
+profile/star-bank.md
+resumes/*.md
+resumes/*.docx
+resumes/*.pdf
+applications/tracker.md
+applications/interviews/
+config.yml
+
+# 生成产物
+*.pdf
+*.docx

@@ -1,0 +1,73 @@
+# 设计决策记录 — 抄了什么,避了什么
+
+> 2026-09-02,基于对四个代表性开源项目的深度调研。
+> 调研对象:career-ops(≈70k★)、Resume-Matcher(≈27k★)、
+> resume-tailoring-skill(≈723★,Claude skill)、jobsync(自托管追踪器),
+> 辅以 huntr/Teal(商业追踪器)和 The Interview Mentor / Liftoff(面试工具)。
+
+## 抄了什么(精华)
+
+| 来源 | 精华 | 落地位置 |
+|---|---|---|
+| career-ops | HITL 架构边界:AI 只产草稿,系统不代发送/提交/点击 | AGENTS.md §2 |
+| career-ops | 事实完整性三件套:源文件只读、不在素材库不得声称、产出独立文件 | AGENTS.md §1, resume-tailor |
+| career-ops | 状态机外置 YAML(canonical 状态 + 别名表),防止状态静默漂移 | applications/states.yml |
+| career-ops | 红旗/骗局检测独立于匹配分(score-neutral),不污染总分 | jd-eval G 块 |
+| career-ops | 评分必须引用证据(简历行 + JD 原文),拒绝黑盒分 | jd-eval, AGENTS.md §4 |
+| career-ops | 数据契约:数据层与系统层分离,升级不碰数据 | AGENTS.md §3 |
+| career-ops 作者教训 | **去重比打分值钱**:重复检测节省的时间超过任何打分优化 | jd-eval 第 0 步 |
+| Resume-Matcher | injectable / non-injectable 关键词二分:不在 master 的绝不注入 | resume-tailor, jd-eval B 块 |
+| Resume-Matcher | 交付前对齐校验:diff 产出与 master,自动剥离不可追溯内容 | resume-tailor 第 3 步 |
+| Resume-Matcher | 整词匹配防子串误报、日期完整性检查等小技巧 | resume-tailor |
+| resume-tailoring-skill | markdown 素材库 + 带 provenance 的结构化经验库(自改进循环) | profile/ 设计 |
+| resume-tailoring-skill | 透明匹配档位(DIRECT/TRANSFERABLE/ADJACENT/GAP)+ <60% 不硬填 | resume-tailor |
+| resume-tailoring-skill | reframing 带 before/after + 事实性理由 + 用户 Y/N 审批门 | resume-tailor, AGENTS.md |
+| resume-tailoring-skill | 成功画像(success profile)作为 JD→简历的中间产物 | jd-eval B/E 块 |
+| jobsync | JD 逐字保存(非摘要)+ description completeness 意识 | jds/README |
+| jobsync | Interview 作为一等实体(独立目录,含面试官/轮次/复盘) | applications/interviews/ |
+| jobsync/huntr/Teal | follow-up 的"下一步+日期"直接放申请行,不建独立任务系统 | tracker.md |
+| huntr/Teal | 渠道字段 + 漏斗转化统计(内推 vs 海投差距是最高价值数据) | tracker skill |
+| The Interview Mentor | 分阶段模拟(暖场→核心→深挖→收尾)+ 评分卡 rubric | interview-prep |
+| The Interview Mentor | 四级提示阶梯(方向→方法→部分解→完整解),学习在挣扎处 | interview-prep |
+| STAR 最佳实践 | 8~12 母题按 archetype 组织(非按问题),组件分离,实战记录回填 | profile/star-bank.md |
+
+## 避了什么(糟粕)
+
+| 来源 | 糟粕 | 为什么避 |
+|---|---|---|
+| career-ops | 模式数量失控(14→37 个模式 × 20 语言) | 单人工具的维护噩梦;4 个 skill 覆盖核心闭环 |
+| career-ops | Go TUI 仪表盘 + Web UI | markdown 表格本身就是够用的 UI |
+| career-ops | batch 并行架构(conductor + 8 worker + lock file) | 单用户求职用不上;分布式复杂度搬进个人脚本是负资产 |
+| career-ops | 9 个 CLI 的 wrapper 层 | 测试矩阵爆炸,同一 skill 表现漂移;依赖 AGENTS.md 约定即可 |
+| career-ops(批评文章) | 基于个人画像的静态关键词过滤 | 会静默过滤掉合格职位("差点毁掉我的求职");我们只用红线列表且显式可见 |
+| career-ops | 纯 LLM 整体打分、版本间 rubric 漂移 | 打分附维度理由 + 证据引用,弱化精确性承诺 |
+| Resume-Matcher | 纯词法打分(无同义/词干/短语,等权) | "manage"≠"management",分数误导;改用透明档位标签 |
+| Resume-Matcher | 黑盒 ATS 分数 + README 不写方法论 | 分数必须可审计、方法论写在 skill 里 |
+| Resume-Matcher | LLM 当解析器的脆弱管线(重试+日期修复 hack,issue #621) | 素材库直接以 markdown 人工维护,不做 PDF→结构化解析 |
+| Resume-Matcher | 双 app 重架构(Next.js + FastAPI + Docker) | 个人工具用 markdown + git 达到同样效果 |
+| Resume-Matcher(#571) | 好看但 ATS 读不出的模板 | 产出强制单栏标准结构;PDF 生成后做文本提取验证 |
+| jobsync | Activity 时间追踪(含休息/活动类型) | 过度工程,没人坚持用 |
+| jobsync | 把跟进塞进独立 Task 模型 | 跟进是申请的属性,分家即死表 |
+| 商业工具共识 | AI 代写简历 bullet | 用户实测"华而不实";AI 做批评者/组织者,不做代笔人 |
+| liftoff 等 | 静态题库式面试准备 | 从本人素材+目标 JD 生成,个人化才有价值 |
+
+## 我们自己的增量设计
+
+1. **岗位族(job family)作为简历版本单位**:用户原始洞察,落地为
+   config.yml 的 job_families + resumes/by-family/。核心要求重叠 ≥70%
+   才共用一版,避免版本爆炸与针对性丢失两个极端。
+2. **面试深挖 = 简历事实性的压力测试**:interview-prep 对每条 bullet
+   做"面试官会怎么挖"自审,与 resume-tailor 的事实完整性规则闭环。
+3. **复盘回写环**:模拟面试暴露的薄弱点、真实面试被问住的问题,
+   回填素材卡与 star-bank——系统随每次面试变强。
+4. **会话开场静默扫描到期跟进**:利用 agent 无需界面交互的优势,
+   把"提醒"变成零成本动作(商业工具要靠推送通知,我们靠会话入口)。
+
+## 未纳入(有意)
+
+- 自动投递/表单填写:封号与信誉风险(招聘方对 AI 海投反弹明显),且国内
+  渠道(Boss直聘/内推)是对话式流程,自动化价值低。保持人工投递。
+- 公司 career page 扫描爬虫(career-ops scan / jobsync crawler):
+  维护成本高,国内渠道不适用。需要时手动收集 JD 即可。
+- 求职信 cover letter 独立 skill:并入 resume-tailor 产出可选项,
+  国内场景使用率低。
