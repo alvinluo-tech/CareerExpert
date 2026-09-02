@@ -123,3 +123,28 @@ word.cloud.microsoft/create/en/blog/best-resume-fonts ·
 ocs.yale.edu/resources/resume-formatting ·
 nelsonconnects.com/learning-center/the-six-best-modern-resume-template-resources ·
 wondercv.com · 500d.me · zhihu.com/p/506079500
+
+## 追加(2026-09-02):内容质量体系 + 多领域策略 + 样式自定义
+
+### 调研结论(信源分级见 docs/RESUME-CONTENT-GUIDE.md)
+
+1. **内容质量有权威标准,已采纳为门禁**:Google XYZ 公式(Laszlo Bock,官方)、
+   HBS PAR 结构与动作动词表(高校官方)、MIT/Yale 职业服务格式规范。
+   商业博客(Novoresume/Zety)只作交叉验证不单独采信。
+2. **分领域:确有必要,实现为策略包而非系统分叉**。差异实质:量化对象不同
+   (金融=钱/工程=技术效率/HR=人效)、模块权重不同(工程必有技能区、
+   金融教育前置且一页铁律+黑白、HR 职能广度+证书)、语言风格不同。
+   共性(事实完整性/XYZ/对齐校验)不分领域。
+3. **校招 vs 社招:确有必要**。校招=教育前置第一屏+潜力信号+实习/课程项目补位;
+   社招=工作经历前置+量化业绩为王。来自 Moka/牛客/超级简历等国内招聘实践信源。
+
+### 样式自定义设计(schema 驱动,不写渲染引擎)
+
+- `templates/style.yml` 是唯一样式入口:template/colors/header.align/
+  sections(顺序+增删)/dates.align/density/page/language
+- 实现机制:agent 填充 HTML 时按 schema 组装——模块顺序=块顺序、
+  居中=header class、配色/密度=:root CSS 变量、删模块=不填该块。
+  零代码引擎,三套模板通用。
+- 已实测:自然语言 4 项要求(青色/居中/模块重排/加密)
+  → 一次渲染全部生效,提取回环 OK,视觉验收 pass(customization 4/4)。
+- 冲突规则:策略包强制样式(金融黑白)> 用户样式偏好,生成时显式提示。
