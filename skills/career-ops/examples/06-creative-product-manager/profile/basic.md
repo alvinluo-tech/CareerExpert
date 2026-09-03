@@ -7,4 +7,4 @@
 - **常驻地点**：上海 / 新加坡 (接受跨国调遣)
 - **社交主页**：LinkedIn: linkedin.com/in/ruohan-su
 - **求职意向**：海外商业化产品总监 / 高级跨境支付产品专家
-- **照片路径**：profile/photo.svg
+- **照片路径**：profile/photo.jpg

@@ -90,7 +90,7 @@ CareerExpert/
 
 | 案例 05：全球化出海商业产品总监 (双栏侧边栏风尚款 · 附职业证件照) | 案例 06：大模型与智能体架构专家 (极简留白款 · 右上角标准证件照) |
 |:---:|:---:|
-| <a href="skills/career-ops/examples/06-creative-product-manager/output/resume.html"><img src="skills/career-ops/examples/06-creative-product-manager/output/preview.png" width="95%" alt="出海商业产品专家 简历渲染效果图" /></a> | <a href="skills/career-ops/examples/07-ai-agent-architect/output/resume.html"><img src="skills/career-ops/examples/07-ai-agent-architect/output/preview.png" width="95%" alt="大模型系统与自主智能体架构师 简历渲染效果图" /></a> |
+| <a href="skills/career-ops/examples/06-creative-product-manager/output/resume.html"><img src="skills/career-ops/examples/06-creative-product-manager/output/preview-photo.png" width="95%" alt="出海商业产品专家 简历渲染效果图" /></a> | <a href="skills/career-ops/examples/07-ai-agent-architect/output/resume.html"><img src="skills/career-ops/examples/07-ai-agent-architect/output/preview-photo.png" width="95%" alt="大模型系统与自主智能体架构师 简历渲染效果图" /></a> |
 | **苏若涵 · LSE 硕士 (TikTok/Shopee出海业务)**<br>• 单页填充率 **82%** · 侧栏经典证件照 + 技能雷达 (4500万$流水)<br>• [查看 HTML 源码](skills/career-ops/examples/06-creative-product-manager/output/resume.html) ｜ [AI 评估改写报告](skills/career-ops/examples/06-creative-product-manager/output/report.md) | **顾远 · UPenn硕士/上交ACM (OpenAI/头部独角兽)**<br>• 单页填充率 **89%** · 右上角经典证件照 + 开源 12.8k★<br>• [查看 HTML 源码](skills/career-ops/examples/07-ai-agent-architect/output/resume.html) ｜ [AI 评估改写报告](skills/career-ops/examples/07-ai-agent-architect/output/report.md) |
 
 ---
