@@ -29,6 +29,11 @@
       "name": "career-interview",
       "description": "四级提示交互式模拟面试",
       "prompt": "调用 career-interview 技能，针对目标岗位与经历开展四级递进模拟面试与复盘"
+    },
+    {
+      "name": "career-coach",
+      "description": "简历通盘掌握与大厂答辩军师手册 (自动唤醒浏览器)",
+      "prompt": "调用 career-coach 技能，对简历进行软肋排雷、代码工程探测、原理补课、STAR-T 思考模型与大厂连环攻防指导，生成精美 HTML 手册并自动在浏览器中打开"
     }
   ]
 }
