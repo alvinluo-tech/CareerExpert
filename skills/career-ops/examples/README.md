@@ -14,6 +14,8 @@
 | **[02-campus-cs-master](02-campus-cs-master/)** | 校招高潜应届生<br>(campus × tech-engineering) | 林晨 (浙大硕士) | 卓越居中对称款 (v5) · 皇家深蓝 · GPA 3.85置顶 · 自研 Raft-KV 存储 | `resume.html`<br>`resume.pdf` (1页)<br>`report.md` |
 | **[03-finance-ib-analyst](03-finance-ib-analyst/)** | 金融投行分析师<br>(social/campus × finance-ib) | 陈思远 (复旦金融硕) | 经典专业款 (v3) · 华尔街纯黑白 · CPA 5科置顶 · 12.5亿并购量化 | `resume.html`<br>`resume.pdf` (1页)<br>`report.md` |
 | **[04-academic-cs-phd](04-academic-cs-phd/)** | 出国留学学术 CV<br>(grad-school × academic) | 郭伟 (清华计算机本科) | 学术双页款 (v7) · 牛津深蓝 · CVPR Oral 一作 · IEEE 悬挂缩进 | `cv.html`<br>`cv.pdf` (2页)<br>`report.md` |
+| **[06-creative-product-manager](06-creative-product-manager/)** | 出海产品总监/泛管理<br>(global × product-business) | 苏若涵 (LSE硕士/5年经验) | 双栏侧栏款 (v8) · 宝石蓝 · 侧栏经典证件照 · 4500万$日流水 | `resume.html`<br>`resume.pdf` (1页)<br>`report.md` |
+| **[07-ai-agent-architect](07-ai-agent-architect/)** | AI大模型/智能体架构<br>(tech × genai-agent) | 顾远 (UPenn硕/上交ACM) | 极简留白款 (v6) · 石墨碳黑 · 右上角标准证件照 · 12.8k★开源 | `resume.html`<br>`resume.pdf` (1页)<br>`report.md` |
 | **[05-edge-cases](05-edge-cases/)** | 真实边界与红旗测试用例 | - | 涵盖用户 override、年限风险预警、炒币/Ghost红旗拦截 | `evaluation.md`<br>决策留痕 |
 
 ---
@@ -62,4 +64,24 @@
 置顶研究方向 (3D Vision / Neural Rendering)，教育经历高亮 GPA 3.93 与院士导师，
 论文模块严格按 IEEE 规范引用并粗体标注我的姓名，高亮 CVPR Oral 与开源代码，
 生成标准 2 页学术 PDF 与定制报告。
+```
+
+### 5. 出海商业产品总监 · 双栏证件照款 (Prompt)
+```text
+请读取 examples/06-creative-product-manager/profile/ 中的素材，
+帮我评估 TikTok E-Commerce 的海外支付产品专家 JD，
+选用双栏侧边栏风尚款 (v8-sidebar-split)，主题配色为商务宝石蓝，
+开启照片展示 (photo.show: true)，将我的真实职业证件照置于左侧边栏顶端，
+左侧栏集中展示联系方式、技能微胶囊与海外语言资质，右侧主干突出东南亚日均 4500 万美元交易流水与动态路由 12.3% 成功率提升，
+严格保持 A4 单页黄金填充率。
+```
+
+### 6. AI 大模型系统架构师 · 极简右上角证件照款 (Prompt)
+```text
+请读取 examples/07-ai-agent-architect/profile/ 中的素材，
+帮我评估头部大模型独角兽的资深 AI Agent 架构师 JD，
+选用大厂极简纯粹留白款 (v6-minimal-clean)，高级石墨碳黑色调，
+在右上角嵌入我的标准 1 寸职业证件照，
+突出开源项目 FastAgent (12.8k Stars)、多 Agent 流水线与投机采样推理加速吞吐 3.4 倍战果，
+严格保证 A4 单页 88% 黄金填充率。
 ```

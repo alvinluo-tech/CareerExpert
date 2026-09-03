@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!-- 
+  样例 G：大模型系统与自主智能体架构师 · 顾远 (OpenAI/头部独角兽 定制版)
+  模板骨架：v6-minimal-clean (极简纯粹留白款)
+  调色盘：Carbon Slate (石墨黑与深板灰 #0f172a / #334155)
+  照片：右上角经典专业证件照 (Top-Right ID Photo)
+  高度控制：严格 A4 单页，填充率 86%~89% 黄金比例
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>顾远 — 个人简历 (大模型系统与自主智能体架构师)</title>
+<style>
+  :root {
+    --accent: #0f172a;          /* 极简深碳黑 */
+    --accent-sub: #2563eb;      /* 高亮微蓝 */
+    --ink: #1e293b;             /* 正文深色 */
+    --muted: #475569;           /* 辅助深灰 */
+    --rule: #e2e8f0;            /* 纯粹极细分割线 */
+    --fs-main: 9.6pt;           /* 正文字号 */
+    --lh: 1.44;                 /* 呼吸感行距 */
+    --sec-gap: 9pt;             /* 节间距 */
+  }
+
+  @page {
+    size: A4;
+    margin: 1.2cm 1.3cm;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    color: var(--ink);
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+    font-size: var(--fs-main);
+    line-height: var(--lh);
+  }
+
+  /* 头部区域：左侧信息 + 右上角标准证件照 */
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 7pt;
+    border-bottom: 1.5pt solid var(--accent);
+    margin-bottom: var(--sec-gap);
+  }
+  .header-info {
+    flex: 1;
+    min-width: 0;
+    padding-right: 15pt;
+  }
+  h1 {
+    font-size: 21pt;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: 1.2px;
+    line-height: 1.15;
+  }
+  .tagline {
+    font-size: 9.8pt;
+    font-weight: 600;
+    color: var(--muted);
+    margin-top: 2.5pt;
+  }
+  .contact-bar {
+    margin-top: 4.5pt;
+    font-size: 9pt;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+  .contact-bar span {
+    margin-right: 10pt;
+    display: inline-block;
+  }
+  .contact-bar a {
+    color: var(--accent-sub);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  /* 右上角证件照 */
+  .header-photo {
+    flex-shrink: 0;
+  }
+  .header-photo img {
+    width: 72pt;
+    height: 96pt;               /* 标准 3:4 比例证件照 */
+    object-fit: cover;
+    border-radius: 4pt;
+    border: 1.2pt solid var(--rule);
+    box-shadow: 0 1.5pt 4pt rgba(0,0,0,0.06);
+  }
+
+  /* 节标题：极简大厂风，大字阶加粗 */
+  h2.sec-title {
+    font-size: 10.6pt;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.8px;
+    margin: var(--sec-gap) 0 4.5pt;
+    padding-bottom: 2pt;
+    border-bottom: 1pt solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .item-header {
+    margin: 5pt 0 1.5pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .item-title { font-weight: 700; color: var(--accent); font-size: 9.8pt; }
+  .item-role { font-weight: 600; color: var(--muted); margin-left: 4pt; font-size: 9.3pt; }
+  .item-date { font-size: 8.8pt; color: var(--muted); font-weight: 500; }
+
+  ul.bullets {
+    padding-left: 12pt;
+    margin-bottom: 3.5pt;
+  }
+  ul.bullets li {
+    margin-bottom: 2.2pt;
+    text-align: justify;
+  }
+  p.summary {
+    text-align: justify;
+    margin-bottom: 3pt;
+  }
+
+  .skill-badge {
+    display: inline-block;
+    background: #f1f5f9;
+    color: #334155;
+    padding: 1.5pt 4.5pt;
+    border-radius: 3pt;
+    font-size: 8.5pt;
+    font-weight: 600;
+    margin: 0 2pt 2.5pt 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- 头部：左侧个人信息与定位 + 右上角证件照 -->
+<div class="header-container">
+  <div class="header-info">
+    <h1>顾远</h1>
+    <div class="tagline">5 年大模型与智能体系统架构师 · LLM 推理加速 / 自主 Agent 编排 / 开源作者</div>
+    <div class="contact-bar">
+      <span><b>电话</b>: 139****1234</span>
+      <span><b>邮箱</b>: yuan.gu.ai@example.com</span>
+      <span><b>地点</b>: 北京 / 接受全球远程</span><br>
+      <span><b>GitHub</b>: <a href="https://github.com/yuangu-ai">github.com/yuangu-ai</a> (12.8k★)</span>
+      <span><b>主页</b>: <a href="https://yuangu.dev">yuangu.dev</a></span>
+    </div>
+  </div>
+  <div class="header-photo">
+    <img src="../profile/photo.jpg" alt="顾远 证件形象照" />
+  </div>
+</div>
+
+<!-- 职业概述 -->
+<section>
+  <h2 class="sec-title">专业概述与核心能力</h2>
+  <p class="summary">
+    5 年大规模机器学习系统与自主智能体（Autonomous Agents）架构经验，主导百亿参数多 Agent 软件工程闭环中台落地，推进投机采样（Speculative Decoding）与分层 KV Cache 预取使长文本推理吞吐提升 3.4 倍、月度 GPU 算力成本直降 42 万美元。兼具极强工程落地与开源影响力，独立发起开源轻量 Agent 框架获 GitHub 12.8k+ Stars，被全球 260 余家企业采纳。
+  </p>
+</section>
+
+<!-- 工作经历 -->
+<section>
+  <h2 class="sec-title">核心工作经历</h2>
+
+  <div class="item-header">
+    <div><span class="item-title">智谱AI / 头部大模型独角兽</span><span class="item-role">· 智能体系统实验室 · 资深 AI 架构师</span></div>
+    <span class="item-date">2023.06 ~ 至今</span>
+  </div>
+  <ul class="bullets">
+    <li><b>多 Agent 软件工程自动化研发流水线</b>：主导研发基于自主反思、任务拆解与工具动态调用的多 Agent 代码协同中台，在内部推广落地 <b>45 个</b>核心研发团队，将代码自动化审查与常见缺陷修复覆盖率提升至 <b>72%</b>，人均发版吞吐提升 <b>35%</b>。</li>
+    <li><b>大模型推理吞吐与算力降本专项</b>：针对长上下文多轮调用延迟高昂痛点，设计基于 Speculative Decoding 投机采样与 KV Cache 智能分层预取的推理加速引擎，端到端吞吐提升 <b>3.4 倍</b>，月度 GPU 云算力直接成本降低 <b>42 万美元</b>。</li>
+    <li><b>领域垂类轻量模型蒸馏与微调</b>：搭建端侧 8B/14B 轻量化模型持续蒸馏流水线，在金融代码场景评测中达到 GPT-4o <b>94.6% 胜率</b>，首字延迟压降至 <b>180ms</b>，实现单张消费级显卡极速部署。</li>
+  </ul>
+
+  <div class="item-header">
+    <div><span class="item-title">字节跳动 (AI Lab)</span><span class="item-role">· 算法工程平台组 · 高级研发工程师</span></div>
+    <span class="item-date">2021.06 ~ 2023.05</span>
+  </div>
+  <ul class="bullets">
+    <li><b>千亿级向量检索与多模态内容召回</b>：负责多模态检索中台底层向量引擎优化，支持日均 <b>18 亿次</b>高并发相似度检索请求，全站 P99 检索耗时稳定控制在 <b>12ms 内</b>。</li>
+    <li><b>模型持续学习与全链路自动化评估</b>：打造高吞吐自动化评测流水线，将新模型上线评测与异常版本回滚耗时从 4 小时压缩至 <b>15 分钟</b>。</li>
+    <li><b>攻坚团队管理与技术交付</b>：带领 8 人算法工程研发小组，高效推进特征服务与推理系统协同，荣获 <b>2022 字节跳动技术创新卓越团队奖</b>。</li>
+  </ul>
+</section>
+
+<!-- 开源项目 -->
+<section>
+  <h2 class="sec-title">核心开源标杆与代表作</h2>
+
+  <div class="item-header">
+    <div><span class="item-title">FastAgent: 面向生产环境的轻量级自主 Agent 运行时</span><span class="item-role">· 发起人与核心架构师</span></div>
+    <span class="item-date">2023.10 ~ 2024.08</span>
+  </div>
+  <ul class="bullets">
+    <li>独立主导研发微秒级启动的极简自主 Agent 框架，GitHub 斩获 <b>12.8k+ Stars</b>，被全球超过 <b>260 家</b>科技企业引入生产环境，月度活跃开发者超 4.5 万人。</li>
+    <li>设计首创的双层状态机调度与沙盒工具隔离机制，在保证高并发执行安全性的同时，将单次 Tool Calling 调度开销由 25ms 压降至 <b>1.8ms</b>。</li>
+  </ul>
+</section>
+
+<!-- 教育背景 -->
+<section>
+  <h2 class="sec-title">教育背景</h2>
+
+  <div class="item-header">
+    <div><span class="item-title">宾夕法尼亚大学 (UPenn)</span><span class="item-role">· 计算机与信息科学 (CIS) · 理学硕士</span></div>
+    <span class="item-date">2019.09 ~ 2021.05</span>
+  </div>
+  <div style="font-size: 8.9pt; color: var(--muted); margin-bottom: 3.5pt;">GPA: 3.91 / 4.0 · 优秀硕士毕业生 · 研究方向：分布式机器学习与大模型系统</div>
+
+  <div class="item-header">
+    <div><span class="item-title">上海交通大学</span><span class="item-role">· 计算机科学与技术 (ACM班) · 工学学士</span></div>
+    <span class="item-date">2015.09 ~ 2019.06</span>
+  </div>
+  <div style="font-size: 8.9pt; color: var(--muted);">GPA: 3.86 / 4.0 (前 5%) · 上海市优秀毕业生 · 连续三年校特等奖学金</div>
+</section>
+
+<!-- 技能与荣誉 -->
+<section>
+  <h2 class="sec-title">核心专业技能与荣誉</h2>
+  <div style="margin-bottom: 3.5pt;">
+    <span class="skill-badge">大模型系统架构</span>
+    <span class="skill-badge">自主智能体编排</span>
+    <span class="skill-badge">投机采样 (Speculative Decoding)</span>
+    <span class="skill-badge">KV Cache 压缩</span>
+    <span class="skill-badge">vLLM / SGLang</span>
+    <span class="skill-badge">PyTorch / Triton</span>
+    <span class="skill-badge">CUDA / C++20</span>
+    <span class="skill-badge">Ray 分布式集群</span>
+    <span class="skill-badge">Docker / K8s</span>
+  </div>
+  <div style="font-size: 8.9pt; color: var(--muted);">
+    <b>学术与竞赛</b>：ACM-ICPC 亚洲区域赛金牌 (2018) ｜ ACL / EMNLP 国际顶会合作发表 3 篇大模型方向论文
+  </div>
+</section>
+
+</body>
+</html>

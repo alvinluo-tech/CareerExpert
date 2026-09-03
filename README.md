@@ -88,14 +88,14 @@ CareerExpert/
 | <a href="skills/career-ops/examples/03-finance-ib-analyst/output/resume.html"><img src="skills/career-ops/examples/03-finance-ib-analyst/output/preview.png" width="95%" alt="金融投行分析师 简历渲染效果图" /></a> | <a href="skills/career-ops/examples/04-academic-cs-phd/output/cv.html"><img src="skills/career-ops/examples/04-academic-cs-phd/output/preview.png" width="95%" alt="出国留学学术CV 渲染效果图" /></a> |
 | **陈思远 · 复旦专硕 (中金/华泰投行方向)**<br>• 单页填充率 **83%** · CPA 5科通过 + 12.5亿并购对价量化<br>• [查看 HTML 源码](skills/career-ops/examples/03-finance-ib-analyst/output/resume.html) ｜ [AI 评估改写报告](skills/career-ops/examples/03-finance-ib-analyst/output/report.md) | **郭伟 · 清华本科 (CMU 计算机博士申请)**<br>• 严格 2 页布局 · 填充率 **92%** · CVPR Oral 一作<br>• [查看 HTML 源码](skills/career-ops/examples/04-academic-cs-phd/output/cv.html) ｜ [AI 评估改写报告](skills/career-ops/examples/04-academic-cs-phd/output/report.md) |
 
-| 案例 05：全球化出海商业产品总监 (双栏侧边栏风尚款 · 附干练职业形象照) |
-|:---:|
-| <a href="skills/career-ops/examples/06-creative-product-manager/output/resume.html"><img src="skills/career-ops/examples/06-creative-product-manager/output/preview.png" width="48%" alt="出海商业产品专家 简历渲染效果图" /></a> |
-| **苏若涵 · LSE 硕士 / 5年出海经验 (TikTok/Shopee 海外支付方向)**<br>• 单页填充率 **82%** · 侧栏职业形象照 + 核心技能树 + 语言资质 · 右侧 4,500 万美元日流水量化战果<br>• [查看 HTML 源码](skills/career-ops/examples/06-creative-product-manager/output/resume.html) ｜ [AI 评估改写报告](skills/career-ops/examples/06-creative-product-manager/output/report.md) |
+| 案例 05：全球化出海商业产品总监 (双栏侧边栏风尚款 · 附职业证件照) | 案例 06：大模型与智能体架构专家 (极简留白款 · 右上角标准证件照) |
+|:---:|:---:|
+| <a href="skills/career-ops/examples/06-creative-product-manager/output/resume.html"><img src="skills/career-ops/examples/06-creative-product-manager/output/preview.png" width="95%" alt="出海商业产品专家 简历渲染效果图" /></a> | <a href="skills/career-ops/examples/07-ai-agent-architect/output/resume.html"><img src="skills/career-ops/examples/07-ai-agent-architect/output/preview.png" width="95%" alt="大模型系统与自主智能体架构师 简历渲染效果图" /></a> |
+| **苏若涵 · LSE 硕士 (TikTok/Shopee出海业务)**<br>• 单页填充率 **82%** · 侧栏经典证件照 + 技能雷达 (4500万$流水)<br>• [查看 HTML 源码](skills/career-ops/examples/06-creative-product-manager/output/resume.html) ｜ [AI 评估改写报告](skills/career-ops/examples/06-creative-product-manager/output/report.md) | **顾远 · UPenn硕士/上交ACM (OpenAI/头部独角兽)**<br>• 单页填充率 **89%** · 右上角经典证件照 + 开源 12.8k★<br>• [查看 HTML 源码](skills/career-ops/examples/07-ai-agent-architect/output/resume.html) ｜ [AI 评估改写报告](skills/career-ops/examples/07-ai-agent-architect/output/report.md) |
 
 ---
 
-### 📚 官方基准案例矩阵速查表
+### 📚 官方基准案例矩阵速查表 (6 大工业级实操场景)
 
 | 案例代号与目录 | 业务场景 | 候选人人设与亮点 | 选用策略与骨架 | 交付物清单 |
 |---|---|---|---|---|
@@ -103,7 +103,8 @@ CareerExpert/
 | **[02-campus-cs-master](skills/career-ops/examples/02-campus-cs-master/)** | 校招名校应届高潜 | 林晨 (浙大计算机硕士)<br>GPA 3.85 前3% / Raft-KV开源 | 卓越居中对称款 (v5)<br>皇家深蓝 / 教育第一屏 (85% 填充) | `resume.html`<br>`resume.pdf`<br>`report.md` |
 | **[03-finance-ib-analyst](skills/career-ops/examples/03-finance-ib-analyst/)** | 金融投行/财务分析 | 陈思远 (复旦金融专硕)<br>CPA 5科 / 12.5亿并购量化 | 经典专业款 (v3)<br>华尔街纯黑白 / 专业资格置顶 (83% 填充) | `resume.html`<br>`resume.pdf`<br>`report.md` |
 | **[04-academic-cs-phd](skills/career-ops/examples/04-academic-cs-phd/)** | 出国留学学术 CV | 郭伟 (清华计算机本科)<br>GPA 3.93 / CVPR Oral 一作 | 学术双页款 (v7)<br>牛津深蓝 / 严格 2 页 (92% 填充) | `cv.html`<br>`cv.pdf`<br>`report.md` |
-| **[06-creative-product-manager](skills/career-ops/examples/06-creative-product-manager/)** | 出海产品总监/涉外泛管理 | 苏若涵 (LSE硕士 / 5年出海经验)<br>跨境收单 / 4500万$日流水 | 双栏侧边栏款 (v8)<br>宝石蓝 / 附干练职业形象照 (82% 填充) | `resume.html`<br>`resume.pdf`<br>`report.md` |
+| **[06-creative-product-manager](skills/career-ops/examples/06-creative-product-manager/)** | 出海产品总监/泛管理 | 苏若涵 (LSE硕士 / 5年出海经验)<br>跨境收单 / 4500万$日流水 | 双栏侧边栏款 (v8)<br>宝石蓝 / 附侧栏真实证件照 (82% 填充) | `resume.html`<br>`resume.pdf`<br>`report.md` |
+| **[07-ai-agent-architect](skills/career-ops/examples/07-ai-agent-architect/)** | 大模型/AI智能体架构 | 顾远 (UPenn硕士 / 上交ACM班)<br>开源 12.8k★ / 投机采样加速 | 极简留白款 (v6)<br>石墨碳黑 / 附右上角真实证件照 (89% 填充) | `resume.html`<br>`resume.pdf`<br>`report.md` |
 | **[05-edge-cases](skills/career-ops/examples/05-edge-cases/)** | 决策边界与红旗拦截 | 极数智联 / 链创未来 / 星轨安全 | 年限 GAP 预警 / 炒币红旗拦截 | `evaluation.md`<br>决策留痕 |
 
 > 详细的复现 Prompt 与素材映射见：[`skills/career-ops/examples/README.md`](skills/career-ops/examples/README.md)。
