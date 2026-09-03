@@ -23,7 +23,7 @@ description: 专注求职者简历深度通盘掌握、经历软肋排雷、代�
 
 ---
 
-## 二、 交互与执行三步走工作流
+## 二、 交互与执行五步走工作流 (含独立审校门禁)
 
 ```text
 [用户输入 /career-coach 或简历] 
@@ -35,10 +35,13 @@ description: 专注求职者简历深度通盘掌握、经历软肋排雷、代�
 【第 2 步：主动追问与代码深挖】──> 询问 GitHub 链接或本地工程路径 (触发 inspect_repo.py)
        │
        ▼
-【第 3 步：组装四维通透体系】────> 涵盖：软肋排雷 + 原理补课 + 思考模型 + 连环追问
+【第 3 步：组装六维通透初稿】────> 涵盖：软肋排雷 + 架构拓扑 + 源码原理 + 算账推导 + 思维模型 + 攻防问答
        │
        ▼
-【第 4 步：编译 HTML 并唤醒浏览器】─> render_guide.py 编译自包含 HTML 并静默打开
+【第 4 步：独立 Agent 抗幻觉审校】──> 🌟 核心门禁：启动独立核查 Agent，按 4 大通用维度严苛挑错
+       │                             (若发现技术谬误/脑补捏造立即打回修正；通过后方可放行)
+       ▼
+【第 5 步：编译 HTML 并唤醒浏览器】─> render_guide.py 编译自包含高质感工作台并静默打开
 ```
 
 ### 第 1 步：简历扫描与软肋圈定 (Vulnerability Scan)
@@ -59,24 +62,44 @@ description: 专注求职者简历深度通盘掌握、经历软肋排雷、代�
 python skills/career-ops/scripts/inspect_repo.py <代码路径> --out profile/projects/<项目名>.md
 ```
 
-### 第 3 步：组织四维核心内容 (4-Pillar Content Generation)
-根据简历与代码证据，生成结构化 JSON 数据（包含以下四大模块）：
+### 第 3 步：组织六维核心深度内容 (6-Pillar Deep Content Generation)
+根据简历与代码证据，生成结构化 JSON 数据（包含六大核心模块）：
+1. **模块 1：高危软肋与考官潜台词诊断 (Vulnerabilities & Traps)**
+2. **模块 2：系统全局架构拓扑与全链路流转 (Architecture & Dataflow)**
+3. **模块 3：核心源码级实现与底层原理 (Code Grounding & Implementation)**
+4. **模块 4：压测真实性数学推导与硬核账本 (Math Metrics & Bandwidth Grounding)**
+5. **模块 5：高段位架构师思考模型与答辩思路 (Mental Models & Storytelling)**
+6. **模块 6：大厂连环拷打攻防与红绿榜对比 (Deep-Dive QA & Red/Green Comparison)**
 
-1. **模块 1：经历软肋与考官潜台词诊断 (Vulnerabilities)**：
-   - 指出哪些句子最容易被资深面试官盯上；
-   - 揭秘面试官潜台词（如“QPS 是纯内存空跑还是带网络 I/O？消息体多大？”）。
-2. **模块 2：硬核底层原理补课清单与准备建议 (Technical Grounding)**：
-   - 提取硬核技术原理进行白话速记（如 Cache Line 伪共享原理、Linux 零拷贝系统调用、对象池 GC 治理）；
-   - 列出必看排查工具命令与复习清单（`pprof`、`perf`、`tcpdump` 等）。
-3. **模块 3：高段位架构师思考模型与答辩思路引导 (Mental Models)**：
-   - **STAR-T 模型**：定边界 $\rightarrow$ 说权衡 (Trade-offs) $\rightarrow$ 提局限与演进路线；
-   - **“盲区与未涉足领域”的高情商解法**：教求职者如何坦诚说明未在生产环境实测，但基于底层原理推导方案。
-4. **模块 4：经典硬核连环追问深度解析 (Deep-Dive Q&A)**：
-   - 针对标杆项目提供 3~5 组由浅入深的连环提问；
-   - 每题拆解：**【考官意图】** + **【外行踩坑禁忌】** + **【高分逻辑参考】**。
+---
 
-### 第 4 步：编译精美 HTML 手册并自动唤起系统浏览器
-运行确定性编译脚本，生成单文件自包含 HTML，并通过 `--open` 参数在默认浏览器中即刻弹出：
+### 第 4 步：🌟 独立审校 Agent 闭环排错与抗幻觉门禁 (Auditor Agent Gate)
+**绝对铁律：严禁生成完毕直接交付！必须切换或分发独立的审查 Agent 角色执行对抗性把关！**
+
+#### 独立审校 Agent 的系统角色与专属提示：
+> 🕵️ **Auditor Agent 系统人格**：  
+> *“你现在是大厂技术评审委员会终审委员兼事实核查官。你的天职是**怀疑一切、严苛挑错**。请彻底抛弃生成者的自恋偏差，戴着放大镜对初稿进行字斟句句的挑刺排查，彻底消灭一切技术谬误、公式算错与凭空捏造。”*
+
+#### 4 大跨行业通用审校清单：
+1. **领域客观真理与常识一致性 (Domain Truth & Inaccuracy)**：
+   - 检查底层原理、系统调用、财务勾稽关系、模型算法是否符合客观物理与行业事实（如 Cache Line 是否为 64B、系统调用是否混淆）。
+2. **原始事实严格锚定 (Source Material Grounding)**：
+   - 逐字比对原始经历：严禁 AI 凭空脑补“未曾发生过的规模、虚假集群与夸大级别”。
+3. **数学算账与逻辑因果闭环 (Math & Logical Causality)**：
+   - 通用算账复核：QPS × Payload 换算、百分比降幅、吞吐占用是否绝对数学自洽。
+4. **考场生存率与致命漏洞排查 (Defensibility & Trap Detection)**：
+   - 检验推荐回答是否经得起连续 3 轮反问，是否存在自相矛盾或无法解释的逻辑漏洞。
+
+#### 审查状态放行门禁：
+- 若发现任何一处技术硬伤或捏造：必须**立即打回修正**；
+- 只有当审查报告正式输出：  
+  `[AUDIT: PASSED · 0 Hallucinations · 0 Technical Inaccuracies]`  
+  方可进入下一步进行 HTML 编译！
+
+---
+
+### 第 5 步：编译高质感全景 HTML 手册并自动唤起系统浏览器
+运行确定性编译脚本，生成自包含 HTML，并通过 `--open` 参数在默认浏览器中即刻弹出：
 ```bash
 python skills/career-coach/scripts/render_guide.py <数据.json> \
   --out applications/coach/<候选人>-mastery-guide.html \
