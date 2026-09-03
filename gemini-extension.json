@@ -6,29 +6,29 @@
   "skills": "./skills/",
   "commands": [
     {
-      "name": "resume",
+      "name": "career-ops",
       "description": "全流程简历定制与投递追踪",
       "prompt": "调用 career-ops 技能，基于候选人素材库与目标职位 JD 进行全流程定制与评估"
     },
     {
-      "name": "style",
+      "name": "career-style",
       "description": "简历视觉排版调优 (文字锁定)",
-      "prompt": "调用 resume-style 技能，锁定经历文字，仅调整简历 HTML/CSS 骨架、调色微调与单页高度适配"
+      "prompt": "调用 career-style 技能，锁定经历文字，仅调整简历 HTML/CSS 骨架、调色微调与单页高度适配"
     },
     {
-      "name": "polish",
+      "name": "career-polish",
       "description": "简历战果量化与润色 (样式锁定)",
-      "prompt": "调用 resume-polish 技能，锁定排版样式，对经历进行 Google XYZ 战果量化改写与强动词增强"
+      "prompt": "调用 career-polish 技能，锁定排版样式，对经历进行 Google XYZ 战果量化改写与强动词增强"
     },
     {
-      "name": "cv",
+      "name": "career-cv",
       "description": "出国留学学术 CV 生成",
-      "prompt": "调用 academic-cv 技能，遵循 Harvard/MIT 规范排版学术双页 CV"
+      "prompt": "调用 career-cv 技能，遵循 Harvard/MIT 规范排版学术双页 CV"
     },
     {
-      "name": "interview",
+      "name": "career-interview",
       "description": "四级提示交互式模拟面试",
-      "prompt": "调用 mock-interview 技能，针对目标岗位与经历开展四级递进模拟面试与复盘"
+      "prompt": "调用 career-interview 技能，针对目标岗位与经历开展四级递进模拟面试与复盘"
     }
   ]
 }

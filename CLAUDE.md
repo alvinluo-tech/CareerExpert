@@ -13,13 +13,16 @@
 
 ---
 
-## 内置技能加载 (Skills)
+## 内置技能矩阵加载 (Multi-Skills)
 
-本仓库将核心求职技能完全收敛在业界标准目录：
-- `skills/career-ops/SKILL.md`
+本仓库将核心技能以统一命名空间完全收敛在：
+- `skills/career-ops/SKILL.md`（/career-ops：全流程求职与学术总指挥）
+- `skills/career-style/SKILL.md`（/career-style：简历视觉工程与排版调优）
+- `skills/career-polish/SKILL.md`（/career-polish：简历经历精修与 Google XYZ 战果量化）
+- `skills/career-cv/SKILL.md`（/career-cv：出国留学海外硕博学术 CV 专精）
+- `skills/career-interview/SKILL.md`（/career-interview：四级提示模拟面试攻防）
 
-在处理任何涉及 **简历导入、代码审计、JD评估、简历定制/生成/修改、样式排版、面试准备、投递追踪** 的请求时，必须首先读取：
-- 核心规范：`skills/career-ops/SKILL.md`
+在处理相关请求时，必须优先读取对应技能及其指南：
 - 对应指南（位于 `skills/career-ops/references/`）：
   - 工作区一键初始化：`python skills/career-ops/scripts/init_workspace.py`
   - 全格式简历导入拆解：`references/ingest-profile.md`

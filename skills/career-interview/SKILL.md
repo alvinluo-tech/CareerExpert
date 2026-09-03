@@ -1,9 +1,9 @@
 ---
-name: mock-interview
-description: 专注求职面试全流程准备、行为面试 STAR 故事库打磨、硬核技术攻防深挖与四级提示交互式模拟面试。触发词：模拟面试、技术面深挖、HR 面行为问题、STAR 故事整理、面试复盘、四级提示，或快捷指令 /interview。
+name: career-interview
+description: 专注求职面试全流程准备、行为面试 STAR 故事库打磨、硬核技术攻防深挖与四级提示交互式模拟面试。触发词：模拟面试、技术面深挖、HR 面行为问题、STAR 故事整理、面试复盘、四级提示，或快捷指令 /career-interview。
 ---
 
-# mock-interview — 交互式模拟面试与面试攻防专精技能
+# career-interview — 交互式模拟面试与面试攻防专精技能
 
 > **核心目标：从“被动背题”到“掌控节奏”**！  
 > 结合目标公司职位 JD 与候选人真实简历，提供沉浸式、有针对性的模拟面试演练与弱点攻坚。
@@ -13,7 +13,7 @@ description: 专注求职面试全流程准备、行为面试 STAR 故事库打�
 ## 一、 适用场景与快捷指令
 
 - 用户说：“明天要面腾讯/字节，帮我出模拟面试题 / 模拟 HR 行为面试 / 针对我的网关项目进行技术深挖 / 模拟面试复盘”
-- 用户输入 Slash 指令：`/interview` 或 `/mock-interview`
+- 用户输入 Slash 指令：`/career-interview`
 
 ---
 

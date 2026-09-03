@@ -20,18 +20,11 @@
     "claude-code-plugin",
     "skills"
   ],
-  "commands": [
-    "./.claude/commands/resume.md",
-    "./.claude/commands/style.md",
-    "./.claude/commands/polish.md",
-    "./.claude/commands/cv.md",
-    "./.claude/commands/interview.md"
-  ],
   "skills": [
     "./skills/career-ops",
-    "./skills/resume-style",
-    "./skills/resume-polish",
-    "./skills/academic-cv",
-    "./skills/mock-interview"
+    "./skills/career-style",
+    "./skills/career-polish",
+    "./skills/career-cv",
+    "./skills/career-interview"
   ]
 }

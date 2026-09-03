@@ -12,5 +12,5 @@
    - 分析代码项目优先运行 `skills/career-ops/scripts/inspect_repo.py`；
    - 渲染 PDF 优先运行 `skills/career-ops/scripts/render_pdf.py`。
 3. 样式定制：
-   - 读取 `skills/resume-style/templates/style.yml`，根据用户自然语言映射配色、Header 居中、模块排序与增删，并进行模块化插槽组装。
-   - 出国留学与学术申请使用 `skills/academic-cv/templates/resume-template-v7-academic-cv.html` 骨架并遵循 `skills/academic-cv/references/academic-cv.md`。
+   - 读取 `skills/career-style/templates/style.yml`，根据用户自然语言映射配色、Header 居中、模块排序与增删，并进行模块化插槽组装。
+   - 出国留学与学术申请使用 `skills/career-cv/templates/resume-template-v7-academic-cv.html` 骨架并遵循 `skills/career-cv/references/academic-cv.md`。

@@ -1,16 +1,15 @@
 <#
 .SYNOPSIS
   CareerOps — 全能型 AI 原生求职与学术 CV 工作流系统
-  Multi-Skills 矩阵与 Slash 快捷命令跨平台一键安装器 (Windows PowerShell)
+  Multi-Skills 矩阵跨 Harness 一键安装器 (Windows PowerShell)
 
 .DESCRIPTION
-  一键将全套 CareerOps 技能矩阵与 Slash 命令部署至当前用户或指定项目的全局 Agent 环境：
-  - /resume    -> 唤起 career-ops (全流程定制与追踪)
-  - /style     -> 唤起 resume-style (UI/CSS 换色与排版调优)
-  - /polish    -> 唤起 resume-polish (Google XYZ 战果量化改写)
-  - /cv        -> 唤起 academic-cv (海外高校硕博学术 CV)
-  - /interview -> 唤起 mock-interview (四级提示模拟面试攻防)
-  - .claude/commands/* (/resume, /style, /polish, /cv, /interview)
+  一键将全套 CareerOps 技能矩阵部署至当前用户或指定项目的全局 Agent 环境：
+  - /career-ops        -> 全流程求职与学术工作流总指挥
+  - /career-style      -> UI 视觉排版、HTML/CSS 调色与单页高度契合 (内容锁定)
+  - /career-polish     -> Google XYZ / HBS PAR 经历战果量化改写 (样式锁定)
+  - /career-cv         -> 出国留学与海外硕博学术 CV (Harvard/MIT 规范)
+  - /career-interview  -> 四级提示交互式模拟面试攻防与复盘
 
 .PARAMETER Target
   目标环境: All (默认), Claude, Agents, Antigravity, Codex, Local
@@ -32,12 +31,20 @@ Write-Host "  跨 Harness 一键安装器 (Windows)" -ForegroundColor Cyan
 Write-Host "====================================================" -ForegroundColor Cyan
 
 $SkillsBase = Join-Path $ScriptDir "skills"
-$CommandsBase = Join-Path $ScriptDir ".claude\commands"
 
 function Install-Skills([string]$DestSkillsDir, [string]$PlatformName) {
     Write-Host "`n[*] 正在部署技能矩阵至 $PlatformName : $DestSkillsDir ..." -ForegroundColor Yellow
     if (-not (Test-Path $DestSkillsDir)) {
         New-Item -ItemType Directory -Path $DestSkillsDir -Force | Out-Null
+    }
+
+    # 清理旧命名空间残留以避免命令重复
+    $legacySkills = @("job-finding", "resume-style", "resume-polish", "academic-cv", "mock-interview")
+    foreach ($leg in $legacySkills) {
+        $legPath = Join-Path $DestSkillsDir $leg
+        if (Test-Path $legPath) {
+            Remove-Item -Path $legPath -Recurse -Force -ErrorAction SilentlyContinue
+        }
     }
 
     Get-ChildItem -Directory $SkillsBase | ForEach-Object {
@@ -52,14 +59,16 @@ function Install-Skills([string]$DestSkillsDir, [string]$PlatformName) {
     Write-Host "[✓] 成功部署技能矩阵至 $PlatformName" -ForegroundColor Green
 }
 
-function Install-Commands([string]$DestCommandsDir) {
-    if (Test-Path $CommandsBase) {
-        Write-Host "`n[*] 正在部署 Slash 快捷指令至 : $DestCommandsDir ..." -ForegroundColor Yellow
-        if (-not (Test-Path $DestCommandsDir)) {
-            New-Item -ItemType Directory -Path $DestCommandsDir -Force | Out-Null
+function Cleanup-Legacy-Commands([string]$DestCommandsDir) {
+    if (Test-Path $DestCommandsDir) {
+        # 清理旧的裸命令，避免在 Claude 中与 skill 重复
+        $legacyCommands = @("resume.md", "style.md", "polish.md", "cv.md", "interview.md")
+        foreach ($cmd in $legacyCommands) {
+            $cmdPath = Join-Path $DestCommandsDir $cmd
+            if (Test-Path $cmdPath) {
+                Remove-Item -Path $cmdPath -Force -ErrorAction SilentlyContinue
+            }
         }
-        Copy-Item -Path (Join-Path $CommandsBase "*") -Destination $DestCommandsDir -Recurse -Force
-        Write-Host "[✓] 成功安装快捷指令: /resume, /style, /polish, /cv, /interview" -ForegroundColor Green
     }
 }
 
@@ -74,7 +83,7 @@ if ($Target -eq "Claude" -or $Target -eq "All") {
     $ClaudeSkills = Join-Path $HomeDir ".claude\skills"
     $ClaudeCommands = Join-Path $HomeDir ".claude\commands"
     Install-Skills -DestSkillsDir $ClaudeSkills -PlatformName "Claude Code 全局"
-    Install-Commands -DestCommandsDir $ClaudeCommands
+    Cleanup-Legacy-Commands -DestCommandsDir $ClaudeCommands
 }
 
 if ($Target -eq "Agents" -or $Target -eq "All") {
@@ -98,11 +107,11 @@ if ($Target -eq "Local") {
 }
 
 Write-Host "`n====================================================" -ForegroundColor Cyan
-Write-Host "  ✨ 技能矩阵与 Slash 命令部署完成！" -ForegroundColor Cyan
-Write-Host "  可用快捷指令与技能：" -ForegroundColor Cyan
-Write-Host "    - /resume    -> 唤起 career-ops (全流程定制与追踪)" -ForegroundColor White
-Write-Host "    - /style     -> 唤起 resume-style (UI/CSS 换色与排版调优)" -ForegroundColor White
-Write-Host "    - /polish    -> 唤起 resume-polish (Google XYZ 战果量化改写)" -ForegroundColor White
-Write-Host "    - /cv        -> 唤起 academic-cv (海外高校硕博学术 CV)" -ForegroundColor White
-Write-Host "    - /interview -> 唤起 mock-interview (四级提示模拟面试攻防)" -ForegroundColor White
+Write-Host "  ✨ CareerOps 技能矩阵部署完成 (唯一命名空间)！" -ForegroundColor Cyan
+Write-Host "  可用原生 Slash 快捷指令：" -ForegroundColor Cyan
+Write-Host "    - /career-ops        -> 全流程求职与学术规划总指挥" -ForegroundColor White
+Write-Host "    - /career-style      -> 简历 UI 视觉排版调优 (文字绝对锁定)" -ForegroundColor White
+Write-Host "    - /career-polish     -> Google XYZ 战果量化改写 (排版绝对锁定)" -ForegroundColor White
+Write-Host "    - /career-cv         -> 出国留学海外硕博学术 CV (Harvard 规范)" -ForegroundColor White
+Write-Host "    - /career-interview  -> 四级渐进式模拟面试攻防与复盘" -ForegroundColor White
 Write-Host "====================================================" -ForegroundColor Cyan

@@ -21,11 +21,11 @@
       "Write"
     ],
     "defaultPrompt": [
-      "/resume - 全流程定制岗位简历与投递追踪",
-      "/style - 调整简历视觉配色与单页排版适配",
-      "/polish - 基于 Google XYZ 战果量化改写",
-      "/cv - 出国留学与海外硕博学术 CV 生成",
-      "/interview - 四级提示交互式模拟面试攻防"
+      "/career-ops - 全流程定制岗位简历与投递追踪",
+      "/career-style - 调整简历视觉配色与单页排版适配",
+      "/career-polish - 基于 Google XYZ 战果量化改写",
+      "/career-cv - 出国留学与海外硕博学术 CV 生成",
+      "/career-interview - 四级提示交互式模拟面试攻防"
     ]
   }
 }

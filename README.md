@@ -52,10 +52,10 @@ chmod +x install.sh
 CareerOps/
 ├── README.md                           <-- [项目门面] 完整说明、安装指南与 Prompt 速查
 ├── LICENSE                             <-- [开源协议] MIT License
-├── install.sh / install.ps1            <-- [跨平台安装器] 一键部署全套技能矩阵与 Slash 命令
+├── install.sh / install.ps1            <-- [跨平台安装器] 一键部署全套技能矩阵至各大 Agent
 ├── docs/                               <-- [工程设计文档] (仅存仓库，不分发给用户环境)
 ├── .claude-plugin/                     <-- 🌟 [Claude Code 官方插件清单]
-│   ├── plugin.json                     <--   遵循 Anthropic 官方 schema
+│   ├── plugin.json                     <--   遵循 Anthropic 官方 schema，注册 5 大技能
 │   └── marketplace.json                <--   插件市场分发清单
 ├── .codex-plugin/                      <-- 🌟 [OpenAI Codex 官方插件清单]
 │   └── plugin.json                     <--   声明 skills 路径与 defaultPrompt
@@ -63,19 +63,12 @@ CareerOps/
 ├── plugin.json                         <-- 🌟 [通用插件规范入口]
 ├── .cursorrules                        <-- 🌟 [Cursor / Windsurf 快捷规则]
 │
-├── .claude/commands/                   <-- ⚡ [Slash 快捷命令集]
-│   ├── resume.md                       <--   /resume    -> 全流程简历定制与投递追踪
-│   ├── style.md                        <--   /style     -> UI 排版与调色 (内容绝对锁定)
-│   ├── polish.md                       <--   /polish    -> Google XYZ 战果改写 (样式绝对锁定)
-│   ├── cv.md                           <--   /cv        -> 出国留学 Harvard/MIT 学术 CV
-│   └── interview.md                    <--   /interview -> 四级提示交互式模拟面试
-│
-└── skills/                             <-- 🌟 [Multi-Skills 纯净发布包]
-    ├── career-ops/                     <--   [全局求职总指挥] 全生命周期编排、JD 评估与看板追踪
-    ├── resume-style/                   <--   [UI 排版工匠] 5套 HTML 骨架、调色换肤、单页高度压缩
-    ├── resume-polish/                  <--   [内容深度主编] Google XYZ/HBS PAR 量化、代码亮点提炼、事实核查
-    ├── academic-cv/                    <--   [留学学术军师] 海外硕博申学、顶会引用 (CVPR/ICLR)、Harvard 规范
-    └── mock-interview/                 <--   [面试攻防专家] STAR 故事库、底层技术攻防深挖与四级模拟
+└── skills/                             <-- 🌟 [Multi-Skills 统一命名空间技能矩阵]
+    ├── career-ops/                     <--   [/career-ops] 全生命周期求职总指挥、代码探测、JD 评估与看板
+    ├── career-style/                   <--   [/career-style] UI 排版工匠：5套骨架、调色换肤、单页高度压缩
+    ├── career-polish/                  <--   [/career-polish] 内容深度主编：Google XYZ/HBS 量化改写、事实追溯
+    ├── career-cv/                      <--   [/career-cv] 留学学术军师：海外硕博申学、顶会引用、Harvard 规范
+    └── career-interview/               <--   [/career-interview] 面试攻防专家：STAR 故事库、底层深挖与四级模拟
 ```
 
 ---
@@ -127,13 +120,13 @@ python skills/career-ops/scripts/inspect_repo.py "<你的项目代码路径>" --
 
 无论在任何 Agent CLI（Claude Code, Codex, Antigravity, Cursor）中，使用 Slash 指令或自然语言即可唤起对应工作流：
 
-| 快捷命令 | 用户诉求与示例话术 | 对应专精工作流 | 核心动作与特色 |
+| 快捷指令 | 用户诉求与示例话术 | 对应专精技能 | 核心动作与特色 |
 |---|---|---|---|
-| **`/resume`** | “这是我的简历和 JD，全流程定制一份交付包” | **career-ops** | 全生命周期总控，代码探测、JD评估、乐高组装与看板追踪 |
-| **`/style`** | “换成墨绿色 / 标题居中 / 单页排不下压缩进一页” | **resume-style** | **文字绝对锁定**，仅调 HTML/CSS 骨架、调色与 85%~95% 填充率 |
-| **`/polish`** | “帮我把这段经历改成 Google XYZ / 强化动词” | **resume-polish** | **排版绝对锁定**，Google XYZ/HBS PAR 量化改写与事实预检 |
-| **`/cv`** | “申请海外 CS 博士 / 做一份 Harvard 规范学术 CV” | **academic-cv** | 零商业套话，强调 Advisor、Publications、Grants，严格 2 页 |
-| **`/interview`**| “针对岗位和我的经历进行模拟面试 / 面试复盘” | **mock-interview**| 四级渐进式提示模拟面试（破冰 $\rightarrow$ 追问 $\rightarrow$ 极限制约 $\rightarrow$ 满分范式）|
+| **`/career-ops`** | “这是我的简历和 JD，全流程定制一份交付包” | **career-ops** | 全生命周期总控，代码探测、JD评估、乐高组装与看板追踪 |
+| **`/career-style`** | “换成墨绿色 / 标题居中 / 单页排不下压缩进一页” | **career-style** | **文字绝对锁定**，仅调 HTML/CSS 骨架、调色与 85%~95% 填充率 |
+| **`/career-polish`** | “帮我把这段经历改成 Google XYZ / 强化动词” | **career-polish** | **排版绝对锁定**，Google XYZ/HBS PAR 量化改写与事实预检 |
+| **`/career-cv`** | “申请海外 CS 博士 / 做一份 Harvard 规范学术 CV” | **career-cv** | 零商业套话，强调 Advisor、Publications、Grants，严格 2 页 |
+| **`/career-interview`**| “针对岗位和我的经历进行模拟面试 / 面试复盘” | **career-interview**| 四级渐进式提示模拟面试（破冰 $\rightarrow$ 追问 $\rightarrow$ 极限制约 $\rightarrow$ 满分范式）|
 | *(脚本)* | “帮我初始化求职工作区 / 创建求职目录” | **init-workspace** | 运行 `init_workspace.py` 生成标准工作区骨架 |
 
 ---

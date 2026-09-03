@@ -1,9 +1,9 @@
 ---
-name: resume-polish
-description: 专注简历经历深度润色、Google XYZ / HBS PAR 战果量化改写、动词增强、ATS 关键词自然注入、真实代码证据提炼以及事实追溯预检。样式绝对锁定：绝不修改 HTML/CSS 结构与配色。触发词：优化简历内容、润色 Bullet、改写为 Google XYZ、提取强动词、核对数据真实性、ATS 关键词注入，或快捷指令 /polish。
+name: career-polish
+description: 专注简历经历深度润色、Google XYZ / HBS PAR 战果量化改写、动词增强、ATS 关键词自然注入、真实代码证据提炼以及事实追溯预检。样式绝对锁定：绝不修改 HTML/CSS 结构与配色。触发词：优化简历内容、润色 Bullet、改写为 Google XYZ、提取强动词、核对数据真实性、ATS 关键词注入，或快捷指令 /career-polish。
 ---
 
-# resume-polish — 简历内容精修与战果量化主编技能
+# career-polish — 简历内容精修与战果量化主编技能
 
 > **核心铁律 1：排版样式绝对锁定 (Style-Lock)**！  
 > 本技能专注于简历的文字表述深度与业务说服力，**严禁修改 HTML/CSS 布局、颜色或标签结构**。  
@@ -15,7 +15,7 @@ description: 专注简历经历深度润色、Google XYZ / HBS PAR 战果量化�
 ## 一、 适用场景与快捷指令
 
 - 用户说：“帮我润色这段项目经历 / 改写成 Google XYZ 格式 / 强化动词 / 看看这段话怎么写更有说服力 / 提取代码库亮点写进简历”
-- 用户输入 Slash 指令：`/polish` 或 `/polish-bullet`
+- 用户输入 Slash 指令：`/career-polish`
 
 ---
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ==============================================================================
 # CareerOps — 全能型 AI 原生求职与学术 CV 工作流系统
-# Multi-Skills 矩阵与 Slash 快捷命令跨平台一键安装器 (Linux/macOS)
+# Multi-Skills 矩阵跨平台一键安装器 (Linux/macOS)
 # ==============================================================================
 
 set -euo pipefail
@@ -16,7 +16,6 @@ echo -e "\033[36m  跨 Harness 一键安装器 (Linux/macOS)\033[0m"
 echo -e "\033[36m====================================================\033[0m"
 
 SKILLS_BASE="${SCRIPT_DIR}/skills"
-COMMANDS_BASE="${SCRIPT_DIR}/.claude/commands"
 
 install_skills() {
     local dest_skills_dir="$1"
@@ -25,37 +24,49 @@ install_skills() {
     echo -e "\n\033[33m[*] 正在部署技能矩阵至 ${platform_name} : ${dest_skills_dir} ...\033[0m"
     mkdir -p "${dest_skills_dir}"
 
-    for skill_dir in "${SKILLS_BASE}"/*; do
-        if [ -d "${skill_dir}" ]; then
-            skill_name="$(basename "${skill_dir}")"
-            mkdir -p "${dest_skills_dir}/${skill_name}"
-            cp -R "${skill_dir}/"* "${dest_skills_dir}/${skill_name}/"
+    # 清理旧命名空间残留以避免命令重复
+    local legacy_skills=("job-finding" "resume-style" "resume-polish" "academic-cv" "mock-interview")
+    for leg in "${legacy_skills[@]}"; do
+        if [ -d "${dest_skills_dir}/${leg}" ]; then
+            rm -rf "${dest_skills_dir}/${leg}"
+        fi
+    done
+
+    for skill_path in "${SKILLS_BASE}"/*; do
+        if [ -d "${skill_path}" ]; then
+            local skill_name
+            skill_name=$(basename "${skill_path}")
+            local target_dir="${dest_skills_dir}/${skill_name}"
+            mkdir -p "${target_dir}"
+            cp -r "${skill_path}/"* "${target_dir}/"
             echo -e "  \033[32m[+] 成功安装技能: ${skill_name}\033[0m"
         fi
     done
     echo -e "\033[32m[✓] 成功部署技能矩阵至 ${platform_name}\033[0m"
 }
 
-install_commands() {
+cleanup_legacy_commands() {
     local dest_commands_dir="$1"
-    if [ -d "${COMMANDS_BASE}" ]; then
-        echo -e "\n\033[33m[*] 正在部署 Slash 快捷指令至 : ${dest_commands_dir} ...\033[0m"
-        mkdir -p "${dest_commands_dir}"
-        cp -R "${COMMANDS_BASE}/"* "${dest_commands_dir}/"
-        echo -e "\033[32m[✓] 成功安装快捷指令: /resume, /style, /polish, /cv, /interview\033[0m"
+    if [ -d "${dest_commands_dir}" ]; then
+        local legacy_cmds=("resume.md" "style.md" "polish.md" "cv.md" "interview.md")
+        for cmd in "${legacy_cmds[@]}"; do
+            if [ -f "${dest_commands_dir}/${cmd}" ]; then
+                rm -f "${dest_commands_dir}/${cmd}"
+            fi
+        done
     fi
 }
 
-if [ -n "$CUSTOM_PATH" ]; then
-    install_skills "$CUSTOM_PATH" "自定义目录"
+if [ -n "${CUSTOM_PATH}" ]; then
+    install_skills "${CUSTOM_PATH}" "自定义目录"
     exit 0
 fi
 
-USER_HOME="$HOME"
+USER_HOME="${HOME}"
 
 if [ "$TARGET" = "claude" ] || [ "$TARGET" = "all" ]; then
     install_skills "${USER_HOME}/.claude/skills" "Claude Code 全局"
-    install_commands "${USER_HOME}/.claude/commands"
+    cleanup_legacy_commands "${USER_HOME}/.claude/commands"
 fi
 
 if [ "$TARGET" = "agents" ] || [ "$TARGET" = "all" ]; then
@@ -75,11 +86,11 @@ if [ "$TARGET" = "local" ]; then
 fi
 
 echo -e "\n\033[36m====================================================\033[0m"
-echo -e "\033[36m  ✨ 技能矩阵与 Slash 命令部署完成！\033[0m"
-echo -e "\033[36m  可用快捷指令与技能：\033[0m"
-echo -e "    - \033[37m/resume    -> 唤起 career-ops (全流程定制与追踪)\033[0m
-    - \033[37m/style     -> 唤起 resume-style (UI/CSS 换色与排版调优)\033[0m
-    - \033[37m/polish    -> 唤起 resume-polish (Google XYZ 战果量化改写)\033[0m
-    - \033[37m/cv        -> 唤起 academic-cv (海外高校硕博学术 CV)\033[0m
-    - \033[37m/interview -> 唤起 mock-interview (四级提示模拟面试攻防)\033[0m"
+echo -e "\033[36m  ✨ CareerOps 技能矩阵部署完成 (唯一命名空间)！\033[0m"
+echo -e "\033[36m  可用原生 Slash 快捷指令：\033[0m"
+echo -e "    - \033[37m/career-ops        -> 全流程求职与学术规划总指挥\033[0m"
+echo -e "    - \033[37m/career-style      -> 简历 UI 视觉排版调优 (文字绝对锁定)\033[0m"
+echo -e "    - \033[37m/career-polish     -> Google XYZ 战果量化改写 (排版绝对锁定)\033[0m"
+echo -e "    - \033[37m/career-cv         -> 出国留学海外硕博学术 CV (Harvard 规范)\033[0m"
+echo -e "    - \033[37m/career-interview  -> 四级渐进式模拟面试攻防与复盘\033[0m"
 echo -e "\033[36m====================================================\033[0m"

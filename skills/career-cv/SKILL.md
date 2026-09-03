@@ -1,9 +1,9 @@
 ---
-name: academic-cv
-description: 专注留学生出国申请、海外高校硕博申请 (Ph.D./Master) 学术 CV 生成与排版。遵循 Harvard/MIT 官方规范，严格 2 页布局，强化导师指导、顶会顶刊论文引用 (CVPR/ICLR/ACL)、科研立项与教学助教经历。触发词：出国留学、申请国外大学、CS/理工科/商科申博申硕、做一份学术 CV、学术论文排版、Harvard/MIT CV 规范，或快捷指令 /cv。
+name: career-cv
+description: 专注留学生出国申请、海外高校硕博申请 (Ph.D./Master) 学术 CV 生成与排版。遵循 Harvard/MIT 官方规范，严格 2 页布局，强化导师指导、顶会顶刊论文引用 (CVPR/ICLR/ACL)、科研立项与教学助教经历。触发词：出国留学、申请国外大学、CS/理工科/商科申博申硕、做一份学术 CV、学术论文排版、Harvard/MIT CV 规范，或快捷指令 /career-cv。
 ---
 
-# academic-cv — 出国留学与海外硕博申请学术 CV 专精技能
+# career-cv — 出国留学与海外硕博申请学术 CV 专精技能
 
 > **核心原则：学术纯粹性与国际接轨**！  
 > 学术简历（Curriculum Vitae, CV）与工业界求职简历有着本质区别：  
@@ -15,7 +15,7 @@ description: 专注留学生出国申请、海外高校硕博申请 (Ph.D./Maste
 ## 一、 适用场景与快捷指令
 
 - 用户说：“我要申请美国/欧洲/新加坡的 CS 博士，帮我做一份 CV / 申硕申请材料 / 整理学术论文列表 / 按照 Harvard 格式排版”
-- 用户输入 Slash 指令：`/cv` 或 `/academic-cv`
+- 用户输入 Slash 指令：`/career-cv`
 
 ---
 
