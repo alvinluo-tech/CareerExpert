@@ -62,14 +62,78 @@ description: 专注求职者简历深度通盘掌握、经历软肋排雷、代�
 python skills/career-ops/scripts/inspect_repo.py <代码路径> --out profile/projects/<项目名>.md
 ```
 
-### 第 3 步：组织六维核心深度内容 (6-Pillar Deep Content Generation)
-根据简历与代码证据，生成结构化 JSON 数据（包含六大核心模块）：
-1. **模块 1：高危软肋与考官潜台词诊断 (Vulnerabilities & Traps)**
-2. **模块 2：系统全局架构拓扑与全链路流转 (Architecture & Dataflow)**
-3. **模块 3：核心源码级实现与底层原理 (Code Grounding & Implementation)**
-4. **模块 4：压测真实性数学推导与硬核账本 (Math Metrics & Bandwidth Grounding)**
-5. **模块 5：高段位架构师思考模型与答辩思路 (Mental Models & Storytelling)**
-6. **模块 6：大厂连环拷打攻防与红绿榜对比 (Deep-Dive QA & Red/Green Comparison)**
+### 第 3 步：组织六维核心深度内容与标准 JSON Schema
+Agent 必须将分析结果按以下标准 JSON Schema 写入临时数据文件 `applications/coach/<候选人>-guide-data.json`（字段名必须严格匹配）：
+
+```json
+{
+  "title": "候选人姓名 —《项目/技术栈名称》技术通盘掌握与大厂答辩军师手册",
+  "candidate_name": "候选人姓名",
+  "target_role": "目标公司与岗位（如：字节跳动·中间件专家）",
+  "project_name": "核心项目名称",
+  "gen_date": "YYYY-MM-DD",
+  "key_metrics": [
+    { "val": "18.5万 QPS", "lbl": "单机极限吞吐" },
+    { "val": "4.2 ms", "lbl": "P99 核心延迟" },
+    { "val": "42%", "lbl": "内存开销降幅" },
+    { "val": "8,000+ 行", "lbl": "自研精炼内核" }
+  ],
+  "vulnerabilities": [
+    {
+      "title": "排雷要点标题",
+      "severity": "P0 极高危 或 P1 重点深挖",
+      "quote": "简历中的原始句子",
+      "subtext": "资深面试官的审查视角与连环深挖潜台词",
+      "mitigation": "主动第一句话定场景的防守策略"
+    }
+  ],
+  "architecture": {
+    "overview": "系统整体架构选型理念与分层设计说明",
+    "diagram": "+---+ ASCII 架构白板流转拓扑 +---+",
+    "flow_steps": [
+      { "name": "1. 阶段名称", "desc": "数据流转与协议处理机制" }
+    ]
+  },
+  "code_grounding": [
+    {
+      "title": "技术机制标题 (如 Cache Line 伪共享治理)",
+      "language": "Go / Java / C++ / Python",
+      "snippet": "// 关键核心源码实现片段",
+      "explanation": "底层硬件体系结构或系统调用原理解析",
+      "takeaways": [
+        "面试回答得分亮点 1",
+        "避坑禁忌 2"
+      ]
+    }
+  ],
+  "math_metrics": [
+    {
+      "title": "算账推导标题 (如单机网卡带宽占满核算)",
+      "formula": "具体数学计算公式 (如 QPS × Payload = 带宽)",
+      "breakdown": "参数详细拆解与各物理硬件占用率",
+      "conclusion": "面试官质询时的终结答辩话术"
+    }
+  ],
+  "mental_models": [
+    {
+      "title": "思考模型名称 (如 STAR-T 高段位答辩模型)",
+      "tagline": "模型口诀 (如 定边界 ➔ 说权衡 ➔ 提局限 ➔ 演进路线)",
+      "steps": [
+        { "name": "1. 步骤名称", "desc": "具体答题思路引导与表达示范" }
+      ]
+    }
+  ],
+  "deep_dive_qa": [
+    {
+      "question": "Q1（深挖真实性）：考官的连环杀手级提问？",
+      "intent": "考官真实考察目的与底牌探测意图",
+      "red_flag": "常见翻车外行回答 (一票否决扣分项)",
+      "green_flag": "资深架构师大将之风破局思路 (加分项)",
+      "master_script": "<b>第一步</b>：口述示范；<br><b>第二步</b>：推导与突破..."
+    }
+  ]
+}
+```
 
 ---
 
@@ -91,7 +155,7 @@ python skills/career-ops/scripts/inspect_repo.py <代码路径> --out profile/pr
    - 检验推荐回答是否经得起连续 3 轮反问，是否存在自相矛盾或无法解释的逻辑漏洞。
 
 #### 审查状态放行门禁：
-- 若发现任何一处技术硬伤或捏造：必须**立即打回修正**；
+- 若发现任何一处技术硬伤或捏造：必须**立即打回修正数据文件**；
 - 只有当审查报告正式输出：  
   `[AUDIT: PASSED · 0 Hallucinations · 0 Technical Inaccuracies]`  
   方可进入下一步进行 HTML 编译！
@@ -99,13 +163,14 @@ python skills/career-ops/scripts/inspect_repo.py <代码路径> --out profile/pr
 ---
 
 ### 第 5 步：编译高质感全景 HTML 手册并自动唤起系统浏览器
-运行确定性编译脚本，生成自包含 HTML，并通过 `--open` 参数在默认浏览器中即刻弹出：
+运行确定性编译脚本，生成自包含 HTML。**必须带上 `--open` 参数**，以便系统自动调用用户默认浏览器弹出展示：
 ```bash
-python skills/career-coach/scripts/render_guide.py <数据.json> \
+python skills/career-coach/scripts/render_guide.py \
+  applications/coach/<候选人>-guide-data.json \
   --out applications/coach/<候选人>-mastery-guide.html \
   --open
 ```
-同时保存对应的 Markdown 副本 `applications/coach/<候选人>-mastery-guide.md` 便于 Git 留痕。
+同时将数据同步保存为 Markdown 副本 `applications/coach/<候选人>-mastery-guide.md` 便于 Git 留痕。
 
 ---
 
