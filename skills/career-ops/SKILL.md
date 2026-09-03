@@ -20,8 +20,9 @@ description: 全能型求职全生命周期总指挥技能。提供全格式简�
    - **社招**：实战战果置顶，量化业务指标驱动；
    - **校招**：学术基础与名校科班置顶，严格 1 页；
    - **出国留学申请 (Grad School Academic CV)**：遵循 Harvard / MIT 学术标准，2~3 页篇幅，研究方向、顶会论文 (IEEE 悬挂缩进)、导师课题组与科研学术血统贯穿。
-5. **乐高式顺心自定义（告别单一死板模板）**：
-   - 涵盖 5 大生产级骨架（`v3-classic-rule` 经典专业、`v4-modern-pill` 现代科技、`v5-executive-center` 卓越居中、`v6-minimal-clean` 极简留白、`v7-academic-cv` 学术双页）；
+5. **乐高式顺心自定义与照片支持（告别单一死板模板）**：
+   - 涵盖 6 大生产级骨架（`v3-classic-rule` 经典专业、`v4-modern-pill` 现代科技、`v5-executive-center` 卓越居中、`v6-minimal-clean` 极简留白、`v7-academic-cv` 学术双页、`v8-sidebar-split` 双栏侧栏风尚款）；
+   - 支持证件照/职业形象照自由配置（右上、左上、顶部居中、侧边栏嵌入，圆角/圆形/方形自由裁切）；
    - 用户自然语言自由掌控配色方案、对齐方式、模块排版顺序。
 
 ---

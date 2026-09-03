@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<!-- 
+  样例 F：出海高级商业产品专家 · 苏若涵 (TikTok 海外电商支付定制版)
+  模板骨架：v8-sidebar-split (双栏侧边栏风尚款)
+  调色盘：Sapphire Blue (商务海蓝 #1d4ed8 + 浅灰侧栏 #f8fafc)
+  照片：左侧边栏高保真干练职业形象照 (SVG 矢量高清)
+  高度控制：严格 A4 单页，填充率 88%~91% 黄金比例
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>苏若涵 — 个人简历 (资深出海支付产品专家)</title>
+<style>
+  :root {
+    --accent: #1d4ed8;          /* 商务明海蓝 */
+    --accent-light: #eff6ff;    /* 极淡底色 */
+    --accent-border: #bfdbfe;
+    --sidebar-bg: #f8fafc;      /* 侧栏浅底色 */
+    --sidebar-border: #cbd5e1;  /* 侧栏分割线 */
+    --ink: #0f172a;             /* 极深墨黑 */
+    --muted: #475569;           /* 辅助深灰 */
+    --rule: #e2e8f0;            /* 分割线 */
+    --fs-main: 9.6pt;           /* 主栏正文字号 */
+    --fs-side: 9pt;             /* 侧栏正文字号 */
+    --lh: 1.45;                 /* 行距 */
+    --sec-gap: 9pt;             /* 节间距 */
+  }
+
+  @page {
+    size: A4;
+    margin: 1.2cm 1.3cm;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    color: var(--ink);
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .resume-layout {
+    display: flex;
+    gap: 16pt;
+    width: 100%;
+  }
+
+  /* 左侧边栏 (约 31%) */
+  .sidebar {
+    width: 148pt;
+    flex-shrink: 0;
+    padding-right: 12pt;
+    border-right: 1.5pt solid var(--sidebar-border);
+  }
+
+  .photo-box {
+    text-align: center;
+    margin-bottom: 9pt;
+  }
+  .photo-box img {
+    width: 82pt;
+    height: 109pt;
+    object-fit: cover;
+    border-radius: 4pt;
+    border: 1.5pt solid var(--rule);
+    box-shadow: 0 1.5pt 4pt rgba(0,0,0,0.06);
+  }
+
+  .side-sec-title {
+    font-size: 9.6pt;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin: 7.5pt 0 3.5pt;
+    padding-bottom: 2pt;
+    border-bottom: 1pt solid var(--rule);
+  }
+
+  .side-info-list {
+    list-style: none;
+    font-size: var(--fs-side);
+    color: var(--muted);
+    line-height: 1.45;
+  }
+  .side-info-list li {
+    margin-bottom: 2.5pt;
+    word-break: break-word;
+  }
+  .side-info-list b {
+    color: var(--ink);
+    display: block;
+    font-size: 8.8pt;
+  }
+
+  .skill-pill {
+    display: inline-block;
+    padding: 1.5pt 4.5pt;
+    background: var(--accent-light);
+    color: var(--accent);
+    border: 0.8pt solid var(--accent-border);
+    border-radius: 3pt;
+    font-size: 8.3pt;
+    font-weight: 600;
+    margin: 0 1.5pt 3pt 0;
+  }
+
+  /* 右侧主干经历栏 (约 69%) */
+  .main-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .main-header {
+    margin-bottom: 7.5pt;
+    padding-bottom: 5pt;
+    border-bottom: 2pt solid var(--accent);
+  }
+  .main-header h1 {
+    font-size: 21pt;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: 1.2px;
+    line-height: 1.15;
+  }
+  .main-header .tagline {
+    font-size: 9.8pt;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 2.5pt;
+  }
+
+  h2.main-sec-title {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.8px;
+    margin: var(--sec-gap) 0 4.5pt;
+    padding-bottom: 2pt;
+    border-bottom: 1pt solid var(--rule);
+  }
+
+  .item-header {
+    margin: 5pt 0 1.5pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 9.8pt;
+  }
+  .item-title { font-weight: 700; color: var(--ink); }
+  .item-role { font-weight: 600; color: var(--accent); margin-left: 4pt; font-size: 9.3pt; }
+  .item-date { font-size: 8.8pt; color: var(--muted); font-weight: 500; }
+
+  ul.bullets {
+    padding-left: 12pt;
+    margin-bottom: 3.5pt;
+    font-size: var(--fs-main);
+    line-height: var(--lh);
+  }
+  ul.bullets li {
+    margin-bottom: 2.2pt;
+    text-align: justify;
+  }
+  p.summary {
+    font-size: var(--fs-main);
+    line-height: var(--lh);
+    text-align: justify;
+    margin-bottom: 3pt;
+  }
+</style>
+</head>
+<body>
+
+<div class="resume-layout">
+  <!-- 左侧边栏 (照片、基本信息、教育、技能、资质语言) -->
+  <aside class="sidebar">
+    <div class="photo-box">
+      <img src="../profile/photo.svg" alt="苏若涵 证件形象照" />
+    </div>
+
+    <div class="side-sec-title">基本信息</div>
+    <ul class="side-info-list">
+      <li><b>居住城市</b>上海 / 新加坡 (接受跨国调遣)</li>
+      <li><b>联系电话</b>136****8899</li>
+      <li><b>电子邮箱</b>ruohan.su@example.com</li>
+      <li><b>求职意向</b>海外电商支付高级产品专家</li>
+      <li><b>工作年限</b>5 年出海商业产品经验</li>
+    </ul>
+
+    <div class="side-sec-title">教育背景</div>
+    <div style="font-size: 8.8pt; line-height: 1.4; color: var(--muted); margin-bottom: 4.5pt;">
+      <b style="color: var(--ink); font-size: 9.1pt;">伦敦政治经济学院 (LSE)</b>
+      信息系统与数字化创新 · 硕士<br>
+      <span style="font-size: 8.3pt;">2020.09 ~ 2021.11 · 一等优秀学位</span>
+    </div>
+    <div style="font-size: 8.8pt; line-height: 1.4; color: var(--muted); margin-bottom: 4.5pt;">
+      <b style="color: var(--ink); font-size: 9.1pt;">复旦大学</b>
+      软件工程专业 · 工学学士<br>
+      <span style="font-size: 8.3pt;">2016.09 ~ 2020.06 · 校级优秀毕业生</span>
+    </div>
+
+    <div class="side-sec-title">核心专业技能</div>
+    <div style="margin-top: 2.5pt;">
+      <span class="skill-pill">跨境支付中台</span>
+      <span class="skill-pill">智能动态路由</span>
+      <span class="skill-pill">多币种清结算</span>
+      <span class="skill-pill">本地电子钱包</span>
+      <span class="skill-pill">BNPL先享后付</span>
+      <span class="skill-pill">实时反洗钱/风控</span>
+      <span class="skill-pill">收银台漏斗转化</span>
+      <span class="skill-pill">PCI-DSS / GDPR</span>
+    </div>
+
+    <div class="side-sec-title">语言与专业认证</div>
+    <ul class="side-info-list" style="font-size: 8.5pt;">
+      <li><b>英语能力</b>雅思 8.0 (工作母语，全英文主持跨国研发推进)</li>
+      <li><b>专业资质</b>PCI-DSS 认证、PMP 国际项目管理师</li>
+      <li><b>荣誉奖项</b>Shopee 年度卓越产品创新奖 (2024)</li>
+    </ul>
+  </aside>
+
+  <!-- 右侧主干经历栏 -->
+  <main class="main-content">
+    <header class="main-header">
+      <h1>苏若涵</h1>
+      <div class="tagline">5 年出海商业产品专家 · 跨境收单 / 智能动态路由 / 实时风控结算中台</div>
+    </header>
+
+    <section>
+      <h2 class="main-sec-title">职业概述与核心竞争力</h2>
+      <p class="summary">
+        5 年全球化互联网与跨境电商支付平台产品经验，深谙东南亚、欧美及拉美海外本地化支付与合规生态。曾主导千万美元级跨境收单网关与动态路由算法落地，实现跨境支付平均成功率提升 12.3%、年化通道手续费节省 380 万美元，精通 PCI-DSS 安全合规与流式反欺诈体系建设，带领跨文化敏捷团队高质量交付多款海外核心商业化系统。
+      </p>
+    </section>
+
+    <section>
+      <h2 class="main-sec-title">核心工作经历</h2>
+
+      <div class="item-header">
+        <div><span class="item-title">Shopee 跨境电商业务部</span><span class="item-role">· 资深商业支付产品专家</span></div>
+        <span class="item-date">2023.08 ~ 至今</span>
+      </div>
+      <ul class="bullets">
+        <li><b>跨境聚合支付中台重构</b>：主导东南亚六国统一支付网关架构演进，深度聚合本地钱包（GrabPay、DANA、GCash、PromptPay）及国际卡收单通道，承载日均跨境交易峰值逾 <b>4,500 万美元</b>。</li>
+        <li><b>智能自适应动态路由引擎</b>：设计基于实时通道可用率、费率差及发卡行 BIN 码的多维自适应路由调度算法，将全站跨境平均支付成功率由 76.2% 提升至 88.5% (<b>提升 12.3%</b>)，年化直接为平台节约手续费 <b>380 万美元</b>。</li>
+        <li><b>全球反欺诈与拒付治理</b>：搭建事前发卡行 3DS 智能验证与事中实时特征风控流，将海外信用卡 Chargeback 拒付率有效压降至 <b>0.32%</b>，显著优于国际卡组织 0.9% 监控红线。</li>
+        <li><b>跨境汇率与多币种外汇管理</b>：协同离岸财资团队落地实时动态外汇锁汇（FX Hedging）机制，有效对冲新兴市场汇率暴跌风险，年度汇兑风险敞口敞降 85%。</li>
+      </ul>
+
+      <div class="item-header">
+        <div><span class="item-title">字节跳动 (TikTok E-Commerce)</span><span class="item-role">· 全球支付与资金结算产品经理</span></div>
+        <span class="item-date">2021.12 ~ 2023.07</span>
+      </div>
+      <ul class="bullets">
+        <li><b>全球跨币种资金分账与结算</b>：主导 TikTok Shop 英国及东南亚商家自动化清结算与分账规则设计，支持 8 种主流法定货币与商家境内外多银行账户准实时对账，结算差错率压降至十万分之一。</li>
+        <li><b>收银台结账体验与转化提升</b>：重构买家一键结账（Checkout Flow）链路，推进 BNPL 先享后付（Klarna/Atome）深度集成，买家结账流失率下降 18.5%，收银台整体结账转化率<b>提升 14.8%</b>。</li>
+        <li><b>跨国研发团队管理与高质量交付</b>：带领 12 人跨国敏捷研发与境外通道协同团队，连续 6 个季度达成核心产品版本 98% 按期保质交付率。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="main-sec-title">核心标杆项目</h2>
+
+      <div class="item-header">
+        <div><span class="item-title">全链路自适应智能支付路由调度平台</span><span class="item-role">项目主导人</span></div>
+        <span class="item-date">2024.01 ~ 2024.08</span>
+      </div>
+      <ul class="bullets">
+        <li>针对跨国通道故障频发难题，设计双通道秒级健康度探测与断路器熔断机制，在通道突发故障时实现 500ms 内零人工介入平滑切流，保障 99.99% 收银台高可用性。</li>
+      </ul>
+
+      <div class="item-header">
+        <div><span class="item-title">全球跨境电商实时防欺诈风控中台</span><span class="item-role">核心设计负责人</span></div>
+        <span class="item-date">2022.06 ~ 2023.03</span>
+      </div>
+      <ul class="bullets">
+        <li>基于设备指纹、IP 定位及黑产交易行为图谱构建出海风控准入模型，对高危盗刷交易进行毫秒级二次动态阶梯阻断，年化挽回潜在欺诈资金损失逾 120 万美元。</li>
+      </ul>
+    </section>
+  </main>
+</div>
+
+</body>
+</html>

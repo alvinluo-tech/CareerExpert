@@ -8,6 +8,8 @@
 # v4-modern-pill      : 现代科技胶囊款 (圆角标签、紧凑卡片感、科技大厂/互联网/校招)
 # v5-executive-center : 卓越居中对称款 (优雅中轴线排版、中大型企业管理岗/咨询/学术)
 # v6-minimal-clean    : 极简纯粹留白款 (去除杂线、纯字阶与间距美学、设计/产品/外企)
+# v7-academic-cv      : 学术双页款 (顶会出版物、项目与基金、Harvard/MIT 学术规范)
+# v8-sidebar-split    : 双栏侧边栏风尚款 (左侧30%侧栏+头像+技能树，右侧70%经历主干，空间利用率极高)
 archetype: v3-classic-rule
 
 # 2. 预设专业配色方案 (Theme Palette) — 选择一个或在下方 colors 自定义
@@ -29,8 +31,19 @@ colors:
   ink: "#1c2430"                # 正文主色：深灰黑，保证极佳对比度与印刷品质
   muted: "#5a6472"              # 次要辅助色：时间、地点、副标题、联系方式
   rule: "#c9d2db"               # 装饰细分割线或边框线
+  sidebar_bg: "#f8fafc"         # 双栏侧栏专属浅灰/淡色底色 (仅 v8 生效)
 
-# 4. 头部排版 (Header Layout)
+# 4. 照片自定义系统 (Photo System)
+# ⚠️ 欧美外企/技术岗盲审倡导不放照片；国企、事业单位、泛商务、管培生、涉外管理与设计岗常需照片
+photo:
+  show: false                   # 是否展示照片 (true / false)
+  path: "profile/photo.jpg"     # 照片相对路径或 URL / base64
+  position: top-right           # top-right (经典右上角证件照) | top-left (左上角头像) | top-center (顶部居中头像) | sidebar (侧边栏内头像)
+  shape: rounded                # rounded (精致微圆角 4px) | circle (现代圆形头像) | square (正方形标准直角)
+  aspect_ratio: 3-4             # 3-4 (标准1寸/小2寸比例 75pt×100pt) | 1-1 (正方形/圆形头像 70pt×70pt)
+  border: true                  # 是否带 1.5pt 微边框，避免浅色底色与纯白背景融化
+
+# 5. 头部排版 (Header Layout)
 header:
   align: left                   # left (现代干练居左) | center (优雅对称居中) | split (左右分列，左姓名右联系)
   tagline: true                 # 是否展示姓名下方的求职定位标语行 (如"全栈开发工程师 | 5年高并发经验")

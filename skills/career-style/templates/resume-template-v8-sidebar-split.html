@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!-- 
+  CareerExpert 模板骨架：v8-sidebar-split (双栏侧边栏风尚款)
+  设计理念：
+    - 左侧 32% 侧边栏：头像照片、基础属性、联系方式、核心技能树、语言证书、个人社交
+    - 右侧 68% 主干区：姓名头衔、职业定位概述、深度工作经历（带量化结果）、核心项目战果
+    - 空间利用率极高，单页容纳超大信息量，美观大方，深受外企、互联网产品经理、设计开发与泛商业岗喜爱
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>{{CANDIDATE_NAME}} — 个人简历 (双栏风尚版)</title>
+<style>
+  :root {
+    --accent: #2563eb;          /* 商务明蓝 / 科技蓝 */
+    --accent-light: #eff6ff;    /* 侧栏徽章极淡底色 */
+    --accent-border: #bfdbfe;
+    --sidebar-bg: #f8fafc;      /* 侧栏浅色底色 */
+    --sidebar-border: #e2e8f0;  /* 侧栏右分割线 */
+    --ink: #0f172a;             /* 极深墨黑正文 */
+    --muted: #475569;           /* 辅助深灰 */
+    --rule: #e2e8f0;            /* 分割线 */
+    --fs-main: 9.6pt;           /* 主栏正文字号 */
+    --fs-side: 9pt;             /* 侧栏正文字号 */
+    --lh: 1.42;                 /* 行距 */
+    --sec-gap: 8.5pt;           /* 节间距 */
+  }
+
+  @page {
+    size: A4;
+    margin: 1.2cm 1.3cm;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    color: var(--ink);
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 双栏布局网格 */
+  .resume-layout {
+    display: flex;
+    gap: 16pt;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  /* 左侧边栏 (30%~32%) */
+  .sidebar {
+    width: 145pt;
+    flex-shrink: 0;
+    padding-right: 12pt;
+    border-right: 1.5pt solid var(--sidebar-border);
+  }
+
+  /* 照片容器 */
+  .photo-box {
+    text-align: center;
+    margin-bottom: 10pt;
+  }
+  .photo-box img {
+    width: 78pt;
+    height: 104pt;             /* 标准 3:4 证件照比例 */
+    object-fit: cover;
+    border-radius: 4pt;
+    border: 1.5pt solid var(--rule);
+    box-shadow: 0 1pt 3pt rgba(0,0,0,0.05);
+  }
+  .photo-box.circle img {
+    width: 78pt;
+    height: 78pt;
+    border-radius: 50%;
+  }
+
+  /* 侧栏节标题 */
+  .side-sec-title {
+    font-size: 9.8pt;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin: 8pt 0 4pt;
+    padding-bottom: 2pt;
+    border-bottom: 1pt solid var(--rule);
+  }
+
+  .side-info-list {
+    list-style: none;
+    font-size: var(--fs-side);
+    color: var(--muted);
+    line-height: 1.45;
+  }
+  .side-info-list li {
+    margin-bottom: 3pt;
+    word-break: break-word;
+  }
+  .side-info-list b {
+    color: var(--ink);
+    display: block;
+    font-size: 8.8pt;
+  }
+
+  /* 技能药丸 */
+  .skill-pill {
+    display: inline-block;
+    padding: 1.5pt 5pt;
+    background: var(--accent-light);
+    color: var(--accent);
+    border: 0.8pt solid var(--accent-border);
+    border-radius: 3pt;
+    font-size: 8.4pt;
+    font-weight: 600;
+    margin: 0 2pt 3pt 0;
+  }
+
+  /* 右侧主干内容 (68%~70%) */
+  .main-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* 主栏头部 */
+  .main-header {
+    margin-bottom: 8pt;
+    padding-bottom: 5pt;
+    border-bottom: 2pt solid var(--accent);
+  }
+  .main-header h1 {
+    font-size: 21pt;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: 1.5px;
+    line-height: 1.15;
+  }
+  .main-header .tagline {
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 2.5pt;
+  }
+
+  /* 主栏节标题 */
+  h2.main-sec-title {
+    font-size: 10.6pt;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.8px;
+    margin: var(--sec-gap) 0 4.5pt;
+    padding-bottom: 2pt;
+    border-bottom: 1pt solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .item-header {
+    margin: 5pt 0 1.5pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 9.8pt;
+  }
+  .item-title { font-weight: 700; color: var(--ink); }
+  .item-role { font-weight: 600; color: var(--accent); margin-left: 4pt; font-size: 9.3pt; }
+  .item-date { font-size: 8.8pt; color: var(--muted); font-weight: 500; }
+
+  ul.bullets {
+    padding-left: 12pt;
+    margin-bottom: 3.5pt;
+    font-size: var(--fs-main);
+    line-height: var(--lh);
+  }
+  ul.bullets li {
+    margin-bottom: 2pt;
+    text-align: justify;
+  }
+  p.summary {
+    font-size: var(--fs-main);
+    line-height: var(--lh);
+    text-align: justify;
+    margin-bottom: 3pt;
+  }
+</style>
+</head>
+<body>
+
+<div class="resume-layout">
+  <!-- 左侧信息栏 (侧栏头像、联系方式、技能标签、资质证书) -->
+  <aside class="sidebar">
+    <!-- 照片插槽 (支持 top-right / sidebar / circle / rounded) -->
+    <div class="photo-box">
+      <img src="{{PHOTO_PATH}}" alt="{{CANDIDATE_NAME}} 证件形象照" />
+    </div>
+
+    <div class="side-sec-title">基本信息</div>
+    <ul class="side-info-list">
+      <li><b>居住城市</b>{{CANDIDATE_LOCATION}}</li>
+      <li><b>联系电话</b>{{CANDIDATE_PHONE}}</li>
+      <li><b>电子邮箱</b>{{CANDIDATE_EMAIL}}</li>
+      <li><b>求职意向</b>{{TARGET_ROLE}}</li>
+      <li><b>工作年限</b>{{YEARS_EXPERIENCE}}</li>
+    </ul>
+
+    <div class="side-sec-title">教育背景</div>
+    <div style="font-size: 8.8pt; line-height: 1.4; color: var(--muted); margin-bottom: 4pt;">
+      <b style="color: var(--ink); font-size: 9.2pt;">{{EDU_COLLEGE}}</b><br>
+      {{EDU_MAJOR}} · {{EDU_DEGREE}}<br>
+      <span style="font-size: 8.4pt;">{{EDU_DATES}}</span>
+    </div>
+
+    <div class="side-sec-title">核心专业技能</div>
+    <div style="margin-top: 3pt;">
+      {{SKILL_PILLS}}
+    </div>
+
+    <div class="side-sec-title">专业资质与语言</div>
+    <ul class="side-info-list" style="font-size: 8.6pt;">
+      {{CERTIFICATIONS_LIST}}
+    </ul>
+  </aside>
+
+  <!-- 右侧主干经历栏 -->
+  <main class="main-content">
+    <header class="main-header">
+      <h1>{{CANDIDATE_NAME}}</h1>
+      <div class="tagline">{{CANDIDATE_TAGLINE}}</div>
+    </header>
+
+    <section>
+      <h2 class="main-sec-title">职业概述与核心优势</h2>
+      <p class="summary">{{SUMMARY_CONTENT}}</p>
+    </section>
+
+    <section>
+      <h2 class="main-sec-title">工作经历 (按时间倒序)</h2>
+      {{WORK_EXPERIENCE_ITEMS}}
+    </section>
+
+    <section>
+      <h2 class="main-sec-title">核心标杆项目与战果</h2>
+      {{PROJECT_ITEMS}}
+    </section>
+  </main>
+</div>
+
+</body>
+</html>

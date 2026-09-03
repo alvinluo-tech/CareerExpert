@@ -130,9 +130,9 @@ def split_sections(text: str) -> dict:
     return {k: v.strip() for k, v in sections.items() if v.strip()}
 
 def main():
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 2 or sys.argv[1] in ("-h", "--help"):
         print(__doc__)
-        sys.exit(1)
+        sys.exit(0)
         
     target = Path(sys.argv[1])
     if not target.exists():

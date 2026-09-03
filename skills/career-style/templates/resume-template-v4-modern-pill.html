@@ -44,6 +44,30 @@
   .header-center { text-align: center; }
   .header-split { display: flex; justify-content: space-between; align-items: flex-end; }
 
+  /* 照片容器支持 (top-right, top-left, top-center) */
+  .header-with-photo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14pt;
+  }
+  .header-with-photo.photo-left { flex-direction: row-reverse; justify-content: flex-end; }
+  .header-with-photo.photo-center { flex-direction: column; text-align: center; }
+  .header-photo-box { flex-shrink: 0; text-align: center; }
+  .header-photo-box img {
+    width: 68pt;
+    height: 90pt;
+    object-fit: cover;
+    border-radius: 4pt;
+    border: 1pt solid var(--rule);
+    box-shadow: 0 1pt 3pt rgba(0,0,0,0.06);
+  }
+  .header-photo-box.circle img {
+    width: 65pt;
+    height: 65pt;
+    border-radius: 50%;
+  }
+
   h1 {
     font-size: 21pt;
     font-weight: 800;

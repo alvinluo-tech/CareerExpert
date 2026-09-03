@@ -18,26 +18,46 @@ description: 专注简历前端视觉排版、HTML/CSS 调色换肤、版面边�
 
 ---
 
-## 二、 5 大内建模版骨架与选用指南
+## 二、 6 大内建模版骨架与选用指南
 
 模板均位于 `templates/` 目录：
 
 | 模板文件名 | 风格代号 | 视觉特征 | 推荐人群与岗位 |
 |---|---|---|---|
-| `resume-template-v3-classic-pro.html` | **经典专业款 (Classic)** | 华尔街无衬线纯黑白 / 紧凑单页 / 顶部分割线 | 金融投行、战略咨询、财会风控、传统国央企 |
-| `resume-template-v4-modern-pill.html` | **现代科技款 (Modern Pill)** | 墨绿胶囊徽章 / 科技感卡片阴影 / 高级微渐变 | 互联网大厂、后端研发、架构师、全栈工程师 |
-| `resume-template-v5-executive-center.html` | **卓越居中款 (Executive Center)** | 皇家深蓝 / 头部居中对称 / 层次分明 | 校招高潜应届生、管培生、产品经理、项目主管 |
-| `resume-template-v6-minimal-clean.html` | **极简留白款 (Minimal Clean)** | 大厂极简风 / 呼吸感边距 / 优雅灰色辅助色 | 设计师、前端研发、初创团队、外企远程岗 |
-| `resume-template-v7-academic-cv.html` | **学术双页款 (Academic CV)** | 严格 2 页 / 悬挂缩进 / 顶会期刊引用高亮 | 海外高校硕士/博士申请、高校教职、科研学者 |
+| `resume-template-v3-classic-pro.html` | **经典专业款 (Classic)** | 华尔街无衬线纯黑白 / 紧凑单页 / 顶部分割线 / 靠左或左右分列 | 金融投行、战略咨询、财会风控、传统国央企 |
+| `resume-template-v4-modern-pill.html` | **现代科技款 (Modern Pill)** | 墨绿/科技蓝胶囊徽章 / 紧凑卡片感 / 支持右上角或左上角照片 | 互联网大厂、后端研发、架构师、全栈工程师 |
+| `resume-template-v5-executive-center.html` | **卓越居中款 (Executive Center)** | 皇家深蓝 / 头部居中中轴对称 / 层次分明 / 支持居中或顶部头像 | 校招高潜应届生、管培生、产品经理、中高层管理 |
+| `resume-template-v6-minimal-clean.html` | **极简留白款 (Minimal Clean)** | 大厂极简风 / 呼吸感纯字阶排版 / 无杂线纯粹留白美学 | 设计师、前端研发、初创团队、外企远程岗 |
+| `resume-template-v7-academic-cv.html` | **学术双页款 (Academic CV)** | 严格 2 页 / 悬挂缩进 / 顶会期刊出版物高亮 (Harvard/MIT 规范) | 海外高校硕士/博士申请、高校教职、科研学者 |
+| `resume-template-v8-sidebar-split.html` | **双栏侧栏款 (Sidebar Split)** | 左侧 30% 侧栏(头像+联系方式+技能树+语言)+右侧 70% 经历战果 | 跨境出海、互联网产品总监、涉外商务、泛管理岗位 |
 
 ---
 
-## 三、 排版调优标准化工作流
+## 三、 照片与头部多元化自定义系统 (Photo System)
+
+通过 `templates/style.yml` 中的 `photo` 与 `header` 字段即可自由组装：
+
+1. **照片开关与裁切**：
+   - `photo.show: true | false`（欧美技术盲审推荐 false；国企管培/外企/管理推荐 true）
+   - `photo.shape: rounded`（精致微圆角） | `circle`（现代亲和圆形） | `square`（正式方照）
+   - `photo.path: "profile/photo.svg"`（支持相对路径、本地图片或 SVG 矢量自适应）
+2. **排版位置与多样化版式**：
+   - `top-right`：最经典靠左排版 + 右上角证件照（标准 3:4 比例，稳重大方）
+   - `top-left`：左上角头像 + 靠左文本流（活泼现代）
+   - `top-center`：顶部居中中轴线（与卓越居中款 v5 完美契合）
+   - `sidebar`：嵌入双栏侧边栏顶部（与双栏侧栏款 v8 完美契合）
+3. **头部文字对齐**：
+   - `header.align: left`（现代干练靠左） | `center`（优雅中轴居中） | `split`（左右两端分列）
+
+---
+
+## 四、 排版调优标准化工作流
 
 ### 第一步：读取样式配置中心
 查阅 `templates/style.yml`，映射用户需求的视觉属性：
-- **主题色 (Palette)**：科技墨绿 (`#1b4332`)、皇家深蓝 (`#1d3557`)、华尔街炭黑 (`#111827`)、勃艮第深红 (`#6b1d2f`) 等；
-- **版面布局 (Layout)**：头部居中 (Center) vs 左右两列 (Split) vs 经典顶通 (Top)；
+- **主题色 (Palette)**：商务明蓝 (`#1d4ed8`)、科技墨绿 (`#0f766e`)、皇家深蓝 (`#14548c`)、华尔街炭黑 (`#111827`)、勃艮第深红 (`#881337`) 等；
+- **版面布局 (Archetype)**：经典细线分割 (`v3`) vs 现代胶囊 (`v4`) vs 居中对称 (`v5`) vs 双栏侧栏 (`v8`)；
+- **照片策略 (Photo)**：是否展示、位置与形状；
 - **模块排序 (Sections)**：教育置顶（校招/学术） vs 工作经历置顶（社招研发）。
 
 ### 第二步：单页高度严苛微调 (Page-Fitting)

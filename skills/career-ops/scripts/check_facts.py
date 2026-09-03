@@ -15,36 +15,31 @@ import re, sys, argparse
 from pathlib import Path
 
 def find_repo_root():
-    """仓库根 = 最近的含 .agents/skills/job-finding 的目录(技能安装处);
-    找到技能但无数据层 → 返回该目录(调用方按未初始化处理)。
-    无技能目录时回退为向上找 applications/tracker.md 并提示。
-    这样嵌套仓库/沙盒不会攀附到父仓库的数据。"""
-    for start in [Path.cwd(), Path(__file__).resolve()]:
+    """仓库根 = 最近的含 skills/career-ops 或 profile 或 .claude-plugin 的目录"""
+    for start in [Path.cwd(), Path(__file__).resolve().parent]:
         d = start
         for _ in range(8):
-            if (d / ".agents" / "skills" / "job-finding").exists():
+            if (d / "skills" / "career-ops").exists() or (d / ".claude-plugin").exists() or (d / "profile").exists():
                 return d
-            d = d.parent
-    for start in [Path.cwd()]:
-        d = start
-        for _ in range(8):
             if (d / "applications" / "tracker.md").exists():
-                print("NOTICE: 未找到技能安装目录,按 tracker 位置推断仓库根(请确认无误)")
                 return d
             d = d.parent
-    return None
+    return Path.cwd()
 
 def extract_claims(text):
-    text = re.sub(r"<!--.*?-->", "", text, flags=re.S)  # HTML 注释是元数据,不是简历内容
+    text = re.sub(r"<!--.*?-->", "", text, flags=re.S)        # 剥除 HTML 注释
+    text = re.sub(r"<style.*?</style>", "", text, flags=re.S)  # 剥除 CSS 样式定义
+    text = re.sub(r"<script.*?</script>", "", text, flags=re.S)# 剥除 JS 脚本
+    text = re.sub(r"<[^>]+>", " ", text)                     # 剥除所有 HTML 标签
     claims = set()
     for ln in text.splitlines():
         if re.match(r"#|>\s*|联系方式|姓名|状态|日期", ln):
             continue
         for m in re.finditer(r"\d[\d,.]*\s*(?:万|亿|%|ms|k|K|人日|events/s|倍|年|个|次|人|天|分钟)?", ln):
-            tok = re.sub(r"\s+", "", m.group(0)).rstrip(",")
+            tok = re.sub(r"\s+", "", m.group(0)).rstrip(",;.:")
             if len(tok) >= 2 and not re.fullmatch(r"[01]|\d{4}(?!\.|-)", tok):
                 claims.add(tok)
-        for m in re.finditer(r"\d{4}\.\d{2}\s*~\s*\S+", ln):
+        for m in re.finditer(r"\d{4}\.\d{2}\s*~\s*(?:\d{4}\.\d{2}|至今)", ln):
             claims.add(re.sub(r"\s+", "", m.group(0)))
     return sorted(claims)
 
@@ -53,8 +48,13 @@ def main():
     if not ap:
         print(__doc__); return 1
     resume = Path(ap[0])
-    prof = Path(ap[ap.index("--profile-dir") + 1]) if "--profile-dir" in ap \
-        else find_repo_root() / "profile"
+    if "--profile-dir" in ap:
+        prof = Path(ap[ap.index("--profile-dir") + 1])
+    elif len(ap) > 1 and not ap[1].startswith("--"):
+        prof = Path(ap[1])
+    else:
+        root = find_repo_root()
+        prof = (root / "profile") if root else Path("profile")
     corpus = "\n".join(p.read_text(encoding="utf-8", errors="ignore")
                        for p in prof.rglob("*.md"))
     corpus_flat = re.sub(r"\s+", "", corpus)
