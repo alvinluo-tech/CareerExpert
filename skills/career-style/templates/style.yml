@@ -75,12 +75,33 @@ skills_style: category-list     # category-list (分类加粗列表) | pill-badg
 dates:
   align: right                  # right (传统右对齐浮动，扫读清晰) | inline (紧随机构/职位后)
 
-# 8. 排版密度与篇幅抢救阶梯 (Layout Density)
-# compact: 正文 10pt / 行距 1.35 / 节间距 8pt  (适合经历极丰富、内容多需要 1 页压制)
-# regular: 正文 10.5pt / 行距 1.5 / 节间距 12pt (标准黄金比例，呼吸感极佳)
-# airy   : 正文 11pt / 行距 1.6 / 节间距 16pt   (适合应届生、经历精简需要充实版面)
-density: regular
+# 8. 信息密度与篇幅控制体系 (Information Density & Layout Hierarchy)
+# 针对不同资历、年限与经历体量的候选人，提供严密的 5 级信息密度梯度，
+# 无论经历海量还是初出茅庐，均能达到单页 85%~95% 黄金填充率，绝不出现 1.1 页溢出或大片空洞留白。
+density:
+  # 排版视觉物理密度 (Visual Density)
+  # - ultra-dense : 正文 9.0pt / 行高 1.35 / 节间距 6pt  / 页边距 10mm (适合 8-10+ 年社招资深老兵，大量战果强力压缩进 1 页)
+  # - compact     : 正文 9.5pt / 行高 1.42 / 节间距 8pt  / 页边距 12mm (适合 4-7 年中高级人才，内容丰富，高密紧凑)
+  # - balanced    : 正文 10.0pt / 行高 1.48 / 节间距 10pt / 页边距 14mm (默认黄金平衡，适合 2-4 年人才或研究生，呼吸感极佳)
+  # - airy        : 正文 10.5pt / 行高 1.55 / 节间距 14pt / 页边距 16mm (适合应届本科生或转行初期，经历精简，充实版面防冷清)
+  # - academic    : 正文 10.2pt / 行高 1.50 / 节间距 12pt / 严格双页 (学术 CV 专属，文献悬挂缩进)
+  level: balanced
 
-# 9. 纸张规格与语言
+  # 内容改写信息密度 (Content Information Density)
+  # - high-yield : 高产出战果型 (每段 4-5 条精炼 Google XYZ 战果，密集高光数据，消除冗长副词)
+  # - standard   : 标准叙事型 (每段 3 条核心战果，叙述清晰，因果完整)
+  # - elaborate  : 深度展开型 (每段 2-3 条详述背景、核心难点、技术决策与个人收获，适合经历较少需充实)
+  content_strategy: standard
+
+  # 篇幅严格预算 (Page Budget)
+  target_pages: 1               # 1 (严格单页纸，超出一行也自动压缩) | 2 (学术/管理双页) | auto (根据内容自适应)
+  auto_fit_budget: true         # 若内容溢出，启用自动化降级调平机制 (自动微调行高 0.05 或间距 1pt)
+
+# 9. 细节增强与阅读体验优化 (Reading Experience)
+typography:
+  highlight_keywords: true      # 是否对核心技术栈与量化指标粗体高亮 (如 **8.5万QPS**)，大幅提升 HR 6秒扫读效率
+  bullet_style: standard        # standard (经典实心圆点 •) | dash (极简短横 -) | arrow (科技小三角 ‣)
+
+# 10. 纸张规格与语言
 page: A4                        # A4 (国际/国内通用) | letter (北美主流)
 language: zh                    # zh (中文，全角标点) | en (英文，强动词过去时)
