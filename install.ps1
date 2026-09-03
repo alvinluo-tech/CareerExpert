@@ -10,6 +10,7 @@
   - /career-polish     -> Google XYZ / HBS PAR 经历战果量化改写 (样式锁定)
   - /career-cv         -> 出国留学与海外硕博学术 CV (Harvard/MIT 规范)
   - /career-interview  -> 四级提示交互式模拟面试攻防与复盘
+  - /career-coach      -> 简历通盘掌握、经历软肋排雷与精美答辩复习手册生成
 
 .PARAMETER Target
   目标环境: All (默认), Claude, Agents, Antigravity, Codex, Local
@@ -114,4 +115,5 @@ Write-Host "    - /career-style      -> 简历 UI 视觉排版调优 (文字绝�
 Write-Host "    - /career-polish     -> Google XYZ 战果量化改写 (排版绝对锁定)" -ForegroundColor White
 Write-Host "    - /career-cv         -> 出国留学海外硕博学术 CV (Harvard 规范)" -ForegroundColor White
 Write-Host "    - /career-interview  -> 四级渐进式模拟面试攻防与复盘" -ForegroundColor White
+Write-Host "    - /career-coach      -> 简历通盘掌握、经历软肋排雷与答辩复习手册生成" -ForegroundColor White
 Write-Host "====================================================" -ForegroundColor Cyan

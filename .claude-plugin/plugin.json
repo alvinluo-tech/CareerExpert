@@ -25,6 +25,7 @@
     "./skills/career-style",
     "./skills/career-polish",
     "./skills/career-cv",
-    "./skills/career-interview"
+    "./skills/career-interview",
+    "./skills/career-coach"
   ]
 }

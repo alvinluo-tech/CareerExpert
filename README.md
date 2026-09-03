@@ -68,7 +68,8 @@ CareerExpert/
     ├── career-style/                   <--   [/career-style] UI 排版工匠：5套骨架、调色换肤、单页高度压缩
     ├── career-polish/                  <--   [/career-polish] 内容深度主编：Google XYZ/HBS 量化改写、事实追溯
     ├── career-cv/                      <--   [/career-cv] 留学学术军师：海外硕博申学、顶会引用、Harvard 规范
-    └── career-interview/               <--   [/career-interview] 面试攻防专家：STAR 故事库、底层深挖与四级模拟
+    ├── career-interview/               <--   [/career-interview] 面试攻防专家：STAR 故事库、底层深挖与四级模拟
+    └── career-coach/                   <--   [/career-coach] 简历通盘军师：软肋排雷、底层原理补课、精美通透手册 (自动唤醒浏览器)
 ```
 
 ---
