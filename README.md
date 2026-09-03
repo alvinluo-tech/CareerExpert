@@ -105,13 +105,26 @@ CareerExpert/
 | **[04-academic-cs-phd](skills/career-ops/examples/04-academic-cs-phd/)** | 出国留学学术 CV | 郭伟 (清华计算机本科)<br>GPA 3.93 / CVPR Oral 一作 | 学术双页款 (v7)<br>牛津深蓝 / 严格 2 页 (92% 填充) | `cv.html`<br>`cv.pdf`<br>`report.md` |
 | **[06-creative-product-manager](skills/career-ops/examples/06-creative-product-manager/)** | 出海产品总监/泛管理 | 苏若涵 (LSE硕士 / 5年出海经验)<br>跨境收单 / 4500万$日流水 | 双栏侧边栏款 (v8)<br>宝石蓝 / 附侧栏真实证件照 (82% 填充) | `resume.html`<br>`resume.pdf`<br>`report.md` |
 | **[07-ai-agent-architect](skills/career-ops/examples/07-ai-agent-architect/)** | 大模型/AI智能体架构 | 顾远 (UPenn硕士 / 上交ACM班)<br>开源 12.8k★ / 投机采样加速 | 极简留白款 (v6)<br>石墨碳黑 / 附右上角真实证件照 (89% 填充) | `resume.html`<br>`resume.pdf`<br>`report.md` |
+| **[08-incremental-enrichment](skills/career-ops/examples/08-incremental-enrichment/)** | 增量迭代与链接优化 | 李昂 (补充 FastFlow 开源项目)<br>18.5万QPS / 1.2k★ / 原生超链接 | 现代胶囊款 (v4) · 靶向字节跳动<br>嵌入 GitHub/Demo 徽章 (85% 填充) | `resume.html`<br>`resume.pdf`<br>`diff_report.md` |
 | **[05-edge-cases](skills/career-ops/examples/05-edge-cases/)** | 决策边界与红旗拦截 | 极数智联 / 链创未来 / 星轨安全 | 年限 GAP 预警 / 炒币红旗拦截 | `evaluation.md`<br>决策留痕 |
 
 > 详细的复现 Prompt 与素材映射见：[`skills/career-ops/examples/README.md`](skills/career-ops/examples/README.md)。
 
 ---
 
-## ⚡ 两大杀手级实用工具：彻底消除现实落地摩擦
+## 📖 交互提示词食谱库 (Prompt Cookbook)
+
+不知道如何向 AI 下达精准修改指令？我们在 [`skills/career-ops/PROMPT-COOKBOOK.md`](skills/career-ops/PROMPT-COOKBOOK.md) 中梳理了 **12 大最常见的高频真实交互场景**（即复制即用）：
+- 🚀 **增量素材扩充**：新上线了 GitHub 开源库、在线作品集或博客，如何增量补入简历？
+- 🎯 **岗位靶向调整**：同一份经历如何针对“大厂高并发”或“创业全栈”进行针对性重塑？
+- 💪 **战果量化改写**：流水账如何借助 `/career-polish` 全量重构为 Google XYZ 强动词？
+- 📐 **篇幅极限定制**：超出一两行变 2 页时如何启动 `compact` 单页预算强力压缩？
+- 🔗 **原生超链接排版**：如何在 PDF 中嵌入美观大方、ATS 安全的原生可点击链接？
+- 🛡️ **技术模拟面试**：如何针对标杆项目启动 3 轮由浅入深的压力技术面试攻防？
+
+---
+
+## ⚡ 三大实用自动化工具：彻底消除现实落地摩擦
 
 ### 1. 零门槛已有简历全格式智能摄取 (`scripts/ingest_resume.py`)
 > **痛点**：用户手头通常只有现成的 PDF、Word 或 LaTeX 简历，绝不愿意手动建几十个 Markdown 卡片。
@@ -135,6 +148,18 @@ python skills/career-ops/scripts/inspect_repo.py "<你的项目代码路径>" --
 - **代码规模与拓扑度量**：精准统计有效代码行数（LOC）与单元测试代码占比；
 - **并发与架构模式嗅探**：深度识别协程池、Channel 流水线、Redis 缓存与分布式锁、显式数据库事务、令牌桶限流、动态热加载等底层实现；
 - **提炼代码级 Google XYZ**：自动生成具有真实代码证据的硬核简历 Bullet！
+
+### 3. 增量事实安全录入助手 (`scripts/append_fact.py`)
+> **痛点**：用户在聊天中临时补充了新项目或链接，直接写进简历容易破坏“事实唯一来源”红线。
+
+```bash
+python skills/career-ops/scripts/append_fact.py project \
+  --title "FastFlow 高性能流式引擎" \
+  --url "https://github.com/myname/fastflow" \
+  --bullets "单节点吞吐 18.5万 QPS,内存降低 42%"
+```
+- 严格将新项目、作品集与新链接原子化写入 `profile/projects/` 与 `profile/basic.md`；
+- 保证生成的简历中每一处新链接与新数据都有源头可查，`check_facts.py` 100% 绿灯！
 
 ---
 

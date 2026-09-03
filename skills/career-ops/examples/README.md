@@ -85,3 +85,15 @@
 突出开源项目 FastAgent (12.8k Stars)、多 Agent 流水线与投机采样推理加速吞吐 3.4 倍战果，
 严格保证 A4 单页 88% 黄金填充率。
 ```
+
+### 7. 用户增量补充项目与在线链接 · 靶向字节跳动中间件 (Prompt)
+```text
+这是我之前生成的简历 PDF (input/base_resume.pdf)。
+最近我业余主导了一个高性能流式数据引擎开源项目 FastFlow：
+- GitHub 仓库: https://github.com/leon-tech/fastflow
+- 在线演示 Demo: https://fastflow.dev/demo
+- 核心指标: 单节点 18.5万 QPS，内存降低 42%，单机支撑 8000+ 虚拟流，获得 1.2k★。
+现在我想投递字节跳动基础架构部【高并发流媒体与分布式中间件专家】岗位 (input/target_jd.md)。
+请帮我安全录入该项目与链接，重新靶向生成单页 PDF 简历（超链接在 PDF 中可点击），
+并输出一份详细的 Before vs After 优化改写报告。
+```

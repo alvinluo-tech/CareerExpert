@@ -41,7 +41,13 @@ def log(msg, status="INFO"):
 
 def setup_sandbox():
     if SANDBOX.exists():
-        shutil.rmtree(SANDBOX)
+        for _ in range(3):
+            try:
+                shutil.rmtree(SANDBOX, ignore_errors=True)
+                break
+            except Exception:
+                import time
+                time.sleep(0.5)
     SANDBOX.mkdir(parents=True, exist_ok=True)
     log(f"测试沙盒已就绪: {SANDBOX}", "INFO")
 
@@ -77,7 +83,8 @@ def test_01_pdf_ingest():
 # ==========================================
 def test_02_docx_ingest():
     log("Running Test 02: DOCX (Word) 简历零依赖解析...", "INFO")
-    docx_file = SANDBOX / "sample_resume.docx"
+    import time
+    docx_file = SANDBOX / f"sample_resume_{os.getpid()}_{int(time.time()*1000)}.docx"
     
     # 动态构建一个合法的 Word .docx 文件
     xml_content = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

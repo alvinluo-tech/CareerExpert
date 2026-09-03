@@ -1,0 +1,37 @@
+# 主简历 — 李昂(DEMO 真实素材库)
+
+## 个人信息
+- 姓名: 李昂 (Leon Li)
+- 联系方式: 138****0000 · liang.demo@example.com · GitHub: github.com/leon-tech · Blog: leon.tech
+- 求职意向: 资深分布式中间件专家 / 流媒体架构师, 上海或远程
+
+## 概述
+4 年 Go 后端与高性能分布式中间件核心研发经验，主导微服务架构下统一 API 网关设计与性能重构，单集群峰值 QPS 达 8.5 万，P99 延迟降低 60%，支撑每日 2.8 亿次核心请求。主导开源流式计算引擎 FastFlow (1.2k★)，深入精通 Go 内存管理、无锁队列与内核级零拷贝。在配置动态热加载、分布式任务调度、限流熔断及云原生稳定性保障方面有丰富的一线落地实战经验。
+
+## 工作经历
+### 星澜科技 | 基础架构部 · 后端开发工程师 (接入与服务治理组) | 2022.07 ~ 至今
+- 详见 work/xinglan.md
+
+### 晨曦信息 | 交易平台研发组 · 后端开发工程师 | 2020.07 ~ 2022.06
+- 详见 work/chenxi.md
+
+## 项目经历
+### FastFlow 高性能流式计算引擎 (开源主导 / 1.2k★) (2024.03 ~ 至今)
+- 仓库链接: https://github.com/leon-tech/fastflow · 在线演示: https://fastflow.dev/demo · 技术博客: https://leon.tech/posts/fastflow-internals
+- 详见 projects/fastflow-高性能流式计算引擎.md
+
+### 统一网关性能重构 (2024.03 ~ 2024.09)
+- 详见 projects/gateway.md
+
+### 高性能分布式缓存中间件 (开源技术研究) (2023.08 ~ 2024.01)
+- 独立主导 / GitHub 开源
+
+## 技能
+- 语言: Go (深入理解 goroutine 并发模型、GC 机制及 runtime 调度)、Python (自动化脚本)、SQL
+- 中间件: etcd (MVCC / 分布式锁 / Watch 机制)、Redis (Cluster / 内存优化 / 分布式锁)、Kafka (高吞吐消息解耦)
+- 存储: MySQL (InnoDB 索引调优 / 分库分表 / 慢查询优化)、微服务架构、API 网关设计、ClickHouse (日志分析)
+- 基础设施: Docker、Kubernetes (Pod 调度 / Service / Ingress 流量控制)、Prometheus / Grafana 监控、全链路压测、on-call 事故复盘
+
+## 教育经历
+- 华东理工大学 | 计算机科学与技术 | 工学学士 | 2016.09 ~ 2020.06
+- GPA: 3.65 / 4.0 (专业前 15%) · 校级优秀毕业生 · 优秀学生奖学金
