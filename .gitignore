@@ -28,3 +28,4 @@ config.yml
 
 # 测试沙盒
 .test-*/
+.superpowers/

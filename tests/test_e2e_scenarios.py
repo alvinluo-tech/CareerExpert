@@ -355,9 +355,42 @@ def test_10_facts_checking_guard():
     log("Test 10 PASSED: 事实追溯门禁成功识别伪造数据并强制阻断交付", "PASS")
     return True
 
+# ==========================================
+# [Test 11] career-coach 专属简历通盘掌握与答辩军师手册全流程验证
+# ==========================================
+def test_11_career_coach_mastery_guide():
+    log("Running Test 11: career-coach 专属简历通盘掌握与答辩军师手册验证...", "INFO")
+    
+    coach_script = ROOT / "skills" / "career-coach" / "scripts" / "render_guide.py"
+    bench_data = ROOT / "skills" / "career-coach" / "examples" / "01-fastflow-middleware-guide" / "data.json"
+    out_html = SANDBOX / "test_fastflow_mastery_guide.html"
+    
+    assert coach_script.exists(), "career-coach render_guide.py 脚本不存在！"
+    assert bench_data.exists(), "基准测试案例 data.json 不存在！"
+    
+    # 步骤 1: 执行手册渲染
+    code, stdout, stderr = run_cmd([
+        sys.executable, str(coach_script), str(bench_data), "--out", str(out_html)
+    ])
+    assert code == 0, f"render_guide.py 渲染失败: {stdout}\n{stderr}"
+    assert out_html.exists(), "未生成目标 HTML 手册！"
+    
+    content = out_html.read_text(encoding="utf-8")
+    assert len(content) > 5000, f"生成的 HTML 体积异常小: {len(content)} 字节"
+    
+    # 步骤 2: 四维核心要素断言
+    assert "李昂" in content, "未包含候选人姓名"
+    assert "单机 18.5万 QPS" in content, "未包含核心软肋排雷分析"
+    assert "伪共享 (False Sharing)" in content, "未包含底层核心原理补课"
+    assert "STAR-T 高段位架构师答辩思考模型" in content, "未包含思考模型"
+    assert "pprof" in content, "未包含连环追问排查实战解析"
+    
+    log("Test 11 PASSED: career-coach 通盘掌握手册编译与四大核心模块验证通过", "PASS")
+    return True
+
 def main():
     print("=" * 65)
-    print("  🚀 CareerExpert 10 大全场景端到端真实模拟自动化测试")
+    print("  🚀 CareerExpert 11 大全场景端到端真实模拟自动化测试")
     print("=" * 65)
     setup_sandbox()
     
@@ -372,6 +405,7 @@ def main():
         ("Test 08: 金融投行纯黑白 + ATS 关键词回环", test_08_finance_ats_extract),
         ("Test 09: Harvard/MIT 学术 CV 严格双页", test_09_academic_two_pages),
         ("Test 10: 事实红线防捏造拦截门禁", test_10_facts_checking_guard),
+        ("Test 11: career-coach 简历通盘掌握手册编译", test_11_career_coach_mastery_guide),
     ]
     
     passed = 0
@@ -394,7 +428,7 @@ def main():
     print("=" * 65)
     
     if passed == len(tests):
-        log("🎉 全部 10 大场景端到端测试 100% 成功通过！系统具备极高工业级健壮性！", "PASS")
+        log("🎉 全部 11 大场景端到端测试 100% 成功通过！系统具备极高工业级健壮性！", "PASS")
         return 0
     else:
         log("存在未通过测试，请查看日志排查修复！", "FAIL")
@@ -402,3 +436,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+
