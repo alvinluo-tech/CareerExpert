@@ -73,19 +73,34 @@ CareerOps/
 
 ---
 
-## 🌟 官方工业级实操案例库 (Examples & Benchmarks)
+## 🌟 官方工业级实操案例与渲染效果 (Visual Benchmarks & Showcase)
 
-案例库（`skills/career-ops/examples/`）将所有示例的**原始输入素材、目标职位要求、AI 评估报告、最终生成的 HTML/PDF 交付包**全部独立收敛。复制对应 Prompt 即可一键获得同等质量专业输出：
+> **所见即所得 · 像素级真实渲染**  
+> 拒绝“开箱货不对板”。以下全部案例均来自真实候选人背景抽象与代码工程探测，通过无头浏览器编译为真实 PDF 并截取高保真渲染图。每个案例的**原始输入素材、目标职位要求、AI 评估报告、最终生成的 HTML 源码与 PDF 交付包**全部完整开源（位于 `skills/career-ops/examples/`）。
+
+| 案例 01：社招资深技术研发 (现代胶囊款 · 科技墨绿) | 案例 02：校招高潜名校应届 (卓越居中款 · 皇家深蓝) |
+|:---:|:---:|
+| <a href="skills/career-ops/examples/01-social-tech-architect/output/resume.html"><img src="skills/career-ops/examples/01-social-tech-architect/output/preview.png" width="95%" alt="社招资深技术研发 简历渲染效果图" /></a> | <a href="skills/career-ops/examples/02-campus-cs-master/output/resume.html"><img src="skills/career-ops/examples/02-campus-cs-master/output/preview.png" width="95%" alt="校招高潜名校应届 简历渲染效果图" /></a> |
+| **李昂 · 4 年 Go 后端 (字节/腾讯方向)**<br>• 单页填充率 **91%** · 代码事实提炼 (8.5万QPS/-60%延迟)<br>• [查看 HTML 源码](skills/career-ops/examples/01-social-tech-architect/output/resume.html) ｜ [AI 评估改写报告](skills/career-ops/examples/01-social-tech-architect/output/report.md) | **林晨 · 浙大硕士 (字节跳动校招方向)**<br>• 单页填充率 **85%** · 教育置顶第一屏 (GPA 3.85 前3%)<br>• [查看 HTML 源码](skills/career-ops/examples/02-campus-cs-master/output/resume.html) ｜ [AI 评估改写报告](skills/career-ops/examples/02-campus-cs-master/output/report.md) |
+
+| 案例 03：金融投行与并购重组 (经典华尔街纯黑白) | 案例 04：出国留学申博 (Harvard / MIT 学术 CV 规范) |
+|:---:|:---:|
+| <a href="skills/career-ops/examples/03-finance-ib-analyst/output/resume.html"><img src="skills/career-ops/examples/03-finance-ib-analyst/output/preview.png" width="95%" alt="金融投行分析师 简历渲染效果图" /></a> | <a href="skills/career-ops/examples/04-academic-cs-phd/output/cv.html"><img src="skills/career-ops/examples/04-academic-cs-phd/output/preview.png" width="95%" alt="出国留学学术CV 渲染效果图" /></a> |
+| **陈思远 · 复旦专硕 (中金/华泰投行方向)**<br>• 单页填充率 **83%** · CPA 5科通过 + 12.5亿并购对价量化<br>• [查看 HTML 源码](skills/career-ops/examples/03-finance-ib-analyst/output/resume.html) ｜ [AI 评估改写报告](skills/career-ops/examples/03-finance-ib-analyst/output/report.md) | **郭伟 · 清华本科 (CMU 计算机博士申请)**<br>• 严格 2 页布局 · 填充率 **92%** · CVPR Oral 一作<br>• [查看 HTML 源码](skills/career-ops/examples/04-academic-cs-phd/output/cv.html) ｜ [AI 评估改写报告](skills/career-ops/examples/04-academic-cs-phd/output/report.md) |
+
+---
+
+### 📚 官方基准案例矩阵速查表
 
 | 案例代号与目录 | 业务场景 | 候选人人设与亮点 | 选用策略与骨架 | 交付物清单 |
 |---|---|---|---|---|
-| **[01-social-tech-architect](skills/career-ops/examples/01-social-tech-architect/)** | 社招资深技术研发 | 李昂 (4年 Go 后端)<br>2亿级网关重构 / 开源 GitHub | 现代科技胶囊款 (v4)<br>科技墨绿 / 严格 1 页 | `resume.html`<br>`resume.pdf`<br>`report.md` |
-| **[02-campus-cs-master](skills/career-ops/examples/02-campus-cs-master/)** | 校招名校应届高潜 | 林晨 (浙大计算机硕士)<br>GPA 3.85 前3% / Raft-KV开源 | 卓越居中对称款 (v5)<br>皇家深蓝 / 教育第一屏 | `resume.html`<br>`resume.pdf`<br>`report.md` |
-| **[03-finance-ib-analyst](skills/career-ops/examples/03-finance-ib-analyst/)** | 金融投行/财务分析 | 陈思远 (复旦金融专硕)<br>CPA 5科 / 12.5亿并购量化 | 经典专业款 (v3)<br>华尔街纯黑白 / 专业资格置顶 | `resume.html`<br>`resume.pdf`<br>`report.md` |
-| **[04-academic-cs-phd](skills/career-ops/examples/04-academic-cs-phd/)** | 出国留学学术 CV | 郭伟 (清华计算机本科)<br>GPA 3.93 / CVPR Oral 一作 | 学术双页款 (v7)<br>牛津深蓝 / 2页学术文献缩进 | `cv.html`<br>`cv.pdf`<br>`report.md` |
+| **[01-social-tech-architect](skills/career-ops/examples/01-social-tech-architect/)** | 社招资深技术研发 | 李昂 (4年 Go 后端)<br>2亿级网关重构 / 8.5万QPS | 现代科技胶囊款 (v4)<br>科技墨绿 / 严格 1 页 (91% 填充) | `resume.html`<br>`resume.pdf`<br>`report.md` |
+| **[02-campus-cs-master](skills/career-ops/examples/02-campus-cs-master/)** | 校招名校应届高潜 | 林晨 (浙大计算机硕士)<br>GPA 3.85 前3% / Raft-KV开源 | 卓越居中对称款 (v5)<br>皇家深蓝 / 教育第一屏 (85% 填充) | `resume.html`<br>`resume.pdf`<br>`report.md` |
+| **[03-finance-ib-analyst](skills/career-ops/examples/03-finance-ib-analyst/)** | 金融投行/财务分析 | 陈思远 (复旦金融专硕)<br>CPA 5科 / 12.5亿并购量化 | 经典专业款 (v3)<br>华尔街纯黑白 / 专业资格置顶 (83% 填充) | `resume.html`<br>`resume.pdf`<br>`report.md` |
+| **[04-academic-cs-phd](skills/career-ops/examples/04-academic-cs-phd/)** | 出国留学学术 CV | 郭伟 (清华计算机本科)<br>GPA 3.93 / CVPR Oral 一作 | 学术双页款 (v7)<br>牛津深蓝 / 严格 2 页 (92% 填充) | `cv.html`<br>`cv.pdf`<br>`report.md` |
 | **[05-edge-cases](skills/career-ops/examples/05-edge-cases/)** | 决策边界与红旗拦截 | 极数智联 / 链创未来 / 星轨安全 | 年限 GAP 预警 / 炒币红旗拦截 | `evaluation.md`<br>决策留痕 |
 
-> 详细的 Prompt 复现指令与素材映射见：[`skills/career-ops/examples/README.md`](skills/career-ops/examples/README.md)。
+> 详细的复现 Prompt 与素材映射见：[`skills/career-ops/examples/README.md`](skills/career-ops/examples/README.md)。
 
 ---
 

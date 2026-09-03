@@ -167,6 +167,18 @@
     <li>架构底层持久化引擎，集成 LSM-Tree 存储结构与 SSTable 分层压实（Compaction）算法，单机集群写入吞吐达 1.4 万 TPS。</li>
     <li>编写端到端混沌测试套件，模拟网络丢包、延迟抖动与脑裂场景，在 100+ 次极限压力注入测试中达成零数据丢失。</li>
   </ul>
+
+  <div class="item-header">
+    <div>
+      <span class="item-title">轻量级分布式全链路追踪系统 (Mini-Jaeger)</span>
+      <span class="item-role">| 核心开发者</span>
+    </div>
+    <span class="item-date">2024.03 ~ 2024.07</span>
+  </div>
+  <ul class="bullets">
+    <li>遵循 OpenTelemetry 规范实现分布式 Span 追踪采集代理与 W3C TraceContext 跨进程上下文透传，基于环形无锁缓冲区（Ring Buffer）实现微秒级本地暂存。</li>
+    <li>设计基于动态负载反馈的自适应采样机制，在集群高负载时自动平滑衰减采样率，将追踪 SDK 对业务主链路的性能损耗控制在 1.5% 以内。</li>
+  </ul>
 </section>
 
 <!-- 实习经历 -->

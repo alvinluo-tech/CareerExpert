@@ -3,6 +3,7 @@
   样例 C：金融投行/财务分析师 · 陈思远 (华泰联合证券 IBD 定制版)
   模板骨架：v3-classic-rule (经典专业款)
   策略：finance-accounting (华尔街纯黑白单页铁律 + 教育与CPA前置 + 严谨财务数字量化)
+  高度控制：严格 A4 单页，填充率 90%~92% 黄金比例
 -->
 <html lang="zh-CN">
 <head>
@@ -15,11 +16,11 @@
     --ink: #111827;          /* 正文炭黑 */
     --muted: #4b5563;        /* 辅助深灰 */
     --rule: #9ca3af;         /* 稳重细分割线 */
-    --fs: 10pt;              /* 紧凑严谨 10pt */
+    --fs: 9.8pt;             /* 紧凑严谨 9.8pt */
     --lh: 1.42;              /* 行距 1.42 */
-    --sec-gap: 9pt;          /* 节间距 9pt */
+    --sec-gap: 8.5pt;        /* 节间距 8.5pt */
   }
-  @page { size: A4; margin: 1.4cm 1.5cm; }
+  @page { size: A4; margin: 1.3cm 1.4cm; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
@@ -32,14 +33,15 @@
 
   header {
     margin-bottom: var(--sec-gap);
-    padding-bottom: 5pt;
+    padding-bottom: 4.5pt;
     border-bottom: 1.5pt solid var(--ink);
+    text-align: center;
   }
 
   h1 {
-    font-size: 19pt;
+    font-size: 20pt;
     font-weight: 700;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     color: var(--ink);
     line-height: 1.15;
   }
@@ -47,11 +49,11 @@
     margin-top: 2.5pt;
     color: var(--ink);
     font-weight: 600;
-    font-size: 10pt;
+    font-size: 9.8pt;
     letter-spacing: 0.5px;
   }
   .contact {
-    margin-top: 3.5pt;
+    margin-top: 3pt;
     color: var(--muted);
     font-size: 9pt;
   }
@@ -65,32 +67,32 @@
     letter-spacing: 1.2px;
     margin: var(--sec-gap) 0 4.5pt;
     padding-bottom: 2pt;
-    border-bottom: 0.8pt solid var(--rule);
+    border-bottom: 1pt solid var(--rule);
     line-height: 1.2;
     text-transform: uppercase;
   }
 
   .item-header {
-    margin: 5.5pt 0 1.5pt;
+    margin: 4.5pt 0 1.5pt;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    font-size: 10.2pt;
+    font-size: 10pt;
   }
   .item-title { font-weight: 700; color: var(--ink); }
   .item-role { font-weight: 600; color: var(--muted); margin-left: 4pt; font-size: 9.5pt; }
-  .item-date { font-size: 9.2pt; color: var(--muted); font-weight: 500; }
+  .item-date { font-size: 9pt; color: var(--muted); font-weight: 500; }
 
-  ul.bullets { padding-left: 13pt; margin-bottom: 3.5pt; }
-  ul.bullets li { margin-bottom: 2pt; text-align: justify; }
+  ul.bullets { padding-left: 13pt; margin-bottom: 3pt; }
+  ul.bullets li { margin-bottom: 1.8pt; text-align: justify; }
 
-  .skills-category-list { list-style: none; padding-left: 0; }
-  .skills-category-list li { margin-bottom: 2.5pt; }
+  .skills-category-list { list-style: none; padding-left: 0; margin-top: 2pt; }
+  .skills-category-list li { margin-bottom: 2.2pt; font-size: 9.2pt; }
   .skills-category-list b { color: var(--ink); margin-right: 4pt; }
 
-  .honor-item { display: flex; justify-content: space-between; margin-bottom: 2pt; font-size: 9.8pt; }
+  .honor-item { display: flex; justify-content: space-between; margin-bottom: 1.8pt; font-size: 9.4pt; }
   .honor-name { font-weight: 600; color: var(--ink); }
-  .honor-date { color: var(--muted); font-size: 9.2pt; }
+  .honor-date { color: var(--muted); font-size: 9pt; }
 </style>
 </head>
 <body>
@@ -102,7 +104,7 @@
     <span class="contact-item">电话：137****5678</span>·
     <span class="contact-item">邮箱：chensiyuan.finance@example.com</span>·
     <span class="contact-item">常驻城市：上海 / 北京</span>·
-    <span class="contact-item">求职意向：投资银行部 (IBD) 分析师</span>
+    <span class="contact-item">求职意向：投资银行部 (IBD) 项目分析师</span>
   </div>
 </header>
 
@@ -112,59 +114,78 @@
   <div class="item-header">
     <div>
       <span class="item-title">复旦大学</span>
-      <span class="item-role">| 金融学 · 硕士研究生</span>
+      <span class="item-role">| 经济学院 · 金融学专业 · 硕士研究生</span>
     </div>
     <span class="item-date">2023.09 ~ 2025.06</span>
   </div>
+  <div style="font-size: 9pt; color: var(--muted); margin-bottom: 2pt;">GPA: 3.82 / 4.0（专业前 5%）· 一等学业奖学金 · 核心课程：高级财务报表分析、企业兼并与收购、固定收益证券</div>
+
   <div class="item-header">
     <div>
       <span class="item-title">上海财经大学</span>
-      <span class="item-role">| 财务管理 · 管理学学士</span>
+      <span class="item-role">| 会计学院 · 财务管理专业 · 管理学学士</span>
     </div>
     <span class="item-date">2019.09 ~ 2023.06</span>
   </div>
+  <div style="font-size: 9pt; color: var(--muted);">GPA: 3.86 / 4.0（专业前 3%）· 国家奖学金（全校前 1%）· 上海市优秀毕业生</div>
 </section>
 
 <!-- 专业资质与证书 (投行/审计极度看重) -->
 <section class="section-certifications">
   <h2>专业资质与语言</h2>
   <div class="honor-item">
-    <span class="honor-name">中国注册会计师 (CPA) 专业阶段通过 5 门（会计、审计、财务成本管理、税法、战略）</span>
+    <span class="honor-name">中国注册会计师 (CPA) 专业阶段一次性通过 5 门（会计 82、审计 78、财管 85、税法 79、战略 76）</span>
     <span class="honor-date">2024.11</span>
   </div>
   <div class="honor-item">
-    <span class="honor-name">特许金融分析师 (CFA) Level 2 候选人 / 英语专业八级 (TEM-8 优秀，可作专业工作语言)</span>
+    <span class="honor-name">特许金融分析师 (CFA) Level 2 候选人 / 证券从业资格 / 基金从业资格</span>
     <span class="honor-date">2024.06</span>
+  </div>
+  <div class="honor-item">
+    <span class="honor-name">英语专业八级 (TEM-8) 良好 / 托福 110 (可作为专业工作语言，独立撰写英文投资备忘录与双语路演材料)</span>
+    <span class="honor-date">2023.05</span>
   </div>
 </section>
 
-<!-- 投行与审计实战工作经历 (核心战果展示) -->
+<!-- 投行与专业服务经历 (核心战果展示) -->
 <section class="section-work">
   <h2>投行与专业服务经历</h2>
   <div class="item-header">
     <div>
       <span class="item-title">中金公司 (CICC)</span>
-      <span class="item-role">| 投资银行部 · 项目分析师实习生</span>
+      <span class="item-role">| 投资银行部 (IBD) · 并购重组与资本市场组 · 分析师实习生</span>
     </div>
     <span class="item-date">2024.03 ~ 2024.11</span>
   </div>
   <ul class="bullets">
-    <li>深度参与 12.5 亿元半导体封装企业控制权收购项目，独立搭建 5 年期动态三张表集成模型及 DCF 敏感性估值模型，测算并购合理对价区间，估值模型偏差率控制在 2.8% 以内。</li>
-    <li>主导财务与业务尽职调查核心环节，系统梳理标的公司连续 3 年经审计财务报表与往来底稿，主笔完成 85 页投资备忘录（CIM）估值测算与业务章节，获投资决策委员会全票通过。</li>
-    <li>协助推进某高端数控机床龙头科创板 IPO 申报，主笔招股说明书核心业务与管理层财务讨论章节，完成 3.2 亿元供应商流水穿行核查与真实性底稿归集，顺利通过内核会评审。</li>
-    <li>熟练运用 Wind 与 Capital IQ 数据库，对国内外 14 家同业上市公司进行可比公司法（Comps）与先例交易法（Precedent Transactions）多维估值乘数对标分析。</li>
+    <li>深度参与 <b>12.5 亿元半导体高端封装企业控制权收购项目</b>，独立搭建 5 年期动态三张表联动集成模型及 DCF 敏感性估值模型，准确测算并购合理对价区间与 EPS 增厚稀释效应，模型复核偏差率控制在 2.8% 以内。</li>
+    <li>主导财务与业务尽职调查核心环节，系统梳理标的公司连续 3 年经审计财务报表与核心往来底稿，主笔完成 85 页投资备忘录（CIM）估值测算与业务章节，获投资决策委员会全票通过。</li>
+    <li>协助推进某科创板智能制造高端机床龙头 IPO 申报，主笔招股说明书核心业务与管理层财务讨论（MD&A）章节，协助完成 3.2 亿元供应商流水穿行核查与真实性底稿归集，顺利通过内核会评审。</li>
+    <li>熟练运用 Wind 与 Capital IQ 数据库，对国内外 14 家同业上市公司进行可比公司法（Comps）与先例交易法（Precedent Transactions）多维估值乘数对标分析，输出高质量横向对标报告。</li>
+  </ul>
+
+  <div class="item-header">
+    <div>
+      <span class="item-title">华泰联合证券</span>
+      <span class="item-role">| 投资银行部 · 债务融资与结构化金融组 · 项目分析师实习生</span>
+    </div>
+    <span class="item-date">2023.06 ~ 2023.10</span>
+  </div>
+  <ul class="bullets">
+    <li>深度参与 <b>30 亿元新能源绿色基础设施类 REITs / ABS 资产支持专项计划</b>申报与发行，独立负责底层基础资产 10 年期现金流测算模型搭建与分层偿付压力测试。</li>
+    <li>撰写 110 页交易结构设计方案与法律合规尽调报告，协助主承销商完成交易所关于现金流波动及增信措施的两轮反馈答复，按期斩获交易所无异议函。</li>
   </ul>
 
   <div class="item-header">
     <div>
       <span class="item-title">普华永道 (PwC)</span>
-      <span class="item-role">| 审计部 · 核心审计实习生</span>
+      <span class="item-role">| 核心审计部 · 金融服务组 · 审计实习生</span>
     </div>
-    <span class="item-date">2023.11 ~ 2024.02</span>
+    <span class="item-date">2022.12 ~ 2023.03</span>
   </div>
   <ul class="bullets">
-    <li>深入参与 2 家高端制造上市公司年度财务报表法定审计，独立编制货币资金、应收往来款项与存货监盘核心底稿。</li>
-    <li>运用 SQL 与 Excel 对逾 18 万笔银行流水明细进行穿行测试，精准核查出 3 笔跨期收入确认异常，有效规避潜在审计调整与内控缺陷风险。</li>
+    <li>参与 2 家大型高端制造上市公司年度财务报表法定审计，独立编制货币资金、应收往来款项与存货监盘核心审计底稿。</li>
+    <li>运用 SQL 与 Python 对逾 25 万笔银企流水明细进行穿行测试，精准核查出 3 笔跨期收入确认异常，有效规避潜在审计调整与内控缺陷风险。</li>
   </ul>
 </section>
 
@@ -172,9 +193,9 @@
 <section class="section-skills">
   <h2>专业技能与工具</h2>
   <ul class="skills-category-list">
-    <li><b>财务估值建模：</b>精通三张表联动动态预测、现金流折现（DCF）、杠杆收购（LBO）、可比公司（Comps）估值分析</li>
-    <li><b>金融数据库与软件：</b>Wind、Capital IQ、Bloomberg、Choice、精通 Excel 财务快捷键与数据清洗建模函数</li>
-    <li><b>法规与合规底稿：</b>深入理解主板及科创板 IPO 证券发行上市审核规则、重大资产重组管理办法及企业会计准则</li>
+    <li><b>财务建模与估值体系：</b>精通三张表联动动态预测、现金流折现（DCF）、杠杆收购（LBO）、可比公司与先例交易法估值、并购增厚/稀释分析</li>
+    <li><b>金融数据库与办公生产力：</b>Wind、Capital IQ、Bloomberg、Choice、PitchBook、精通 Excel 财务快捷键与数据清洗建模函数、Think-Cell</li>
+    <li><b>证券监管政策与合规底稿：</b>深入理解主板及科创板 IPO 证券发行上市审核规则、重大资产重组管理办法、企业会计准则（CAS）及审计准则</li>
   </ul>
 </section>
 
