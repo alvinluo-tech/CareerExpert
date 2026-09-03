@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- ⚠️ 简历模板 v3「主流规整版」— 基于 2025-2026 主流模板调研综合设计,当前默认推荐。
+     主流规律依据(详见 docs/DESIGN.md「主流简历设计调研」):
+     - 节标题与正文必须强区隔 → 全宽分隔线(超级简历/五百丁/Zety 主流手法,
+       也是 v2 左色条被否掉的教训:色条不如全宽线规整)
+     - 姓名区大字 + 主色粗线收尾,与正文分区(v1/v2 共有,保留)
+     - 日期右对齐 + 全库格式一致(Yale: date formatting consistency)
+     - 单栏、标准节名、正文黑、单一主色只用于标题与线条、无表格/图标/照片
+     - 设计变量集中在 :root,改风格不动结构
+     本实例按 templates/style.yml(2026-09-02 回写版)填充:
+     accent=#14532d 深绿 / header 居中 / sections 无 summary -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>李昂 — 简历</title>
+<style>
+  :root {
+    --accent: #14532d;   /* 主色:标题/粗线(用户定调深绿,回写自 style.yml) */
+    --ink: #1c2430;      /* 正文 */
+    --muted: #5a6472;    /* 次要信息 */
+    --rule: #c9d2db;     /* 全宽细分隔线 */
+    --fs: 10.5pt;        /* 正文,主流 10.5~12pt */
+    --lh: 1.5;           /* 行距,按填充率微调 */
+    --sec-gap: 12pt;     /* 节间距 */
+  }
+  @page { size: A4; margin: 1.5cm 1.6cm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "Segoe UI", sans-serif;
+    font-size: var(--fs); line-height: var(--lh); color: var(--ink);
+  }
+
+  /* 姓名区:大字 + tagline + 联系行,主色粗线收尾(与正文的第一次分区)
+     header.align: center(style.yml 回写)→ 姓名区整体居中 */
+  h1 { font-size: 20pt; letter-spacing: 3px; color: var(--ink); text-align: center; }
+  .tagline { margin-top: 3pt; color: var(--accent); font-weight: bold; letter-spacing: 0.5px;
+             text-align: center; }
+  .contact { margin-top: 4pt; padding-bottom: 8pt; color: var(--muted); font-size: 9.5pt;
+             border-bottom: 2pt solid var(--accent); text-align: center; }
+
+  /* 节标题:主色加粗 + 全宽分隔线(主流规整手法,与每条内容横向对齐) */
+  h2 {
+    font-size: 11.5pt; color: var(--accent); letter-spacing: 2px;
+    margin: var(--sec-gap) 0 6pt; padding-bottom: 3pt;
+    border-bottom: 1pt solid var(--rule); line-height: 1.25;
+  }
+
+  /* 条目标题:主体居左,日期右对齐(float 不改文本流,解析安全) */
+  h3 { font-size: 10.8pt; margin: 6.5pt 0 2.5pt; }
+  h3 .meta { font-weight: normal; font-size: 9.8pt; color: var(--muted); }
+  h3 .date { float: right; font-weight: normal; font-size: 9.8pt; color: var(--muted); }
+  ul { padding-left: 13pt; }
+  li { margin-bottom: 3pt; text-align: justify; }
+  .summary { text-align: justify; }
+  .skills li { margin-bottom: 2pt; }
+  .skills b { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<h1>李昂</h1>
+<p class="tagline">Go 后端开发 · 高并发网关与分布式调度</p>
+<p class="contact">上海 · 138****0000 · liang.demo@example.com · 4 年经验</p>
+
+<!-- 概述模块按用户要求移除(style.yml sections 已删 summary 行),定位信息由 tagline 承担 -->
+
+<h2>工作经历</h2>
+
+<h3>星澜科技 <span class="meta">| 后端开发工程师（基础架构部)</span> <span class="date">2022.07 ~ 至今</span></h3>
+<ul>
+  <li>主导统一网关重构，替换旧接入层，P99 延迟从 45ms 降至 18ms(降 60%），单集群 QPS 从 3.2 万提升至 8.5 万（提升 165%），新服务接入成本从 3 人日降至 0.5 人日，支撑接入方从 12 个增长到 40+</li>
+  <li>设计动态配置热加载体系（etcd 分片 watch + 批量合并推送），配置变更生效时间从分钟级降至秒级</li>
+  <li>参与设计分布式任务调度平台，承载 6000+ 定时任务、日调度 40 万次，基于 etcd 实现分片与选主；失败任务自动重试与分级告警使人工运维介入减少 80%</li>
+  <li>开发实时数据采集管道（Kafka + ClickHouse），单机吞吐 5 万 events/s,端到端 P95 延迟 &lt; 3s</li>
+  <li>主动建立接入层 SLA 与故障定级标准，获部门采纳，定级争议工单归零；主导 3 次 P0 事故复盘并沉淀熔断预案库，P0 复发率归零，常态化参与 on-call</li>
+</ul>
+
+<h3>晨曦信息 <span class="meta">| 后端开发工程师（交易平台研发组)</span> <span class="date">2020.07 ~ 2022.06</span></h3>
+<ul>
+  <li>参与订单系统从单体拆分为下单/履约/结算 3 个微服务，负责服务边界划分（按变更频率 × 一致性要求两维分类），发布回滚时间从 30 分钟降至 5 分钟，支撑日订单峰值 150 万</li>
+  <li>将消息推送到达率从 91% 提升至 98.5%(按渠道分类重试策略）；设计令牌桶客户端配额，解决厂商通道限流问题</li>
+</ul>
+
+<h2>项目经历</h2>
+
+<h3>统一网关性能重构 <span class="meta">| 技术负责人</span> <span class="date">2024.03 ~ 2024.09</span></h3>
+<ul>
+  <li>设计插件化架构，统一鉴权、限流、灰度能力，以影子流量 + 生产等比数据集完成全链路压测验证</li>
+  <li>落地双缓冲 + 版本号 + 一键回滚的热加载一致性方案，牺牲强一致换发布效率并量化不一致窗口</li>
+</ul>
+
+<h3>分布式任务调度平台 <span class="meta">| 核心开发</span> <span class="date">2023.02 ~ 2023.11</span></h3>
+<ul>
+  <li>引入 fencing token 解决主备切换任务重复执行问题；基于最小堆 + Kafka 削峰替代时间轮方案</li>
+</ul>
+
+<h3>实时数据管道 <span class="meta">| 采集写入侧负责人</span> <span class="date">2025.01 ~ 2025.06</span></h3>
+<ul>
+  <li>设计写入侧批量合并与背压机制，解决 ClickHouse "too many parts" 问题，写入毛刺告警下降 90%</li>
+</ul>
+
+<h2>技能</h2>
+<ul class="skills">
+  <li><b>语言:</b>Go(主力)、Python(工具链)</li>
+  <li><b>中间件:</b>Redis、Kafka、etcd(含一致性权衡实战）；存储：MySQL、ClickHouse(使用层)</li>
+  <li><b>基础设施:</b>k8s、Docker、Prometheus/Grafana</li>
+  <li><b>服务治理:</b>限流、熔断、灰度、配置中心</li>
+  <li><b>工程实践:</b>全链路压测、容量规划、on-call 事故处理与复盘</li>
+</ul>
+
+<h2>教育经历</h2>
+<h3>华东理工大学 <span class="meta">| 计算机科学与技术 · 本科</span> <span class="date">2016.09 ~ 2020.06</span></h3>
+
+</body>
+</html>

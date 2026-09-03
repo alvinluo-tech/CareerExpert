@@ -7,8 +7,10 @@ profile/projects/*
 !profile/projects/_template.md
 profile/star-bank.md
 
-resumes/by-family/*
-resumes/reports/*
+resumes/base/*
+!resumes/base/.gitkeep
+resumes/tailored/*
+!resumes/tailored/.gitkeep
 
 applications/tracker.md
 applications/interviews/*
@@ -23,3 +25,6 @@ config.yml
 # 测试沙盒不入库
 .test-b/
 .test-c/
+
+# 测试沙盒
+.test-*/

@@ -1,0 +1,73 @@
+# 简历样式配置 (Resume Style Schema) — resume-tailor 唯一样式入口
+# 无论是直接编辑本文件，还是用户在对话中用自然语言提出偏好，
+# AI 接入 job-finding skill 时均应将用户要求映射为此处的配置项。
+# ⚠️ 所有模板骨架均原生支持本 Schema，通过 CSS 变量与模块插槽实现 100% 顺心自定义！
+
+# 1. 模板骨架选择 (Archetype)
+# v3-classic-rule     : 经典全宽细线分割款 (严谨专业，金融/传统行业/社招经典)
+# v4-modern-pill      : 现代科技胶囊款 (圆角标签、紧凑卡片感、科技大厂/互联网/校招)
+# v5-executive-center : 卓越居中对称款 (优雅中轴线排版、中大型企业管理岗/咨询/学术)
+# v6-minimal-clean    : 极简纯粹留白款 (去除杂线、纯字阶与间距美学、设计/产品/外企)
+archetype: v3-classic-rule
+
+# 2. 预设专业配色方案 (Theme Palette) — 选择一个或在下方 colors 自定义
+# 可选方案:
+# - navy-executive    : #14548c (经典深海藏蓝，商业与技术通用)
+# - slate-classic     : #334155 (沉稳专业石墨灰，低调内敛)
+# - emerald-tech      : #0f766e (科技墨绿，生机与技术感)
+# - burgundy-elite    : #881337 (高端酒红，典雅尊贵)
+# - wallstreet-mono   : #111827 (华尔街纯黑白，金融投行一页纸强制)
+# - indigo-modern     : #3730a3 (现代深靛蓝，前沿数字化)
+# - teal-fresh        : #0d9488 (清新青翠，年轻活力)
+# - violet-creative   : #6d28d9 (创意紫罗兰，设计与敏捷创新)
+theme_palette: navy-executive
+
+# 3. 颜色精细控制 (如提供直接覆盖预设)
+colors:
+  accent: "#14548c"             # 主强调色：节标题、主线框、高亮徽章
+  accent_light: "#f0f7ff"       # 次级浅底色：用于技能胶囊背景或高亮块
+  ink: "#1c2430"                # 正文主色：深灰黑，保证极佳对比度与印刷品质
+  muted: "#5a6472"              # 次要辅助色：时间、地点、副标题、联系方式
+  rule: "#c9d2db"               # 装饰细分割线或边框线
+
+# 4. 头部排版 (Header Layout)
+header:
+  align: left                   # left (现代干练居左) | center (优雅对称居中) | split (左右分列，左姓名右联系)
+  tagline: true                 # 是否展示姓名下方的求职定位标语行 (如"全栈开发工程师 | 5年高并发经验")
+  contact_layout: single-line   # single-line (单行·圆点分隔) | inline-badges (带微胶囊) | multi-column (双列)
+
+# 5. 乐高式模块编排 (Modular Sections & Reordering)
+# ⚠️ 列表中的顺序即最终渲染呈现顺序！
+# 想要调整顺序直接上下移动；想要去掉某模块直接删行；想要增加模块加一行即可！
+# 标准可用模块:
+# - summary        (专业概述 / 个人定位 / 核心优势)
+# - education      (教育背景 — 校招推荐前置第一屏，社招推荐后置垫底)
+# - work           (工作经历 — 社招核心重头戏，按时间倒序)
+# - projects       (核心项目经历 — 技术/产品/设计核心战果)
+# - skills         (专业技能 — 语言、框架、工具链与方法论)
+# - certifications (专业资质与执业证书 — 如 CPA/PMP/SHRM/软考等)
+# - awards         (竞赛荣誉与奖学金 — 如 ACM/数学建模/国家奖学金等)
+# - custom         (自定义模块 — 如代表开源作品、学术论文与专利等)
+sections:
+  - summary
+  - work
+  - projects
+  - skills
+  - education
+
+# 6. 技能项展示形态 (Skills Presentation)
+skills_style: category-list     # category-list (分类加粗列表) | pill-badges (高质感现代微胶囊) | inline-tags (纯文本紧凑流)
+
+# 7. 日期与元信息对齐 (Dates Alignment)
+dates:
+  align: right                  # right (传统右对齐浮动，扫读清晰) | inline (紧随机构/职位后)
+
+# 8. 排版密度与篇幅抢救阶梯 (Layout Density)
+# compact: 正文 10pt / 行距 1.35 / 节间距 8pt  (适合经历极丰富、内容多需要 1 页压制)
+# regular: 正文 10.5pt / 行距 1.5 / 节间距 12pt (标准黄金比例，呼吸感极佳)
+# airy   : 正文 11pt / 行距 1.6 / 节间距 16pt   (适合应届生、经历精简需要充实版面)
+density: regular
+
+# 9. 纸张规格与语言
+page: A4                        # A4 (国际/国内通用) | letter (北美主流)
+language: zh                    # zh (中文，全角标点) | en (英文，强动词过去时)

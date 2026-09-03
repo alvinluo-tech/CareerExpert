@@ -1,0 +1,31 @@
+{
+  "name": "CareerOps",
+  "version": "1.0.0",
+  "description": "CareerOps — 全能型 AI 原生求职与学术 CV 工作流系统：全格式简历拆解、代码工程探测、Google XYZ 战果量化改写、UI 视觉排版、学术 CV (Harvard/MIT) 与模拟面试攻防。",
+  "author": {
+    "name": "alvinluo-tech",
+    "url": "https://github.com/alvinluo-tech"
+  },
+  "homepage": "https://github.com/alvinluo-tech/CareerOps",
+  "repository": "https://github.com/alvinluo-tech/CareerOps",
+  "license": "MIT",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "CareerOps - Career & Academic CV Suite",
+    "shortDescription": "Resume tailoring, UI styling, Google XYZ polishing, academic CV, and mock interviews",
+    "developerName": "alvinluo-tech",
+    "category": "Career & Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "/resume - 全流程定制岗位简历与投递追踪",
+      "/style - 调整简历视觉配色与单页排版适配",
+      "/polish - 基于 Google XYZ 战果量化改写",
+      "/cv - 出国留学与海外硕博学术 CV 生成",
+      "/interview - 四级提示交互式模拟面试攻防"
+    ]
+  }
+}

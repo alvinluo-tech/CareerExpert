@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- ⚠️ DEMO 虚构简历。由 templates/resume-template.html 填充生成,事实来源:profile/ -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>李昂 — 简历</title>
+<style>
+  @page { size: A4; margin: 1.6cm 1.7cm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "Segoe UI", sans-serif;
+    font-size: 10.5pt; line-height: 1.5; color: #222;
+  }
+  h1 { font-size: 19pt; letter-spacing: 2px; color: #111; }
+  .contact { margin: 4pt 0 2pt; color: #444; font-size: 10pt; }
+  h2 {
+    font-size: 11.5pt; margin: 11pt 0 5pt; padding-bottom: 2.5pt;
+    border-bottom: 1.5pt solid #2b4a6f; color: #2b4a6f;
+    letter-spacing: 1px;
+  }
+  h3 { font-size: 10.5pt; margin: 7pt 0 2pt; color: #111; }
+  h3 .meta { font-weight: normal; color: #555; }
+  ul { padding-left: 14pt; }
+  li { margin-bottom: 2.5pt; }
+  .summary { text-align: justify; }
+  .skills li { margin-bottom: 1.5pt; }
+</style>
+</head>
+<body>
+
+<h1>李昂</h1>
+<p class="contact">上海 · 138****0000 · liang.demo@example.com · 4 年 Go 后端经验</p>
+
+<h2>概述</h2>
+<p class="summary">4 年 Go 后端开发经验,专注高并发接入网关与多租户流量治理。主导统一网关重构,P99 延迟下降 60%,单集群 QPS 提升 165%;擅长 k8s 环境下的服务治理、限流熔断灰度体系建设与稳定性保障。</p>
+
+<h2>工作经历</h2>
+
+<h3>星澜科技 <span class="meta">| 后端开发工程师(基础架构部) | 2022.07 ~ 至今</span></h3>
+<ul>
+  <li>主导统一网关重构,替换旧接入层并统一多租户接入隔离,P99 延迟从 45ms 降至 18ms(降 60%),单集群 QPS 从 3.2 万提升至 8.5 万(提升 165%),新租户接入成本从 3 人日降至 0.5 人日,支撑接入方从 12 个增长到 40+</li>
+  <li>设计动态配置热加载体系(etcd 分片 watch + 批量合并推送),配置变更生效时间从分钟级降至秒级,支撑配置中心场景的分钟级发布节奏</li>
+  <li>参与设计分布式任务调度平台,承载 6000+ 定时任务、日调度 40 万次,基于 etcd 实现分片与选主;失败任务自动重试与分级告警使人工运维介入减少 80%</li>
+  <li>主动建立接入层 SLA 与故障定级标准,获部门采纳,定级争议工单归零;主导 3 次 P0 事故复盘并沉淀熔断预案库,P0 复发率归零,常态化参与 on-call</li>
+</ul>
+
+<h3>晨曦信息 <span class="meta">| 后端开发工程师(交易平台研发组) | 2020.07 ~ 2022.06</span></h3>
+<ul>
+  <li>参与订单系统从单体拆分为下单/履约/结算 3 个微服务,发布回滚时间从 30 分钟降至 5 分钟,支撑日订单峰值 150 万</li>
+</ul>
+
+<h2>项目经历</h2>
+
+<h3>统一网关性能重构 <span class="meta">| 2024.03 ~ 2024.09 | 技术负责人</span></h3>
+<ul>
+  <li>设计插件化架构,统一鉴权、限流、灰度能力,以影子流量 + 生产等比数据集完成全链路压测验证</li>
+  <li>落地双缓冲 + 版本号 + 一键回滚的热加载一致性方案,牺牲强一致换发布效率并量化不一致窗口</li>
+</ul>
+
+<h3>分布式任务调度平台 <span class="meta">| 2023.02 ~ 2023.11 | 核心开发</span></h3>
+<ul>
+  <li>引入 fencing token 解决主备切换任务重复执行问题</li>
+</ul>
+
+<h2>技能</h2>
+<ul class="skills">
+  <li>语言:Go(主力,并发与网络编程)</li>
+  <li>中间件:Redis、Kafka、etcd(含一致性权衡实战);存储:MySQL、ClickHouse(使用层)</li>
+  <li>基础设施:k8s(使用与协作,未做过 operator/CRD 开发)、Docker、Prometheus/Grafana</li>
+  <li>服务治理:限流、熔断、灰度、配置中心、容量规划、on-call 事故处理与复盘</li>
+  <li>服务网格:了解(概念与生态,无生产落地经验,如实标注)</li>
+</ul>
+
+<h2>教育经历</h2>
+<h3>华东理工大学 <span class="meta">| 计算机科学与技术 | 本科 | 2016.09 ~ 2020.06</span></h3>
+
+</body>
+</html>

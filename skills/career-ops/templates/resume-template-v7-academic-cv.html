@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!-- 
+  模板骨架 v7：Harvard / MIT 规范学术 CV 模版 (Academic Curriculum Vitae)
+  专用于：出国留学申请 (Master / Ph.D. Applications)、博士后、高校与实验室科研岗位
+  特性：支持 2~3 页无缝优雅分页、学术排版与文献悬挂缩进、导师与毕业论文专栏、页码展示
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{{ name }} — Curriculum Vitae</title>
+<style>
+  :root {
+    --accent: #1e3a8a;          /* 经典学术深蓝 (Oxford/Harvard Blue) */
+    --ink: #111827;             /* 正文墨色 */
+    --muted: #4b5563;           /* 辅助深灰 */
+    --rule: #9ca3af;            /* 细分割线 */
+    --fs: 10.5pt;               /* 学术标准 10.5pt */
+    --lh: 1.5;                  /* 优雅阅读行距 1.5 */
+    --sec-gap: 14pt;            /* 节间距 */
+  }
+
+  @page {
+    size: A4;
+    margin: 1.8cm 2cm;
+    @bottom-right {
+      content: counter(page) " / " counter(pages);
+      font-size: 9pt;
+      color: #6b7280;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Charter", "Georgia", "Times New Roman", "Songti SC", serif;
+    font-size: var(--fs);
+    line-height: var(--lh);
+    color: var(--ink);
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: var(--sec-gap);
+    padding-bottom: 8pt;
+    border-bottom: 1.5pt solid var(--ink);
+  }
+
+  h1 {
+    font-size: 24pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--ink);
+    margin-bottom: 4pt;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .tagline {
+    font-size: 11pt;
+    color: var(--accent);
+    font-style: italic;
+    margin-bottom: 5pt;
+  }
+
+  .contact {
+    font-size: 9.5pt;
+    color: var(--muted);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  .contact span { margin: 0 4pt; }
+  .contact a { color: var(--accent); text-decoration: none; font-weight: 500; }
+
+  h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 11.5pt;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 1px;
+    margin: var(--sec-gap) 0 6pt;
+    padding-bottom: 2pt;
+    border-bottom: 1pt solid var(--rule);
+    text-transform: uppercase;
+  }
+
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 6pt;
+    margin-bottom: 2pt;
+    page-break-inside: avoid;
+  }
+  .item-title { font-weight: 700; color: var(--ink); }
+  .item-role { font-style: italic; color: var(--muted); margin-left: 4pt; }
+  .item-date { font-size: 9.5pt; color: var(--muted); font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+
+  .sub-details {
+    font-size: 9.8pt;
+    color: var(--muted);
+    margin-bottom: 4pt;
+    line-height: 1.45;
+  }
+  .sub-details b { color: var(--ink); font-weight: 600; }
+
+  ul.bullets {
+    padding-left: 14pt;
+    margin-bottom: 6pt;
+  }
+  ul.bullets li {
+    margin-bottom: 3pt;
+    text-align: justify;
+    page-break-inside: avoid;
+  }
+
+  /* 学术文献悬挂缩进 (Hanging Indent) */
+  .publication-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  .publication-list li {
+    padding-left: 1.8em;
+    text-indent: -1.8em;
+    margin-bottom: 6pt;
+    text-align: justify;
+    page-break-inside: avoid;
+    font-size: 10pt;
+  }
+  .publication-list b { color: var(--ink); font-weight: 700; }
+  .pub-badge {
+    display: inline-block;
+    font-size: 8.5pt;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #b91c1c;
+    font-weight: 700;
+    margin-left: 4pt;
+  }
+
+  .skills-row {
+    margin-bottom: 4pt;
+    font-size: 10pt;
+  }
+  .skills-row b {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--accent);
+  }
+
+  .award-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3pt;
+    font-size: 10pt;
+    page-break-inside: avoid;
+  }
+  .award-name { font-weight: 600; }
+  .award-date { font-size: 9.2pt; color: var(--muted); font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>{{ name }}</h1>
+  <div class="tagline">{{ tagline }}</div>
+  <div class="contact">
+    <span>Email: <a href="mailto:{{ email }}">{{ email }}</a></span>·
+    <span>Phone: {{ phone }}</span>·
+    <span>Website: <a href="{{ website }}">{{ website_display }}</a></span>·
+    <span>GitHub: <a href="{{ github }}">{{ github_display }}</a></span>·
+    <span>Google Scholar: <a href="{{ scholar }}">{{ scholar_display }}</a></span>
+  </div>
+</header>
+
+<!-- RESEARCH INTERESTS -->
+<section>
+  <h2>Research Interests</h2>
+  <p style="margin-bottom: 6pt; font-size: 10.2pt;">
+    {{ research_interests }}
+  </p>
+</section>
+
+<!-- EDUCATION -->
+<section>
+  <h2>Education</h2>
+  {{ education_slot }}
+</section>
+
+<!-- PUBLICATIONS -->
+<section>
+  <h2>Publications & Preprints</h2>
+  <ul class="publication-list">
+    {{ publications_slot }}
+  </ul>
+</section>
+
+<!-- RESEARCH EXPERIENCE -->
+<section>
+  <h2>Research Experience</h2>
+  {{ research_experience_slot }}
+</section>
+
+<!-- SELECTED OPEN-SOURCE & SYSTEMS -->
+<section>
+  <h2>Selected Systems & Open-Source</h2>
+  {{ projects_slot }}
+</section>
+
+<!-- HONORS & AWARDS -->
+<section>
+  <h2>Honors & Awards</h2>
+  {{ awards_slot }}
+</section>
+
+<!-- TECHNICAL & SCIENTIFIC SKILLS -->
+<section>
+  <h2>Technical & Research Skills</h2>
+  {{ skills_slot }}
+</section>
+
+<!-- ACADEMIC REFERENCES -->
+<section>
+  <h2>Academic References</h2>
+  {{ references_slot }}
+</section>
+
+</body>
+</html>

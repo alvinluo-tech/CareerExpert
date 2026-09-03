@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!-- 
+  样例 B：校招高潜应届生 · 林晨 (字节跳动校招定制版)
+  模板骨架：v5-executive-center (卓越居中对称款)
+  策略：campus (教育置顶第一屏 + 重点课程与GPA + 竞赛荣誉 + GitHub开源项目引用)
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>林晨 — 个人简历 (字节跳动·后端校招)</title>
+<style>
+  :root {
+    --accent: #1e3a8a;       /* 皇家深蓝 */
+    --accent-light: #eff6ff;
+    --ink: #0f172a;          /* 极深墨色 */
+    --muted: #475569;        /* 辅助石墨 */
+    --rule: #cbd5e1;         /* 分割线 */
+    --fs: 10pt;              /* 紧凑精致 10pt */
+    --lh: 1.45;              /* 行距 1.45 */
+    --sec-gap: 10pt;         /* 节间距 10pt */
+  }
+  @page { size: A4; margin: 1.4cm 1.5cm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-size: var(--fs);
+    line-height: var(--lh);
+    color: var(--ink);
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: var(--sec-gap);
+    padding-bottom: 6pt;
+    border-bottom: 2pt solid var(--accent);
+  }
+
+  h1 {
+    font-size: 21pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .tagline {
+    margin-top: 3pt;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 10.2pt;
+    letter-spacing: 0.5px;
+  }
+  .contact {
+    margin-top: 4pt;
+    color: var(--muted);
+    font-size: 9.2pt;
+  }
+  .contact-item { display: inline-block; margin: 0 4pt; }
+  .contact-item:first-child { margin-left: 0; }
+  .contact a { color: var(--accent); text-decoration: none; font-weight: 500; }
+
+  h2 {
+    font-size: 10.8pt;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1.5px;
+    margin: var(--sec-gap) 0 5pt;
+    padding-bottom: 2pt;
+    border-bottom: 1pt solid var(--rule);
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .item-header {
+    margin: 6pt 0 1.5pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 10.2pt;
+  }
+  .item-title { font-weight: 700; color: var(--ink); }
+  .item-role { font-weight: 600; color: var(--muted); margin-left: 4pt; font-size: 9.5pt; }
+  .item-date { font-size: 9.2pt; color: var(--muted); font-weight: 500; }
+
+  .edu-highlight {
+    font-size: 9.2pt;
+    color: var(--muted);
+    margin-top: 1.5pt;
+    margin-bottom: 3.5pt;
+    line-height: 1.4;
+  }
+  .edu-highlight b { color: var(--ink); }
+
+  ul.bullets { padding-left: 13pt; margin-bottom: 3.5pt; }
+  ul.bullets li { margin-bottom: 2pt; text-align: justify; }
+
+  .skills-category-list { list-style: none; padding-left: 0; margin-top: 2pt; }
+  .skills-category-list li { margin-bottom: 2.5pt; }
+  .skills-category-list b { color: var(--accent); margin-right: 4pt; }
+
+  .honor-item { display: flex; justify-content: space-between; margin-bottom: 2pt; font-size: 9.8pt; }
+  .honor-name { font-weight: 600; color: var(--ink); }
+  .honor-date { color: var(--muted); font-size: 9.2pt; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>林晨</h1>
+  <div class="tagline">浙江大学 · 计算机科学与技术 · 2026届硕士毕业生</div>
+  <div class="contact">
+    <span class="contact-item">电话：139****1122</span>·
+    <span class="contact-item">邮箱：linchen.campus@example.com</span>·
+    <span class="contact-item">GitHub：<a href="https://github.com/linchen-demo">github.com/linchen-demo</a></span>·
+    <span class="contact-item">求职意向：后端开发工程师 (2026届校招)</span>
+  </div>
+</header>
+
+<!-- 校招策略：教育背景置顶第一屏 (GPA、排名、奖学金、重点课程) -->
+<section class="section-education">
+  <h2>教育背景</h2>
+  <div class="item-header">
+    <div>
+      <span class="item-title">浙江大学</span>
+      <span class="item-role">| 计算机科学与技术 · 硕士</span>
+    </div>
+    <span class="item-date">2023.09 ~ 2026.06</span>
+  </div>
+  <div class="edu-highlight">
+    <b>成绩与荣誉：</b>GPA 3.85 / 4.0（专业前 3%）· 研究生国家奖学金（前2%）、一等学业奖学金<br>
+    <b>核心课程：</b>高级计算机体系结构、分布式系统原理、数据库系统实现、算法设计与分析、Linux内核原理
+  </div>
+
+  <div class="item-header">
+    <div>
+      <span class="item-title">华中科技大学</span>
+      <span class="item-role">| 软件工程 · 本科</span>
+    </div>
+    <span class="item-date">2019.09 ~ 2023.06</span>
+  </div>
+</section>
+
+<!-- 专业技能底座 -->
+<section class="section-skills">
+  <h2>专业技能</h2>
+  <ul class="skills-category-list">
+    <li><b>编程语言：</b>Go（熟练掌握底层协程调度模型、GC 机制及并发编程）、C/C++、Python</li>
+    <li><b>分布式与存储：</b>深入理解 Raft 共识协议、LSM-Tree 存储引擎、LevelDB/RocksDB、Redis、Kafka</li>
+    <li><b>系统与基础设施：</b>深入理解 TCP/IP 协议栈、Linux 进程模型、虚拟内存机制、Docker、Kubernetes</li>
+    <li><b>数据库核心：</b>熟悉 MySQL InnoDB 索引底层数据结构（B+树）、事务隔离级别与行级锁机制</li>
+  </ul>
+</section>
+
+<!-- 开源核心项目 (带 GitHub 链接，免复制冗长源码) -->
+<section class="section-projects">
+  <h2>核心开源项目经历</h2>
+  <div class="item-header">
+    <div>
+      <span class="item-title">Raft-KV 分布式强一致性键值存储引擎</span>
+      <span class="item-role">| 独立设计研发 · <a href="https://github.com/linchen-demo/raft-distributed-kv">GitHub (420+ Stars)</a></span>
+    </div>
+    <span class="item-date">2024.09 ~ 2025.02</span>
+  </div>
+  <ul class="bullets">
+    <li>独立基于 Go 语言从零实现 Raft 分布式强一致性协议，通过心跳机制与随机化超时窗口，实现 300ms 内无中心化故障快速自愈。</li>
+    <li>架构底层持久化引擎，集成 LSM-Tree 存储结构与 SSTable 分层压实（Compaction）算法，单机集群写入吞吐达 1.4 万 TPS。</li>
+    <li>编写端到端混沌测试套件，模拟网络丢包、延迟抖动与脑裂场景，在 100+ 次极限压力注入测试中达成零数据丢失。</li>
+  </ul>
+</section>
+
+<!-- 实习经历 -->
+<section class="section-work">
+  <h2>实习经历</h2>
+  <div class="item-header">
+    <div>
+      <span class="item-title">阿里云计算</span>
+      <span class="item-role">| 分布式存储研发实习生</span>
+    </div>
+    <span class="item-date">2025.03 ~ 2025.08</span>
+  </div>
+  <ul class="bullets">
+    <li>参与盘古分布式存储元数据服务缓存优化，基于 Go 语言重构元数据本地 LRU-K 缓存淘汰算法。</li>
+    <li>将热点元数据检索时延由 1.8ms 压缩至 0.4ms，降低元数据服务 Master 节点 CPU 峰值负载 22%。</li>
+    <li>独立编写混沌工程故障注入脚本，覆盖网络分区、磁盘写入静默损坏等 8 种异常用例，排查出 2 处潜在并发缺陷。</li>
+  </ul>
+</section>
+
+<!-- 荣誉与竞赛奖项 -->
+<section class="section-awards">
+  <h2>荣誉奖项与竞赛</h2>
+  <div class="honor-item">
+    <span class="honor-name">全国大学生程序设计竞赛 (ACM-ICPC) 区域赛 银奖</span>
+    <span class="honor-date">2022.11</span>
+  </div>
+  <div class="honor-item">
+    <span class="honor-name">全国大学生数学建模竞赛 (MCM/ICM) 一等奖</span>
+    <span class="honor-date">2021.09</span>
+  </div>
+  <div class="honor-item">
+    <span class="honor-name">研究生国家奖学金（全学院前 2%）</span>
+    <span class="honor-date">2024.12</span>
+  </div>
+</section>
+
+</body>
+</html>

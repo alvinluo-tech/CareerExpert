@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!-- 
+  简历模板 v4「现代科技胶囊款」(Modern Pill) — 科技大厂、互联网、全栈工程师、产品经理与高潜校招首选
+  特性：
+  - 现代化微质感：节标题带有精致左色块或高阶背景微底色，视觉焦点鲜明
+  - 原生支持技能胶囊 (Pill Badges)，高科技辨识度，信息密度极高
+  - 全量变量与模块插槽驱动：支持自定义调色盘、Header 居中/居左、模块任意重排
+  - 严格保持单栏标准语义化，PyMuPDF 与各类 ATS 纯文本抽取无损通过
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>{{NAME}} — 个人简历</title>
+<style>
+  :root {
+    --accent: #0f766e;       /* 科技墨绿或深海蓝 */
+    --accent-light: #f0fdfa; /* 极淡微底色 */
+    --accent-border: #ccfbf1;
+    --ink: #1e293b;          /* 现代深深灰 */
+    --muted: #64748b;        /* 辅助石墨灰 */
+    --rule: #e2e8f0;         /* 现代轻分割线 */
+    --fs: 10.5pt;            /* 字号 */
+    --lh: 1.5;               /* 行距 */
+    --sec-gap: 12pt;         /* 节间距 */
+  }
+  @page { size: A4; margin: 1.4cm 1.5cm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    font-size: var(--fs);
+    line-height: var(--lh);
+    color: var(--ink);
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 头部区域 */
+  header {
+    margin-bottom: var(--sec-gap);
+    padding-bottom: 6pt;
+    border-bottom: 1.5pt solid var(--rule);
+  }
+  .header-left { text-align: left; }
+  .header-center { text-align: center; }
+  .header-split { display: flex; justify-content: space-between; align-items: flex-end; }
+
+  h1 {
+    font-size: 21pt;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: 1px;
+    line-height: 1.15;
+  }
+  .tagline {
+    margin-top: 3pt;
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 10.2pt;
+    letter-spacing: 0.5px;
+  }
+  .contact {
+    margin-top: 4pt;
+    color: var(--muted);
+    font-size: 9.3pt;
+  }
+  .contact-item { display: inline-block; margin: 0 4pt; }
+  .contact-item:first-child { margin-left: 0; }
+  .contact a { color: var(--muted); text-decoration: none; }
+
+  /* 现代节标题：左侧微色条 + 浅底轻胶囊质感 */
+  h2 {
+    font-size: 11.2pt;
+    font-weight: 700;
+    color: var(--accent);
+    margin: var(--sec-gap) 0 6pt;
+    padding: 2.5pt 8pt;
+    background: var(--accent-light);
+    border-left: 3.5pt solid var(--accent);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.3;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* 条目标题 */
+  .item-header {
+    margin: 8pt 0 2pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 10.6pt;
+  }
+  .item-title { font-weight: 700; color: var(--ink); }
+  .item-role { font-weight: 600; color: var(--accent); margin-left: 5pt; font-size: 9.8pt; }
+  .item-date { font-size: 9.5pt; color: var(--muted); font-weight: 500; }
+
+  /* 描述与 Bullet */
+  p.section-desc { margin-bottom: 4pt; text-align: justify; }
+  ul.bullets { padding-left: 14pt; margin-bottom: 4pt; }
+  ul.bullets li { margin-bottom: 2.5pt; text-align: justify; }
+
+  /* 现代科技技能胶囊 Badges */
+  .skills-pill-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4pt;
+    list-style: none;
+    padding-left: 0;
+    margin-top: 3pt;
+  }
+  .skills-pill-badges li {
+    background: var(--accent-light);
+    color: var(--accent);
+    border: 1pt solid var(--accent-border);
+    border-radius: 12pt;
+    padding: 1.5pt 7pt;
+    font-size: 9pt;
+    font-weight: 600;
+  }
+
+  /* 分类列表回退 */
+  .skills-category-list { list-style: none; padding-left: 0; }
+  .skills-category-list li { margin-bottom: 3pt; }
+  .skills-category-list b { color: var(--accent); margin-right: 4pt; }
+
+  /* 荣誉资质 */
+  .honor-item { display: flex; justify-content: space-between; margin-bottom: 2.5pt; font-size: 10pt; }
+  .honor-name { font-weight: 600; color: var(--ink); }
+  .honor-date { color: var(--muted); font-size: 9.3pt; }
+</style>
+</head>
+<body>
+
+<header class="{{HEADER_ALIGN_CLASS}}">
+  <h1>{{NAME}}</h1>
+  {{TAGLINE_BLOCK}}
+  <div class="contact">
+    {{CONTACT_LINE}}
+  </div>
+</header>
+
+<!-- 乐高式插槽：按 style.yml 的 sections 顺序动态组装 -->
+{{SECTIONS_CONTENT}}
+
+</body>
+</html>

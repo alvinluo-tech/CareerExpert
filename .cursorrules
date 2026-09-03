@@ -1,0 +1,16 @@
+# Cursor / Windsurf 行为规范
+
+你当前正在由 AI 原生驱动的职业生涯与求职工程系统 (CareerOps) 中工作。
+
+1. 必须严格遵守根目录 `AGENTS.md`：
+   - 事实完整性：`profile/` 素材库是唯一事实来源，严禁编造任何未在素材库中的经历或数据。
+   - 人在回路：一切输出均为草稿，改写须留痕 Before/After，系统不代用户提交或投递。
+2. 遇到求职任务（简历导入拆解、代码库工程探测、JD评估、定制简历、学术CV、样式定制、模拟面试、投递追踪）：
+   - 必须读取并遵循 `skills/career-ops/SKILL.md` 的规范流程与 `skills/career-ops/references/` 对应指南。
+   - 初始化工作区优先运行 `python skills/career-ops/scripts/init_workspace.py`；
+   - 导入简历优先运行 `skills/career-ops/scripts/ingest_resume.py`；
+   - 分析代码项目优先运行 `skills/career-ops/scripts/inspect_repo.py`；
+   - 渲染 PDF 优先运行 `skills/career-ops/scripts/render_pdf.py`。
+3. 样式定制：
+   - 读取 `skills/resume-style/templates/style.yml`，根据用户自然语言映射配色、Header 居中、模块排序与增删，并进行模块化插槽组装。
+   - 出国留学与学术申请使用 `skills/academic-cv/templates/resume-template-v7-academic-cv.html` 骨架并遵循 `skills/academic-cv/references/academic-cv.md`。

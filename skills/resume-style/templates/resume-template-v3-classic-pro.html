@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!-- 
+  简历模板 v3「经典专业款」(Classic Pro) — 稳重大气，全宽细线分割
+  适用：金融、咨询、传统外企、国企、技术资深社招
+  特性：
+  - 支持 :root CSS 变量无损换色换密度
+  - 支持 header 居左 / 居中 / 左右分布 (.header-left / .header-center / .header-split)
+  - 支持技能项传统列表 / 现代胶囊 (.skills-category-list / .skills-pill-badges)
+  - 100% 语义化标签与单栏结构，ATS 纯文本抽取 100% 安全
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>{{NAME}} — 个人简历</title>
+<style>
+  :root {
+    --accent: #14548c;       /* 主强调色 */
+    --accent-light: #f0f7ff; /* 浅底色 */
+    --ink: #1c2430;          /* 正文主色 */
+    --muted: #5a6472;        /* 次要信息 */
+    --rule: #c9d2db;         /* 全宽细分割线 */
+    --fs: 10.5pt;            /* 正文字号: compact 10pt / regular 10.5pt / airy 11pt */
+    --lh: 1.5;               /* 行距: compact 1.35 / regular 1.5 / airy 1.6 */
+    --sec-gap: 12pt;         /* 节间距: compact 8pt / regular 12pt / airy 16pt */
+  }
+  @page { size: A4; margin: 1.5cm 1.6cm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: var(--fs);
+    line-height: var(--lh);
+    color: var(--ink);
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 头部区域 */
+  header { margin-bottom: var(--sec-gap); }
+  .header-left { text-align: left; }
+  .header-center { text-align: center; }
+  .header-split { display: flex; justify-content: space-between; align-items: flex-end; }
+  
+  h1 {
+    font-size: 20pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .tagline {
+    margin-top: 3pt;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 11pt;
+    letter-spacing: 0.5px;
+  }
+  .contact {
+    margin-top: 4pt;
+    padding-bottom: 7pt;
+    color: var(--muted);
+    font-size: 9.5pt;
+    border-bottom: 2pt solid var(--accent);
+  }
+  .contact a { color: var(--muted); text-decoration: none; }
+  .contact-item { display: inline-block; margin: 0 4pt; }
+  .contact-item:first-child { margin-left: 0; }
+
+  /* 节标题：全宽细线分割 */
+  h2 {
+    font-size: 11.5pt;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1.5px;
+    margin: var(--sec-gap) 0 6pt;
+    padding-bottom: 3pt;
+    border-bottom: 1pt solid var(--rule);
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  /* 条目标题行：主体居左，日期与地点右对齐 */
+  .item-header {
+    margin: 8pt 0 2pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 10.8pt;
+  }
+  .item-title { font-weight: 700; color: var(--ink); }
+  .item-role { font-weight: 600; color: var(--muted); margin-left: 4pt; font-size: 10pt; }
+  .item-date { font-size: 9.8pt; color: var(--muted); font-weight: normal; white-space: nowrap; }
+
+  /* 内容与列表 */
+  p.section-desc {
+    margin-bottom: 4pt;
+    text-align: justify;
+  }
+  ul.bullets {
+    padding-left: 14pt;
+    margin-bottom: 4pt;
+  }
+  ul.bullets li {
+    margin-bottom: 2.5pt;
+    text-align: justify;
+  }
+
+  /* 技能展示：两种样式 */
+  /* 1. 分类列表 */
+  .skills-category-list { list-style: none; padding-left: 0; }
+  .skills-category-list li { margin-bottom: 3pt; }
+  .skills-category-list b { color: var(--ink); margin-right: 4pt; }
+
+  /* 2. 现代微胶囊 */
+  .skills-pill-badges { display: flex; flex-wrap: wrap; gap: 5pt; list-style: none; padding-left: 0; margin-top: 4pt; }
+  .skills-pill-badges li {
+    background: var(--accent-light);
+    color: var(--accent);
+    border: 1pt solid var(--rule);
+    border-radius: 3pt;
+    padding: 2pt 6pt;
+    font-size: 9.2pt;
+    font-weight: 500;
+    display: inline-block;
+  }
+
+  /* 资质与证书 / 荣誉 */
+  .honor-item { display: flex; justify-content: space-between; margin-bottom: 2.5pt; font-size: 10.2pt; }
+  .honor-name { font-weight: 600; color: var(--ink); }
+  .honor-date { color: var(--muted); font-size: 9.5pt; }
+</style>
+</head>
+<body>
+
+<header class="{{HEADER_ALIGN_CLASS}}">
+  <h1>{{NAME}}</h1>
+  <!-- 可选 Tagline 标语 -->
+  {{TAGLINE_BLOCK}}
+  <div class="contact">
+    {{CONTACT_LINE}}
+  </div>
+</header>
+
+<!-- 
+  乐高式插槽：按 style.yml 的 sections 顺序动态组装 
+  支持模块：summary, education, work, projects, skills, certifications, awards, custom
+-->
+{{SECTIONS_CONTENT}}
+
+</body>
+</html>

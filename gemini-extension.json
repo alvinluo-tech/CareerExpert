@@ -1,0 +1,34 @@
+{
+  "name": "CareerOps",
+  "version": "1.0.0",
+  "displayName": "CareerOps - Career & Academic CV Agent Suite",
+  "description": "全能型 AI 原生求职与学术 CV 工作流系统：全格式简历拆解、代码工程探测、Google XYZ 量化、UI 视觉排版、学术 CV 与模拟面试。",
+  "skills": "./skills/",
+  "commands": [
+    {
+      "name": "resume",
+      "description": "全流程简历定制与投递追踪",
+      "prompt": "调用 career-ops 技能，基于候选人素材库与目标职位 JD 进行全流程定制与评估"
+    },
+    {
+      "name": "style",
+      "description": "简历视觉排版调优 (文字锁定)",
+      "prompt": "调用 resume-style 技能，锁定经历文字，仅调整简历 HTML/CSS 骨架、调色微调与单页高度适配"
+    },
+    {
+      "name": "polish",
+      "description": "简历战果量化与润色 (样式锁定)",
+      "prompt": "调用 resume-polish 技能，锁定排版样式，对经历进行 Google XYZ 战果量化改写与强动词增强"
+    },
+    {
+      "name": "cv",
+      "description": "出国留学学术 CV 生成",
+      "prompt": "调用 academic-cv 技能，遵循 Harvard/MIT 规范排版学术双页 CV"
+    },
+    {
+      "name": "interview",
+      "description": "四级提示交互式模拟面试",
+      "prompt": "调用 mock-interview 技能，针对目标岗位与经历开展四级递进模拟面试与复盘"
+    }
+  ]
+}
