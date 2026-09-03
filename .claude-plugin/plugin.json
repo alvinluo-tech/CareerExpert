@@ -1,18 +1,18 @@
 {
   "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
-  "name": "CareerOps",
+  "name": "CareerExpert",
   "version": "1.0.0",
-  "description": "CareerOps — 全能型 AI 原生求职与学术 CV 工作流系统：全格式简历智能拆解、代码库工程深度探测、Google XYZ 战果量化改写、UI 视觉排版、出国留学学术 CV (Harvard/MIT 规范) 与四级提示模拟面试攻防。",
+  "description": "CareerExpert — 全能型 AI 原生求职与学术 CV 工作流系统：全格式简历智能拆解、代码库工程深度探测、Google XYZ 战果量化改写、UI 视觉排版、出国留学学术 CV (Harvard/MIT 规范) 与四级提示模拟面试攻防。",
   "author": {
     "name": "alvinluo-tech",
     "url": "https://github.com/alvinluo-tech"
   },
-  "homepage": "https://github.com/alvinluo-tech/CareerOps",
-  "repository": "https://github.com/alvinluo-tech/CareerOps",
+  "homepage": "https://github.com/alvinluo-tech/CareerExpert",
+  "repository": "https://github.com/alvinluo-tech/CareerExpert",
   "license": "MIT",
   "keywords": [
     "career",
-    "careerops",
+    "careerexpert",
     "resume",
     "job-finding",
     "academic-cv",

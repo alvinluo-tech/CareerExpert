@@ -1,19 +1,19 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "careerops-marketplace",
-  "description": "Marketplace manifest for the CareerOps career and academic workflow plugin suite.",
+  "name": "careerexpert-marketplace",
+  "description": "Marketplace manifest for the CareerExpert career and academic workflow plugin suite.",
   "owner": {
     "name": "alvinluo-tech",
     "url": "https://github.com/alvinluo-tech"
   },
   "plugins": [
     {
-      "name": "CareerOps",
+      "name": "CareerExpert",
       "description": "All-in-one AI career agent: resume ingestion, repo inspection, JD evaluation, Google XYZ polishing, UI styling, Harvard/MIT academic CV, and mock interviews.",
       "version": "1.0.0",
       "source": {
         "type": "git",
-        "url": "https://github.com/alvinluo-tech/CareerOps.git"
+        "url": "https://github.com/alvinluo-tech/CareerExpert.git"
       }
     }
   ]

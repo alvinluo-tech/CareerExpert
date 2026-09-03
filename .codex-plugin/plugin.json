@@ -1,17 +1,17 @@
 {
-  "name": "CareerOps",
+  "name": "CareerExpert",
   "version": "1.0.0",
-  "description": "CareerOps — 全能型 AI 原生求职与学术 CV 工作流系统：全格式简历拆解、代码工程探测、Google XYZ 战果量化改写、UI 视觉排版、学术 CV (Harvard/MIT) 与模拟面试攻防。",
+  "description": "CareerExpert — 全能型 AI 原生求职与学术 CV 工作流系统：全格式简历拆解、代码工程探测、Google XYZ 战果量化改写、UI 视觉排版、学术 CV (Harvard/MIT) 与模拟面试攻防。",
   "author": {
     "name": "alvinluo-tech",
     "url": "https://github.com/alvinluo-tech"
   },
-  "homepage": "https://github.com/alvinluo-tech/CareerOps",
-  "repository": "https://github.com/alvinluo-tech/CareerOps",
+  "homepage": "https://github.com/alvinluo-tech/CareerExpert",
+  "repository": "https://github.com/alvinluo-tech/CareerExpert",
   "license": "MIT",
   "skills": "./skills/",
   "interface": {
-    "displayName": "CareerOps - Career & Academic CV Suite",
+    "displayName": "CareerExpert - Career & Academic CV Suite",
     "shortDescription": "Resume tailoring, UI styling, Google XYZ polishing, academic CV, and mock interviews",
     "developerName": "alvinluo-tech",
     "category": "Career & Productivity",

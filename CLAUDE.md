@@ -1,6 +1,6 @@
-# CLAUDE.md — CareerOps 工作流配置与引导
+# CLAUDE.md — CareerExpert 工作流配置与引导
 
-欢迎进入 CareerOps 全能型 AI 原生求职与学术工作流系统。本仓库将 Claude Code 打造为用户的专业求职军师、工程审计师与严苛的简历主编。
+欢迎进入 CareerExpert 全能型 AI 原生求职与学术工作流系统。本仓库将 Claude Code 打造为用户的专业求职军师、工程审计师与严苛的简历主编。
 
 ---
 

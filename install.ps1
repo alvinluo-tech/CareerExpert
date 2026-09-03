@@ -1,10 +1,10 @@
 <#
 .SYNOPSIS
-  CareerOps — 全能型 AI 原生求职与学术 CV 工作流系统
+  CareerExpert — 全能型 AI 原生求职与学术 CV 工作流系统
   Multi-Skills 矩阵跨 Harness 一键安装器 (Windows PowerShell)
 
 .DESCRIPTION
-  一键将全套 CareerOps 技能矩阵部署至当前用户或指定项目的全局 Agent 环境：
+  一键将全套 CareerExpert 技能矩阵部署至当前用户或指定项目的全局 Agent 环境：
   - /career-ops        -> 全流程求职与学术工作流总指挥
   - /career-style      -> UI 视觉排版、HTML/CSS 调色与单页高度契合 (内容锁定)
   - /career-polish     -> Google XYZ / HBS PAR 经历战果量化改写 (样式锁定)
@@ -26,7 +26,7 @@ $ErrorActionPreference = "Stop"
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 Write-Host "====================================================" -ForegroundColor Cyan
-Write-Host "  CareerOps — Multi-Skills 技能矩阵与 Slash 命令" -ForegroundColor Cyan
+Write-Host "  CareerExpert — Multi-Skills 技能矩阵与 Slash 命令" -ForegroundColor Cyan
 Write-Host "  跨 Harness 一键安装器 (Windows)" -ForegroundColor Cyan
 Write-Host "====================================================" -ForegroundColor Cyan
 
@@ -107,7 +107,7 @@ if ($Target -eq "Local") {
 }
 
 Write-Host "`n====================================================" -ForegroundColor Cyan
-Write-Host "  ✨ CareerOps 技能矩阵部署完成 (唯一命名空间)！" -ForegroundColor Cyan
+Write-Host "  ✨ CareerExpert 技能矩阵部署完成 (唯一命名空间)！" -ForegroundColor Cyan
 Write-Host "  可用原生 Slash 快捷指令：" -ForegroundColor Cyan
 Write-Host "    - /career-ops        -> 全流程求职与学术规划总指挥" -ForegroundColor White
 Write-Host "    - /career-style      -> 简历 UI 视觉排版调优 (文字绝对锁定)" -ForegroundColor White

@@ -1,7 +1,7 @@
 {
-  "name": "CareerOps",
+  "name": "CareerExpert",
   "version": "1.0.0",
-  "description": "CareerOps — 全能型 AI 原生求职与学术 CV 工作流系统",
+  "description": "CareerExpert — 全能型 AI 原生求职与学术 CV 工作流系统",
   "author": "alvinluo-tech",
   "license": "MIT",
   "skills": "./skills/"

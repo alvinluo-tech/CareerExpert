@@ -1,4 +1,4 @@
-# CareerOps — 全能型 AI 原生职业生涯与学术工作流系统
+# CareerExpert — 全能型 AI 原生职业生涯与学术工作流系统
 
 <p align="center">
   <img src="https://img.shields.io/badge/Anthropic_Plugin-Standard_Compliant-6366f1?style=for-the-badge&logo=anthropic" alt="Anthropic Plugin Standard" />
@@ -23,15 +23,15 @@
 ### Windows (PowerShell)
 ```powershell
 # 克隆仓库后在根目录运行一键安装器
-git clone https://github.com/alvinluo-tech/CareerOps.git
-cd CareerOps
+git clone https://github.com/alvinluo-tech/CareerExpert.git
+cd CareerExpert
 .\install.ps1 -Target All
 ```
 
 ### macOS / Linux (Bash)
 ```bash
-git clone https://github.com/alvinluo-tech/CareerOps.git
-cd CareerOps
+git clone https://github.com/alvinluo-tech/CareerExpert.git
+cd CareerExpert
 chmod +x install.sh
 ./install.sh all
 ```
@@ -49,7 +49,7 @@ chmod +x install.sh
 根目录保持极致清爽，核心能力拆分为**高内聚、专精垂直领域的独立技能矩阵**，并配备原生 **Slash 快捷指令**：
 
 ```text
-CareerOps/
+CareerExpert/
 ├── README.md                           <-- [项目门面] 完整说明、安装指南与 Prompt 速查
 ├── LICENSE                             <-- [开源协议] MIT License
 ├── install.sh / install.ps1            <-- [跨平台安装器] 一键部署全套技能矩阵至各大 Agent

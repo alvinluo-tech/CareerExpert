@@ -1,7 +1,7 @@
 {
-  "name": "CareerOps",
+  "name": "CareerExpert",
   "version": "1.0.0",
-  "displayName": "CareerOps - Career & Academic CV Agent Suite",
+  "displayName": "CareerExpert - Career & Academic CV Agent Suite",
   "description": "全能型 AI 原生求职与学术 CV 工作流系统：全格式简历拆解、代码工程探测、Google XYZ 量化、UI 视觉排版、学术 CV 与模拟面试。",
   "skills": "./skills/",
   "commands": [
