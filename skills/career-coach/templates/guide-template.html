@@ -6,301 +6,699 @@
 <title>{{TITLE}}</title>
 <style>
   :root {
-    --primary: #0f172a;
-    --primary-accent: #2563eb;
-    --bg: #f8fafc;
-    --surface: #ffffff;
-    --ink: #1e293b;
-    --muted: #64748b;
-    --border: #e2e8f0;
-    --red-bg: #fef2f2;
-    --red-border: #ef4444;
-    --red-text: #991b1b;
-    --green-bg: #f0fdf4;
-    --green-border: #22c55e;
-    --green-text: #166534;
-    --blue-bg: #eff6ff;
-    --blue-border: #3b82f6;
-    --blue-text: #1e40af;
-    --amber-bg: #fffbeb;
-    --amber-border: #f59e0b;
-    --amber-text: #92400e;
+    --brand-dark: #090d16;
+    --brand-card: #0f172a;
+    --brand-border: #1e293b;
+    --brand-accent: #38bdf8;
+    --brand-accent-glow: rgba(56, 189, 248, 0.15);
+    --brand-success: #10b981;
+    --brand-warning: #f59e0b;
+    --brand-danger: #ef4444;
+    --brand-purple: #8b5cf6;
+    
+    --body-bg: #f1f5f9;
+    --panel-bg: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --code-bg: #0b1120;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-    background: var(--bg);
-    color: var(--ink);
+    background: var(--body-bg);
+    color: var(--text-main);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    padding-bottom: 60px;
   }
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01);
-  }
-  /* 顶部导航与封面 */
-  header.hero {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0b1329 100%);
-    color: #fff;
-    padding: 36px 40px 32px;
-    border-bottom: 3px solid var(--primary-accent);
-  }
-  .badge-tag {
-    display: inline-block;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 700;
-    background: rgba(56, 189, 248, 0.15);
-    color: #38bdf8;
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    padding: 2px 10px;
-    border-radius: 4px;
-    margin-bottom: 12px;
-  }
-  header.hero h1 {
-    font-size: 24px;
-    font-weight: 800;
-    line-height: 1.3;
-    margin-bottom: 8px;
-    letter-spacing: 0.5px;
-  }
-  .hero-meta {
-    font-size: 13px;
-    color: #94a3b8;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 10px;
-  }
-  .hero-meta span b { color: #f1f5f9; }
 
-  /* 主体区域 */
-  main.content {
-    padding: 36px 40px;
+  /* 顶部全局 Executive 标头 */
+  header.global-header {
+    background: linear-gradient(135deg, #090d16 0%, #0f172a 60%, #1e1b4b 100%);
+    color: #fff;
+    padding: 40px 48px;
+    border-bottom: 3px solid var(--brand-accent);
+    position: relative;
+    overflow: hidden;
   }
-  .section-block {
-    margin-bottom: 36px;
+  header.global-header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(56,189,248,0.12) 0%, transparent 70%);
+    pointer-events: none;
   }
-  .section-heading {
+  .header-tag-row {
     display: flex;
     align-items: center;
-    font-size: 16px;
-    font-weight: 800;
-    margin-bottom: 16px;
-    color: var(--primary);
-    border-bottom: 2px solid var(--border);
-    padding-bottom: 8px;
+    gap: 12px;
+    margin-bottom: 12px;
   }
-  .section-heading .icon {
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    padding: 3px 12px;
+    border-radius: 9999px;
+  }
+  .live-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 8px #10b981;
+    margin-right: 6px;
+    display: inline-block;
+  }
+  header.global-header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    color: #ffffff;
+  }
+  .header-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 13px;
+  }
+  .meta-cell { color: #94a3b8; }
+  .meta-cell strong { color: #f8fafc; font-weight: 600; }
+
+  /* 核心指标统计横幅 (Key Metrics Bar) */
+  .metrics-bar {
+    background: #0f172a;
+    border-bottom: 1px solid var(--brand-border);
+    padding: 16px 48px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    align-items: center;
+  }
+  .metric-item {
+    display: flex;
+    flex-direction: column;
+  }
+  .metric-item .val {
+    font-size: 20px;
+    font-weight: 800;
+    color: #38bdf8;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+  .metric-item .lbl {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  /* 布局容器：左侧导航 + 右侧主内容区 */
+  .app-layout {
+    max-width: 1400px;
+    margin: 32px auto;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+  }
+
+  /* 侧边导航栏 (Sticky Sidebar) */
+  aside.sidebar {
+    position: sticky;
+    top: 24px;
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+  }
+  .sidebar-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+  }
+  .nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .nav-item a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+    text-decoration: none;
+    padding: 9px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+  .nav-item a:hover {
+    background: #f1f5f9;
+    color: #0284c7;
+    transform: translateX(3px);
+  }
+  .nav-item a .num {
+    font-family: monospace;
+    color: #94a3b8;
+    font-size: 11px;
+    background: #f8fafc;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+  }
+  .sidebar-action-box {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--border-color);
+  }
+  .btn-print {
+    width: 100%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    gap: 8px;
+    background: #0f172a;
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
     border-radius: 6px;
-    margin-right: 10px;
-    font-size: 14px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-print:hover { background: #1e293b; }
+
+  /* 主内容面板 */
+  main.main-body {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+  .content-card {
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03);
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--border-color);
+  }
+  .card-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    font-size: 18px;
+  }
+  .card-title-group h2 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-main);
+  }
+  .card-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
   }
 
-  /* 模块 1: 软肋卡片 */
-  .vulnerability-card {
-    background: var(--red-bg);
-    border-left: 4px solid var(--red-border);
-    border-radius: 6px;
-    padding: 16px 20px;
-    margin-bottom: 16px;
+  /* 模块 1: 软肋排雷与考官陷阱 */
+  .trap-card {
+    background: #fff8f8;
+    border: 1px solid #fee2e2;
+    border-left: 5px solid #ef4444;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
   }
-  .vulnerability-card h4 {
-    color: var(--red-text);
-    font-size: 14px;
-    margin-bottom: 8px;
+  .trap-top {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .trap-top h3 {
+    font-size: 15px;
+    color: #991b1b;
     font-weight: 700;
   }
-  .vulnerability-card .quote {
-    background: rgba(255,255,255,0.7);
-    padding: 8px 12px;
+  .trap-severity {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: #fecaca;
+    color: #991b1b;
+    padding: 2px 6px;
     border-radius: 4px;
-    font-size: 13px;
-    color: #450a0a;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    margin-bottom: 8px;
   }
-  .vulnerability-card .subtext {
+  .trap-quote {
+    background: #fff;
+    border: 1px solid #fecaca;
+    padding: 10px 14px;
+    border-radius: 6px;
     font-size: 13px;
     color: #7f1d1d;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    margin-bottom: 14px;
+  }
+  .subtext-block {
+    background: rgba(254, 242, 242, 0.6);
+    padding: 12px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #450a0a;
+  }
+  .subtext-block b { color: #991b1b; }
+
+  /* 模块 2: 架构拓扑与全链路图解 */
+  .architecture-diagram {
+    background: #0b1120;
+    border-radius: 8px;
+    padding: 24px;
+    color: #f8fafc;
+    margin-bottom: 20px;
+    overflow-x: auto;
+  }
+  .topology-flow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    font-family: monospace;
+    font-size: 13px;
+    flex-wrap: wrap;
+  }
+  .topology-node {
+    background: #1e293b;
+    border: 1px solid #38bdf8;
+    color: #38bdf8;
+    padding: 10px 14px;
+    border-radius: 6px;
+    text-align: center;
+  }
+  .topology-arrow {
+    color: #64748b;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  /* 模块 3: 硬核源码与原理实现 */
+  .code-section {
+    margin-bottom: 24px;
+  }
+  .code-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .code-container {
+    background: var(--code-bg);
+    border-radius: 8px;
+    padding: 18px 20px;
+    color: #e2e8f0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 12.5px;
+    line-height: 1.6;
+    overflow-x: auto;
+    border: 1px solid #1e293b;
+    margin-bottom: 12px;
+  }
+  .code-container .kw { color: #f472b6; }
+  .code-container .func { color: #38bdf8; }
+  .code-container .type { color: #fbbf24; }
+  .code-container .comment { color: #64748b; font-style: italic; }
+  .code-explain {
+    background: #f8fafc;
+    border-left: 4px solid #0284c7;
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #334155;
+    line-height: 1.6;
+  }
+
+  /* 模块 4: 压测算账与公式速查 */
+  .math-card {
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .math-formula {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0369a1;
+    margin-bottom: 12px;
+    display: inline-block;
+  }
+  .math-details {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.6;
+  }
+
+  /* 模块 5: STAR-T 答辩思考模型 */
+  .start-model-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .start-box {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-top: 4px solid #2563eb;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .start-box .step-tag {
+    font-size: 11px;
+    font-weight: 800;
+    color: #1d4ed8;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .start-box h4 {
+    font-size: 14px;
+    color: #1e3a8a;
+    margin-bottom: 8px;
+  }
+  .start-box p {
+    font-size: 12.5px;
+    color: #334155;
     line-height: 1.5;
   }
 
-  /* 模块 2: 原理卡片 */
-  .grounding-item {
-    background: var(--green-bg);
-    border-left: 4px solid var(--green-border);
-    border-radius: 6px;
-    padding: 16px 20px;
-    margin-bottom: 16px;
-  }
-  .grounding-item h4 {
-    color: var(--green-text);
-    font-size: 14px;
-    margin-bottom: 6px;
-    font-weight: 700;
-  }
-  .grounding-item p {
-    font-size: 13px;
-    color: #14532d;
-    line-height: 1.6;
-    margin-bottom: 8px;
-  }
-  .grounding-item ul {
-    padding-left: 20px;
-    font-size: 12.5px;
-    color: #166534;
-  }
-  .grounding-item ul li { margin-bottom: 4px; }
-
-  /* 模块 3: 思维模型 */
-  .model-card {
-    background: var(--blue-bg);
-    border-left: 4px solid var(--blue-border);
-    border-radius: 6px;
-    padding: 18px 20px;
-    margin-bottom: 16px;
-  }
-  .model-card h4 {
-    color: var(--blue-text);
-    font-size: 14px;
-    margin-bottom: 8px;
-    font-weight: 700;
-  }
-  .model-card .model-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    margin-top: 10px;
-  }
-  .step-box {
-    background: rgba(255,255,255,0.85);
-    border: 1px solid #bfdbfe;
-    padding: 10px 12px;
-    border-radius: 6px;
-    font-size: 12px;
-  }
-  .step-box b { color: var(--primary-accent); display: block; margin-bottom: 4px; }
-
-  /* 模块 4: 问答折叠/卡片 */
-  .qa-card {
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--surface);
-    margin-bottom: 16px;
+  /* 模块 6: 攻防问答 (Red Flag vs Green Flag) */
+  .dialogue-card {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    margin-bottom: 24px;
     overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
   }
-  .qa-header {
-    background: #f8fafc;
-    padding: 12px 18px;
-    border-bottom: 1px solid var(--border);
-    font-size: 13.5px;
+  .dialogue-q {
+    background: #0f172a;
+    color: #fff;
+    padding: 16px 20px;
+    font-size: 14px;
     font-weight: 700;
-    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
-  .qa-body {
-    padding: 16px 18px;
-    font-size: 13px;
+  .dialogue-q .badge {
+    background: #38bdf8;
+    color: #0f172a;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 4px;
   }
-  .qa-intent {
-    color: var(--muted);
-    font-size: 12px;
-    margin-bottom: 10px;
-    padding-bottom: 8px;
-    border-bottom: 1px dashed var(--border);
+  .dialogue-body {
+    padding: 20px;
   }
-  .qa-answer {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    padding: 12px 14px;
+  .dialogue-intent {
+    font-size: 12.5px;
+    color: #64748b;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--border-color);
+  }
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .flag-box {
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 12.5px;
     line-height: 1.6;
-    color: #334155;
   }
-  .qa-answer b { color: var(--primary); }
+  .flag-box.red {
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    color: #7f1d1d;
+  }
+  .flag-box.green {
+    background: #f0fdf4;
+    border: 1px solid #86efac;
+    color: #14532d;
+  }
+  .flag-box h5 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .master-script {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 13px;
+    line-height: 1.65;
+    color: #1e293b;
+    position: relative;
+  }
+  .master-script b { color: #0f172a; }
 
-  /* 底部声明 */
-  footer {
+  /* 底部 */
+  footer.global-footer {
     text-align: center;
-    padding: 24px;
+    padding: 40px;
     font-size: 12px;
-    color: var(--muted);
-    border-top: 1px solid var(--border);
+    color: #64748b;
+    border-top: 1px solid var(--border-color);
     background: #fff;
+    margin-top: 60px;
+  }
+
+  @media (max-width: 900px) {
+    .app-layout { grid-template-columns: 1fr; }
+    aside.sidebar { position: static; }
+    .comparison-grid { grid-template-columns: 1fr; }
   }
   @media print {
+    aside.sidebar { display: none; }
+    .app-layout { grid-template-columns: 1fr; max-width: 100%; margin: 0; padding: 0; }
     body { background: #fff; }
-    .container { box-shadow: none; border: none; }
+    .content-card { box-shadow: none; border: 1px solid #ddd; }
   }
 </style>
 </head>
 <body>
 
-<div class="container">
-  <header class="hero">
-    <div class="badge-tag">CareerExpert · 简历通盘掌握与面试备战军师</div>
-    <h1>{{TITLE}}</h1>
-    <div class="hero-meta">
-      <span>候选人：<b>{{CANDIDATE_NAME}}</b></span>
-      <span>靶向岗位：<b>{{TARGET_ROLE}}</b></span>
-      <span>生成时间：<b>{{GEN_DATE}}</b></span>
-      <span>涵盖重点：<b>{{STATS_SUMMARY}}</b></span>
+<!-- 全局标头 -->
+<header class="global-header">
+  <div class="header-tag-row">
+    <div class="header-badge"><span class="live-pulse"></span>CareerExpert 首席架构师特聘备战军师</div>
+    <div class="header-badge" style="background: rgba(139,92,246,0.15); color: #c084fc; border-color: rgba(139,92,246,0.35);">
+      全链路经历通透与防穿帮体系
     </div>
-  </header>
+  </div>
+  <h1>{{TITLE}}</h1>
+  <p style="color: #94a3b8; font-size: 14px; max-width: 850px;">
+    本指导手册基于您的真实代码仓库深度探测与简历指标交叉审计生成。绝非泛泛而谈的模板答案，而是涵盖系统架构拓扑、底层核心源码细节、压测数学账本、STAR-T 答辩思维与大厂考官连环攻防演习的完整战斗指南。
+  </p>
+  <div class="header-meta-grid">
+    <div class="meta-cell">候选人：<strong>{{CANDIDATE_NAME}}</strong></div>
+    <div class="meta-cell">靶向岗位：<strong>{{TARGET_ROLE}}</strong></div>
+    <div class="meta-cell">对齐工程库：<strong>{{PROJECT_NAME}}</strong></div>
+    <div class="meta-cell">审计时间：<strong>{{GEN_DATE}}</strong></div>
+  </div>
+</header>
 
-  <main class="content">
-    <!-- 模块 1 -->
-    <section class="section-block">
-      <div class="section-heading">
-        <span class="icon" style="background: #fee2e2; color: #dc2626;">⚠️</span>
-        第一部分：简历脆弱软肋与考官潜台词剖析
+<!-- 核心战果量化摘要条 -->
+<div class="metrics-bar">
+  <div class="metric-item">
+    <span class="val">{{METRIC_1_VAL}}</span>
+    <span class="lbl">{{METRIC_1_LBL}}</span>
+  </div>
+  <div class="metric-item">
+    <span class="val">{{METRIC_2_VAL}}</span>
+    <span class="lbl">{{METRIC_2_LBL}}</span>
+  </div>
+  <div class="metric-item">
+    <span class="val">{{METRIC_3_VAL}}</span>
+    <span class="lbl">{{METRIC_3_LBL}}</span>
+  </div>
+  <div class="metric-item">
+    <span class="val">{{METRIC_4_VAL}}</span>
+    <span class="lbl">{{METRIC_4_LBL}}</span>
+  </div>
+</div>
+
+<!-- 主体双栏布局 -->
+<div class="app-layout">
+  <!-- 左侧固定目录 -->
+  <aside class="sidebar">
+    <div class="sidebar-title">🧭 备考战术导航</div>
+    <ul class="nav-list">
+      <li class="nav-item"><a href="#section-vulnerabilities"><span class="num">01</span> 软肋排雷与潜台词</a></li>
+      <li class="nav-item"><a href="#section-architecture"><span class="num">02</span> 系统架构与全链路</a></li>
+      <li class="nav-item"><a href="#section-code"><span class="num">03</span> 硬核源码与底层原理</a></li>
+      <li class="nav-item"><a href="#section-math"><span class="num">04</span> 压测算账与参数推导</a></li>
+      <li class="nav-item"><a href="#section-models"><span class="num">05</span> STAR-T 高段位答辩</a></li>
+      <li class="nav-item"><a href="#section-qa"><span class="num">06</span> 大厂连环拷打攻防</a></li>
+    </ul>
+
+    <div class="sidebar-action-box">
+      <button class="btn-print" onclick="window.print()">
+        🖨️ 导出 / 打印纸质备战手册
+      </button>
+    </div>
+  </aside>
+
+  <!-- 右侧深度内容 -->
+  <main class="main-body">
+
+    <!-- 01 软肋排雷 -->
+    <section id="section-vulnerabilities" class="content-card">
+      <div class="card-header">
+        <div class="card-title-group">
+          <span class="card-icon" style="background: #fee2e2; color: #dc2626;">⚠️</span>
+          <div>
+            <h2>第一章：高危软肋排查与大厂考官潜台词深度剖析</h2>
+            <p style="font-size: 12px; color: #64748b;">精准排查最容易在技术二面/三面引发“连环翻车”的量化大词</p>
+          </div>
+        </div>
+        <span class="card-badge" style="background: #fef2f2; color: #ef4444; border: 1px solid #fecaca;">高危预警</span>
       </div>
       {{VULNERABILITIES}}
     </section>
 
-    <!-- 模块 2 -->
-    <section class="section-block">
-      <div class="section-heading">
-        <span class="icon" style="background: #dcfce7; color: #16a34a;">🧠</span>
-        第二部分：底层硬核技术原理补课清单与准备建议
+    <!-- 02 系统架构拓扑 -->
+    <section id="section-architecture" class="content-card">
+      <div class="card-header">
+        <div class="card-title-group">
+          <span class="card-icon" style="background: #e0e7ff; color: #4338ca;">🏛️</span>
+          <div>
+            <h2>第二章：系统全局架构拓扑与数据全链路流转图解</h2>
+            <p style="font-size: 12px; color: #64748b;">胸有成竹绘制架构白板图：从网络 Ingress 到零拷贝流水线</p>
+          </div>
+        </div>
+        <span class="card-badge" style="background: #eef2ff; color: #4f46e5; border: 1px solid #c7d2fe;">全景拓扑</span>
       </div>
-      {{TECHNICAL_GROUNDING}}
+      {{ARCHITECTURE_SECTION}}
     </section>
 
-    <!-- 模块 3 -->
-    <section class="section-block">
-      <div class="section-heading">
-        <span class="icon" style="background: #dbeafe; color: #2563eb;">🧭</span>
-        第三部分：高段位架构师思考模型与答辩思路引导
+    <!-- 03 核心源码实现 -->
+    <section id="section-code" class="content-card">
+      <div class="card-header">
+        <div class="card-title-group">
+          <span class="card-icon" style="background: #dcfce7; color: #15803d;">💻</span>
+          <div>
+            <h2>第三章：核心源码级实现与避坑细节 (底层原理速记)</h2>
+            <p style="font-size: 12px; color: #64748b;">代码级证据：Cache Line 伪共享 Padding、无锁 CAS、对象池复用</p>
+          </div>
+        </div>
+        <span class="card-badge" style="background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0;">源码解析</span>
       </div>
-      {{MENTAL_MODELS}}
+      {{CODE_GROUNDING_SECTION}}
     </section>
 
-    <!-- 模块 4 -->
-    <section class="section-block">
-      <div class="section-heading">
-        <span class="icon" style="background: #fef3c7; color: #d97706;">🎯</span>
-        第四部分：经典硬核连环追问深度拆解与答辩范例
+    <!-- 04 压测算账与参数推导 -->
+    <section id="section-math" class="content-card">
+      <div class="card-header">
+        <div class="card-title-group">
+          <span class="card-icon" style="background: #e0f2fe; color: #0369a1;">📐</span>
+          <div>
+            <h2>第四章：压测真实性数学推导与硬核账本 (考官必算账)</h2>
+            <p style="font-size: 12px; color: #64748b;">主动定边界：机器配置、带宽占用、Payload 换算与理论极限</p>
+          </div>
+        </div>
+        <span class="card-badge" style="background: #f0f9ff; color: #0284c7; border: 1px solid #bae6fd;">硬核账本</span>
       </div>
-      {{DEEP_DIVE_QA}}
+      {{MATH_METRICS_SECTION}}
     </section>
+
+    <!-- 05 STAR-T 高段位思维模型 -->
+    <section id="section-models" class="content-card">
+      <div class="card-header">
+        <div class="card-title-group">
+          <span class="card-icon" style="background: #ede9fe; color: #6d28d9;">🧭</span>
+          <div>
+            <h2>第五章：高段位架构师思维模型与解题思路引导</h2>
+            <p style="font-size: 12px; color: #64748b;">拒绝死记硬背！教您像 Tech Leader 一样阐述方案权衡与局限</p>
+          </div>
+        </div>
+        <span class="card-badge" style="background: #f5f3ff; color: #7c3aed; border: 1px solid #ddd6fe;">思维框架</span>
+      </div>
+      {{MENTAL_MODELS_SECTION}}
+    </section>
+
+    <!-- 06 大厂连环拷打攻防 -->
+    <section id="section-qa" class="content-card">
+      <div class="card-header">
+        <div class="card-title-group">
+          <span class="card-icon" style="background: #fef3c7; color: #b45309;">🎯</span>
+          <div>
+            <h2>第六章：大厂资深考官连环拷打与红绿榜对比实战解析</h2>
+            <p style="font-size: 12px; color: #64748b;">一票否决式外行回答 vs 满分大将之风高分示范</p>
+          </div>
+        </div>
+        <span class="card-badge" style="background: #fffbeb; color: #d97706; border: 1px solid #fde68a;">攻防实战</span>
+      </div>
+      {{DEEP_DIVE_QA_SECTION}}
+    </section>
+
   </main>
-
-  <footer>
-    CareerExpert · 真实经历是唯一底牌 · 严禁凭空编造 · 祝您斩获心仪高薪 Offer
-  </footer>
 </div>
+
+<footer class="global-footer">
+  <p><strong>CareerExpert · 简历通盘掌握与答辩军师系统</strong></p>
+  <p style="margin-top: 4px;">事实完整性为唯一底牌 · 扎实技术为最硬底气 · 祝您斩获顶尖大厂架构级 Offer</p>
+</footer>
 
 </body>
 </html>
